@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VERITAS — Plan Mode Design Document</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #111;
+    background: #fff;
+    padding: 40px;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  /* Cover page */
+  .cover {
+    text-align: center;
+    padding: 80px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    page-break-after: always;
+  }
+  .cover .univ { font-size: 13pt; font-weight: bold; margin-bottom: 6px; }
+  .cover .dept { font-size: 11pt; margin-bottom: 40px; }
+  .cover h1 { font-size: 22pt; font-weight: bold; margin-bottom: 10px; }
+  .cover h2 { font-size: 14pt; font-style: italic; font-weight: normal; margin-bottom: 40px; }
+  .cover .subtitle { font-size: 12pt; margin-bottom: 60px; color: #333; }
+  .cover table { margin: 0 auto; font-size: 12pt; border-collapse: collapse; }
+  .cover td { padding: 4px 40px; vertical-align: top; }
+  .cover .session { margin-top: 60px; font-size: 12pt; font-weight: bold; }
+
+  /* TOC */
+  .toc { page-break-after: always; }
+  .toc h2 { text-align: center; font-size: 16pt; margin-bottom: 24px; }
+  .toc-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dotted #aaa; font-size: 12pt; }
+
+  /* Sections */
+  h2.section-title {
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 32px 0 20px;
+    text-transform: uppercase;
+  }
+  h3 { font-size: 13pt; font-weight: bold; margin: 20px 0 8px; }
+  h4 { font-size: 12pt; font-weight: bold; margin: 16px 0 6px; }
+  p { margin-bottom: 10px; }
+  ul { margin: 8px 0 12px 24px; }
+  li { margin-bottom: 5px; }
+
+  /* Tables */
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 11pt;
+  }
+  table.data th {
+    background: #1a1a4e;
+    color: #fff;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+  table.data td {
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+  }
+  table.data tr:nth-child(even) td { background: #f5f5f5; }
+
+  /* Code / pre blocks */
+  pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 4px solid #1a1a4e;
+    padding: 12px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    margin: 12px 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10pt;
+    font-weight: bold;
+    margin: 2px;
+  }
+  .badge-green  { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+  .badge-amber  { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+  .badge-red    { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+  .badge-blue   { background: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+
+  /* Section divider */
+  .divider {
+    border: none;
+    border-top: 2px solid #1a1a4e;
+    margin: 28px 0;
+  }
+
+  /* Highlight box */
+  .highlight-box {
+    border: 2px solid #1a1a4e;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    background: #f0f4ff;
+  }
+  .highlight-box p { margin: 0; }
+
+  /* Stage headers */
+  .stage-header {
+    background: #1a1a4e;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 13pt;
+    font-weight: bold;
+    margin: 24px 0 12px;
+    border-radius: 4px;
+  }
+
+  /* Page break */
+  .page-break { page-break-before: always; }
+
+  /* Flow diagram */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 16px 0;
+    font-size: 11pt;
+  }
+  .flow-box {
+    background: #1a1a4e;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 11pt;
+    text-align: center;
+  }
+  .flow-arrow {
+    font-size: 16pt;
+    padding: 0 8px;
+    color: #1a1a4e;
+    font-weight: bold;
+  }
+
+  /* Print */
+  @media print {
+    body { padding: 20px; }
+    .cover { min-height: auto; padding: 60px 20px; }
+    pre { font-size: 8.5pt; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ COVER PAGE ═══════════════════════════════════════ -->
+<div class="cover">
+  <div class="univ">JECRC University, Jaipur</div>
+  <div class="dept">Department of Computer Science &amp; Engineering</div>
+
+  <h1>VERITAS</h1>
+  <h2>Interactive Travel Globe Platform</h2>
+  <div class="subtitle">Plan Mode — Complete Design Document<br/>Feature Specification, Workflow &amp; Implementation Blueprint</div>
+
+  <table>
+    <tr>
+      <td><strong>Submitted By:</strong><br/>Barkha Rajawat (23BCON2119)<br/>Riddhi Sharma (23BCON2125)</td>
+      <td><strong>Submitted To:</strong><br/>Ms. Sneha Kumari<br/>Assistant Professor</td>
+    </tr>
+  </table>
+
+  <div class="session">Session: 2025–26</div>
+</div>
+
+<!-- ═══════════════════════════════════════ TABLE OF CONTENTS ═══════════════════════════════════════ -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <div class="toc-row"><span>1. Synopsis vs Plan Mode — What Was Promised vs What We Built</span><span>3</span></div>
+  <div class="toc-row"><span>2. Synopsis Discrepancies &amp; Answers</span><span>3</span></div>
+  <div class="toc-row"><span>3. Plan Mode — Vision &amp; Complete Workflow</span><span>4</span></div>
+  <div class="toc-row"><span>4. Screen Layout &amp; Navigation Flow</span><span>4</span></div>
+  <div class="toc-row"><span>5. Stage 1 — Trip Builder</span><span>5</span></div>
+  <div class="toc-row"><span>6. Stage 2 — Best Month Finder</span><span>6</span></div>
+  <div class="toc-row"><span>7. Stage 3 — Budget Calculator</span><span>7</span></div>
+  <div class="toc-row"><span>8. Stage 4 — Visa Dashboard</span><span>8</span></div>
+  <div class="toc-row"><span>9. Stage 5 — Full Itinerary (Centerpiece)</span><span>9</span></div>
+  <div class="toc-row"><span>10. Export Options</span><span>11</span></div>
+  <div class="toc-row"><span>11. File Structure</span><span>12</span></div>
+  <div class="toc-row"><span>12. Implementation Order &amp; Timeline</span><span>12</span></div>
+  <div class="toc-row"><span>13. What to Avoid</span><span>13</span></div>
+  <div class="toc-row"><span>14. Viva Talking Points</span><span>13</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════ SECTION 1 ═══════════════════════════════════════ -->
+<h2 class="section-title">1. Synopsis vs Plan Mode</h2>
+
+<p>The submitted synopsis mentions Plan Mode in exactly <strong>one sentence</strong>:</p>
+
+<div class="highlight-box">
+  <p><em>"The application… lays the architectural groundwork for a future Plan Mode (multi-destination itinerary builder)."</em></p>
+</div>
+
+<p>That was intentionally vague — it was listed as future scope. By actually building Plan Mode with a full itinerary generator, budget calculator, best-month finder, and visa dashboard, the team has <strong>delivered beyond what was submitted in the synopsis</strong>. This is a significant strength to highlight during viva and presentation.</p>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════ SECTION 2 ═══════════════════════════════════════ -->
+<h2 class="section-title">2. Synopsis Discrepancies &amp; Answers</h2>
+
+<table class="data">
+  <tr>
+    <th>Synopsis States</th>
+    <th>Actual Reality</th>
+    <th>What to Say</th>
+  </tr>
+  <tr>
+    <td>React 18</td>
+    <td>React 19 used</td>
+    <td>Upgraded during development — React 19 was stable by project time</td>
+  </tr>
+  <tr>
+    <td>Vercel deployment</td>
+    <td>Netlify used</td>
+    <td>Netlify is identical CI/CD, better fit for non-Next.js apps; Vercel now requires credit card for plain Vite projects</td>
+  </tr>
+  <tr>
+    <td>"Farmer Module (Personal + Crop details)"</td>
+    <td>Copy-paste error from another project</td>
+    <td><strong>Delete this line</strong> before final submission — it belongs to a different project's synopsis</td>
+  </tr>
+  <tr>
+    <td>195 countries with data</td>
+    <td>Globe borders for all 195; structured data for 129 countries</td>
+    <td>Globe renders all 195 country borders; structured travel data (BestTime, Cost, Visa, Places) covers 129 countries with 97 cities and 35 Indian states</td>
+  </tr>
+  <tr>
+    <td>Zoom-based state boundary loading</td>
+    <td>Click-based loading</td>
+    <td>State boundaries load on country click — better UX decision than zoom-trigger</td>
+  </tr>
+  <tr>
+    <td>CI/CD with pull requests</td>
+    <td>Not yet done — no Git initialised</td>
+    <td>Setting up Git now; Netlify auto-deploy on push will be active before presentation</td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════ SECTION 3 ═══════════════════════════════════════ -->
+<h2 class="section-title">3. Plan Mode — Vision &amp; Workflow</h2>
+
+<h3>Vision in One Line</h3>
+<div class="highlight-box">
+  <p>Select destinations on the globe → configure your trip → get a complete day-by-day itinerary with budget breakdown, visa checklist, and best travel month — exportable as PDF.</p>
+</div>
+
+<h3>Browse Mode vs Plan Mode</h3>
+<table class="data">
+  <tr><th>Aspect</th><th>Browse Mode</th><th>Plan Mode</th></tr>
+  <tr><td>Globe click</td><td>Opens country panel</td><td>Adds destination to trip</td></tr>
+  <tr><td>Purpose</td><td>Discovery &amp; exploration</td><td>Decision &amp; planning</td></tr>
+  <tr><td>Output</td><td>Live country briefing</td><td>Full trip itinerary</td></tr>
+  <tr><td>News section</td><td>Shown</td><td>Removed — replaced by Best Month Finder</td></tr>
+  <tr><td>LocalInsight</td><td>Shown</td><td>Hidden</td></tr>
+  <tr><td>BestTimeToVisit</td><td>Single country</td><td>Multi-destination overlap grid</td></tr>
+  <tr><td>CostEstimate</td><td>Single country</td><td>Full trip budget calculator</td></tr>
+  <tr><td>VisaRequirements</td><td>Single country badge</td><td>Full visa dashboard table</td></tr>
+</table>
+
+<h3>Complete Workflow</h3>
+<div class="flow">
+  <div class="flow-box">Trip<br/>Builder</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">Best Month<br/>Finder</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">Budget<br/>Calculator</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">Visa<br/>Dashboard</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">FULL<br/>ITINERARY</div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════ SECTION 4 ═══════════════════════════════════════ -->
+<h2 class="section-title">4. Screen Layout &amp; Navigation</h2>
+
+<pre>
+[TopNav]
+  Browse Mode  |  Plan Mode  ← user toggles here
+
+[Plan Mode Layout — Step 1: Selection]
+┌─────────────────┬──────────────────────────────────┐
+│  LEFT SIDEBAR   │         3D GLOBE                 │
+│  Trip Builder   │   (click country = add to trip)  │
+│  ─────────────  │                                  │
+│  1. Tokyo  JP ✕ │      ①   ②   ③                  │
+│  2. Bali   ID ✕ │   (numbered pins on globe)       │
+│  3. Paris  FR ✕ │                                  │
+│                 │                                  │
+│  [+ Click globe │                                  │
+│   to add more]  │                                  │
+│                 │                                  │
+│  [→ Plan Trip]  │                                  │
+└─────────────────┴──────────────────────────────────┘
+
+→ After clicking "Plan Trip", full-screen planner opens
+→ User moves through 5 stages via a top step indicator
+→ Final stage renders the complete itinerary
+</pre>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════ SECTION 5 ═══════════════════════════════════════ -->
+<h2 class="section-title">5. Stage 1 — Trip Builder</h2>
+
+<div class="stage-header">Stage 1 of 5 — Select Destinations &amp; Configure</div>
+
+<h3>What It Contains</h3>
+<ul>
+  <li>Globe enters <strong>selection mode</strong> — clicking a country <em>adds</em> it to the trip instead of opening the info panel</li>
+  <li>Each selected country shows a <strong>numbered pin</strong> on the globe (①, ②, ③…)</li>
+  <li>Left sidebar lists selected destinations in order</li>
+  <li>Per destination controls:
+    <ul>
+      <li>Optional city search to narrow down to a specific city</li>
+      <li>Days slider: 1–14 days (default: 3 days)</li>
+      <li>Tier selector: <span class="badge badge-green">Budget</span> <span class="badge badge-blue">Mid-range</span> <span class="badge badge-amber">Luxury</span></li>
+      <li>Remove button ✕</li>
+    </ul>
+  </li>
+  <li>Destinations can be reordered (up/down arrows)</li>
+  <li>"Plan My Trip →" button activates when at least 1 destination is added</li>
+  <li>Trip data persisted in <code>localStorage</code> — survives page refresh</li>
+</ul>
+
+<h3>Existing Code Reused</h3>
+<ul>
+  <li>Globe click handler — modified to call <code>addTripDestination()</code></li>
+  <li><code>FALLBACK</code> data — country names and iso2 codes</li>
+  <li>Zustand store — add <code>tripDestinations[]</code> array and <code>planMode</code> boolean</li>
+  <li>City search bar — same Nominatim utility already built</li>
+</ul>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════ SECTION 6 ═══════════════════════════════════════ -->
+<h2 class="section-title">6. Stage 2 — Best Month Finder</h2>
+
+<div class="stage-header">Stage 2 of 5 — Find the Best Travel Month for All Destinations</div>
+
+<h3>What It Contains</h3>
+<ul>
+  <li>12-month grid with one row per selected destination</li>
+  <li>Each cell colour-coded: <span class="badge badge-green">Peak ●</span> <span class="badge badge-amber">Okay ░</span> <span class="badge badge-red">Avoid ✗</span></li>
+  <li>Months where <strong>no destination is red</strong> are highlighted with a glow border</li>
+  <li>Recommended month displayed prominently: <em>"Best month for all: October"</em></li>
+  <li>If no perfect month: <em>"No single ideal month — closest options: Sep, Nov"</em></li>
+  <li>Replaces the News section — news is discovery, planning needs decisions</li>
+</ul>
+
+<h3>Example Grid</h3>
+<pre>
+         Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec
+Tokyo     ░    ░    ●    ●    ●    ░    ░    ░    ░    ●    ●    ░
+Bali      ✗    ✗    ░    ●    ●    ●    ●    ●    ●    ░    ░    ✗
+Paris     ░    ░    ░    ●    ●    ●    ░    ░    ●    ●    ░    ░
+
+Best for all 3:  ✓ May     ✓ October
+</pre>
+
+<h3>Algorithm (Zero New APIs)</h3>
+<pre>
+function findBestMonths(destinations) {
+  const months = ['jan','feb','mar','apr','may','jun',
+                  'jul','aug','sep','oct','nov','dec']
+  return months.filter(m =>
+    destinations.every(d => String(d[`bt_${m}`]) !== '3')
+  )
+}
+</pre>
+<p>Runs entirely on the <code>bt_jan</code> through <code>bt_dec</code> fields already present in <code>fallback.js</code> and <code>cities.js</code>. No API call required.</p>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════ SECTION 7 ═══════════════════════════════════════ -->
+<h2 class="section-title">7. Stage 3 — Budget Calculator</h2>
+
+<div class="stage-header">Stage 3 of 5 — Calculate Total Trip Cost in INR</div>
+
+<h3>What It Contains</h3>
+<ul>
+  <li>Auto-populated from tier selection made in Stage 1</li>
+  <li>Per destination card showing: days × daily local cost = local subtotal → INR conversion</li>
+  <li>Tier can be changed inline — totals update live</li>
+  <li>Running grand total in INR at the bottom</li>
+  <li>Note: "Excluding international flights and accommodation bookings"</li>
+</ul>
+
+<h3>Example Output</h3>
+<pre>
+┌─────────────────────────────────────────────┐
+│  Tokyo, Japan                    6 days      │
+│  Mid-range  ¥15,000/day                      │
+│  ¥90,000  ≈  ₹50,400                        │
+├─────────────────────────────────────────────┤
+│  Bali, Indonesia                 5 days      │
+│  Budget  Rp700,000/day                       │
+│  Rp3,500,000  ≈  ₹17,500                   │
+├─────────────────────────────────────────────┤
+│  Paris, France                   4 days      │
+│  Mid-range  €200/day                         │
+│  €800  ≈  ₹72,000                           │
+├─────────────────────────────────────────────┤
+│  TOTAL ESTIMATED TRIP COST                   │
+│  ₹1,39,900                                  │
+│  (excluding flights &amp; accommodation)         │
+└─────────────────────────────────────────────┘
+</pre>
+
+<h3>Existing Code Reused</h3>
+<ul>
+  <li><code>budget_local</code>, <code>midrange_local</code>, <code>luxury_local</code> fields from <code>fallback.js</code></li>
+  <li>Frankfurter API — already integrated for live INR conversion in Browse Mode</li>
+  <li>Currency formatting — <code>Intl.NumberFormat</code> already used in <code>CostEstimate.jsx</code></li>
+</ul>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════ SECTION 8 ═══════════════════════════════════════ -->
+<h2 class="section-title">8. Stage 4 — Visa Dashboard</h2>
+
+<div class="stage-header">Stage 4 of 5 — All Visa Requirements in One Table</div>
+
+<h3>What It Contains</h3>
+<ul>
+  <li>Table showing all selected destinations sorted by urgency — "Apply before travel" first</li>
+  <li>Columns: Country · Visa Type · Action Required · Status</li>
+  <li>Colour-coded exactly like the existing VisaRequirements component</li>
+  <li>Designed specifically for Indian passport holders</li>
+</ul>
+
+<h3>Example Table</h3>
+<table class="data">
+  <tr>
+    <th>Country</th>
+    <th>Visa Type</th>
+    <th>Action Required</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>France</td>
+    <td>Visa Required</td>
+    <td>Apply at Indian embassy</td>
+    <td><span class="badge badge-red">Urgent</span></td>
+  </tr>
+  <tr>
+    <td>Japan</td>
+    <td>Visa Required</td>
+    <td>Apply at Japanese consulate</td>
+    <td><span class="badge badge-red">Urgent</span></td>
+  </tr>
+  <tr>
+    <td>Indonesia</td>
+    <td>Visa on Arrival</td>
+    <td>Pay at airport ($35 USD)</td>
+    <td><span class="badge badge-amber">Easy</span></td>
+  </tr>
+  <tr>
+    <td>Thailand</td>
+    <td>Visa on Arrival</td>
+    <td>Get at airport — free</td>
+    <td><span class="badge badge-amber">Easy</span></td>
+  </tr>
+  <tr>
+    <td>Singapore</td>
+    <td>Visa-free</td>
+    <td>Nothing required</td>
+    <td><span class="badge badge-green">Done</span></td>
+  </tr>
+</table>
+
+<h3>Existing Code Reused</h3>
+<ul>
+  <li><code>visa_type</code> field already present in every country row in <code>fallback.js</code></li>
+  <li>Colour styles from existing <code>VisaRequirements.jsx</code> component</li>
+  <li>Zero new API calls, zero new data needed</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════ SECTION 9 ═══════════════════════════════════════ -->
+<h2 class="section-title">9. Stage 5 — Full Itinerary (Centerpiece)</h2>
+
+<div class="stage-header">Stage 5 of 5 — Complete Day-by-Day Trip Plan</div>
+
+<h3>9A. Trip Header</h3>
+<pre>
+╔═══════════════════════════════════════════════════╗
+║   MY TRIP — Japan · Indonesia · France            ║
+║   Recommended Month: October  ·  15 days total    ║
+║   Estimated Budget: ₹1,39,900                    ║
+╚═══════════════════════════════════════════════════╝
+</pre>
+
+<h3>9B. Per-Destination Block Structure</h3>
+<p>Each destination gets a dedicated block containing:</p>
+<ul>
+  <li>Country / city name, date range (Day X to Day Y)</li>
+  <li>Visa requirement summary and advisory level</li>
+  <li>Daily cost at selected tier in local currency + INR</li>
+  <li>Top 5 places distributed across the days</li>
+  <li>Hidden gem callouts marked with ✦</li>
+</ul>
+
+<h3>9C. Day-by-Day Schedule Generation</h3>
+<h4>Pacing Rules:</h4>
+<ul>
+  <li>Day 1 of each destination = Arrival + orientation (no places assigned)</li>
+  <li>Last day of each destination = Departure / transit (no places assigned)</li>
+  <li>Middle days distribute the 5 curated places evenly</li>
+  <li>If only 1–2 days total: Day 1 = arrive + 2 places, Day 2 = 3 places + depart</li>
+  <li>Transit days auto-inserted between destinations</li>
+</ul>
+
+<h4>Example Output:</h4>
+<pre>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ JAPAN — Tokyo                         Days 1–6
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Visa:      Required — apply at embassy before travel
+ Advisory:  Level 1 — Safe to travel ✓
+ Budget:    ¥15,000/day mid-range  ≈  ₹8,400/day
+
+ Day 1 — Arrival
+   Arrive Tokyo · Check in · Rest · Explore neighbourhood
+
+ Day 2 — Senso-ji Temple &amp; Asakusa    [Heritage]
+   Morning:   Senso-ji Temple complex
+   Afternoon: Nakamise shopping street
+   Evening:   Sumida River walk
+
+ Day 3 — Shibuya &amp; Harajuku           [City]
+   Morning:   Shibuya Crossing and Scramble
+   Afternoon: Harajuku Takeshita Street
+   Evening:   Shibuya Sky observation deck
+
+ Day 4 — Tsukiji &amp; teamLab            [✦ Hidden Gem Day]
+   Morning:   Tsukiji Outer Market
+   Afternoon: teamLab Borderless digital art museum
+   Evening:   Odaiba waterfront
+
+ Day 5 — Day Trip: Nikko               [✦ Hidden Gem]
+   Full day excursion — Toshogu Shrine, Kegon Falls
+
+ Day 6 — Departure to Bali
+   Morning: Final Tokyo morning
+   Afternoon: Transfer to Haneda Airport
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ [Transit Day — Tokyo to Bali]          Day 7
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ INDONESIA — Bali                     Days 8–12
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Visa:      Visa on Arrival — pay at airport ($35)
+ Advisory:  Level 2 — Exercise caution
+ Budget:    Rp700,000/day budget  ≈  ₹3,500/day
+ ... (days continue same structure)
+</pre>
+
+<h3>9D. Trip Summary Footer</h3>
+<pre>
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ TRIP SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Total days            15 days
+ Destinations          3 countries
+ Best travel months    October, May
+
+ Budget breakdown
+   Japan (6 days)      ₹50,400
+   Indonesia (5 days)  ₹17,500
+   France (4 days)     ₹72,000
+   ─────────────────────────────
+   Total estimated     ₹1,39,900
+   (excluding flights and accommodation)
+
+ Visa checklist
+   ✗ France      Apply at embassy — required before travel
+   ✗ Japan       Apply at consulate — required before travel
+   ✓ Indonesia   Visa on Arrival at airport
+   ✓ Thailand    Visa on Arrival — free
+   ✓ Singapore   Visa-free for Indian passport
+
+ Advisory summary
+   All destinations Level 1–2 ✓ Safe to travel
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</pre>
+
+<h3>9E. Generation Logic</h3>
+<pre>
+function buildItinerary(tripDestinations) {
+  let currentDay = 1
+  const sections = []
+
+  for (const dest of tripDestinations) {
+    const places   = dest.places        // already sorted by rank (1–5)
+    const daysHere = dest.days
+    // Day 1 = arrival, last day = departure, middle = place visits
+    const middleDays = Math.max(1, daysHere - 2)
+    const placesPerDay = Math.ceil(places.length / middleDays)
+
+    sections.push({
+      dest,
+      startDay: currentDay,
+      endDay: currentDay + daysHere - 1,
+      places,
+      placesPerDay,
+    })
+
+    currentDay += daysHere + 1  // +1 for transit day between destinations
+  }
+
+  return sections
+}
+</pre>
+<p><strong>No AI required. No external API. Pure JavaScript algorithm running on existing data.</strong></p>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════ SECTION 10 ═══════════════════════════════════════ -->
+<h2 class="section-title">10. Export Options</h2>
+
+<table class="data">
+  <tr>
+    <th>Option</th>
+    <th>How It Works</th>
+    <th>Code Needed</th>
+    <th>Library</th>
+  </tr>
+  <tr>
+    <td><strong>Copy as Text</strong></td>
+    <td>Copies plain text itinerary to clipboard</td>
+    <td>2 lines — <code>navigator.clipboard.writeText(text)</code></td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td><strong>Save as PDF</strong></td>
+    <td><code>window.print()</code> with <code>@media print</code> CSS that hides globe, shows only itinerary</td>
+    <td>5 lines CSS + 1 line JS</td>
+    <td>None — built into every browser</td>
+  </tr>
+  <tr>
+    <td><strong>Download .txt</strong></td>
+    <td>Creates a Blob and triggers anchor download</td>
+    <td>4 lines JS</td>
+    <td>None</td>
+  </tr>
+</table>
+
+<div class="highlight-box">
+  <p><strong>Decision:</strong> Do NOT use jsPDF or pdfmake — they add 300–500KB to the bundle and produce worse results than <code>window.print()</code>. The browser's built-in print-to-PDF is free, zero dependencies, and produces clean output.</p>
+</div>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════ SECTION 11 ═══════════════════════════════════════ -->
+<h2 class="section-title">11. File Structure for Plan Mode</h2>
+
+<pre>
+src/
+├── components/
+│   ├── PlanMode/
+│   │   ├── PlanSidebar.jsx        ← Trip builder destination list
+│   │   ├── BestMonthFinder.jsx    ← Month overlap grid
+│   │   ├── BudgetCalculator.jsx   ← Per-destination cost breakdown
+│   │   ├── VisaDashboard.jsx      ← Visa requirements table
+│   │   └── Itinerary.jsx          ← Full day-by-day output + export
+│   └── (all existing files — unchanged)
+│
+├── store.js                       ← Add planMode boolean + tripDestinations[]
+│
+└── utils/
+    ├── itinerary.js               ← buildItinerary() pure generator function
+    └── (all existing utils — unchanged)
+</pre>
+
+<p><strong>Only <code>store.js</code> is modified in existing code.</strong> Everything else is new files added alongside existing ones. Zero risk of breaking Browse Mode.</p>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════ SECTION 12 ═══════════════════════════════════════ -->
+<h2 class="section-title">12. Implementation Order &amp; Timeline</h2>
+
+<table class="data">
+  <tr>
+    <th>#</th>
+    <th>Task</th>
+    <th>Depends On</th>
+    <th>Est. Time</th>
+    <th>Owner</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Add <code>planMode</code> + <code>tripDestinations[]</code> to Zustand store</td>
+    <td>Nothing</td>
+    <td>30 min</td>
+    <td>Riddhi</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Wire TopNav toggle to switch between Browse / Plan</td>
+    <td>Step 1</td>
+    <td>20 min</td>
+    <td>Barkha</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Globe selection mode (click = add destination, not open panel)</td>
+    <td>Step 1</td>
+    <td>1 hour</td>
+    <td>Riddhi</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>PlanSidebar — destination list, days slider, tier picker</td>
+    <td>Steps 1–3</td>
+    <td>2 hours</td>
+    <td>Barkha</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>BestMonthFinder — 12-month overlap grid</td>
+    <td>Step 4</td>
+    <td>1 hour</td>
+    <td>Riddhi</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>BudgetCalculator — per-destination INR totals</td>
+    <td>Step 4</td>
+    <td>1 hour</td>
+    <td>Barkha</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>VisaDashboard — sorted visa table</td>
+    <td>Step 4</td>
+    <td>45 min</td>
+    <td>Barkha</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td><code>itinerary.js</code> — buildItinerary() generator function</td>
+    <td>Steps 5–7</td>
+    <td>2 hours</td>
+    <td>Riddhi</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Itinerary.jsx — render output + export buttons</td>
+    <td>Step 8</td>
+    <td>2 hours</td>
+    <td>Barkha</td>
+  </tr>
+  <tr>
+    <td colspan="4"><strong>Total estimated time</strong></td>
+    <td><strong>~10–11 hrs</strong></td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ═══════════════════════════════════════ SECTION 13 ═══════════════════════════════════════ -->
+<h2 class="section-title">13. What to Avoid in Plan Mode</h2>
+
+<table class="data">
+  <tr>
+    <th>Idea</th>
+    <th>Why to Avoid</th>
+  </tr>
+  <tr>
+    <td>User login / accounts</td>
+    <td>Requires backend, database, authentication library — completely different project scope</td>
+  </tr>
+  <tr>
+    <td>"Book now" / flight search</td>
+    <td>Skyscanner and Kayak APIs are paid and require business accounts</td>
+  </tr>
+  <tr>
+    <td>AI-generated itinerary text</td>
+    <td>Claude/OpenAI API costs money per request; exposes API key; could generate incorrect info</td>
+  </tr>
+  <tr>
+    <td>Real-time flight prices</td>
+    <td>Paid APIs with complex authentication; prices change every second</td>
+  </tr>
+  <tr>
+    <td>Social / shareable trip links</td>
+    <td>Requires backend server to store and serve shared trips</td>
+  </tr>
+  <tr>
+    <td>Google Maps routing between destinations</td>
+    <td>Google Maps API now has mandatory billing</td>
+  </tr>
+  <tr>
+    <td>Weather forecast integration</td>
+    <td>Overlaps with BestTime data already present; adds another API dependency</td>
+  </tr>
+  <tr>
+    <td>Collaborative trip planning (multi-user)</td>
+    <td>Requires WebSockets and backend — entirely different architecture</td>
+  </tr>
+  <tr>
+    <td>PDF library (jsPDF, pdfmake)</td>
+    <td>Adds 300–500KB to bundle; <code>window.print()</code> produces better results for free</td>
+  </tr>
+</table>
+
+<hr class="divider"/>
+
+<!-- ═══════════════════════════════════════ SECTION 14 ═══════════════════════════════════════ -->
+<h2 class="section-title">14. Viva Talking Points</h2>
+
+<h3>On Plan Mode — What to Say</h3>
+<div class="highlight-box">
+  <p>"The synopsis described Plan Mode as future architectural groundwork. We went beyond that and actually implemented it. The itinerary generator uses no AI and no external APIs — it is a pure algorithm running on the same data already loaded for Browse Mode. The entire trip plan — from best month calculation to day-by-day schedule to budget breakdown to visa checklist — is generated client-side in milliseconds with zero server cost."</p>
+</div>
+
+<h3>On the Best Month Finder — What to Say</h3>
+<div class="highlight-box">
+  <p>"This is the feature that doesn't exist anywhere else. Google Flights tells you prices. Skyscanner tells you prices. Nothing shows you a visual month-by-month overlap grid for multiple destinations simultaneously using seasonal travel data. We built this entirely from the bt_jan through bt_dec fields already in our data — no new API, no new data, just a filter algorithm on existing fields."</p>
+</div>
+
+<h3>On No AI — What to Say</h3>
+<div class="highlight-box">
+  <p>"We deliberately avoided AI generation for the itinerary. AI APIs cost money per request, can give incorrect travel information, and require exposing API keys. Our approach — distributing curated, manually verified places across days using a simple pacing algorithm — is more reliable, faster, completely free, and works offline."</p>
+</div>
+
+<h3>Key Questions &amp; Answers</h3>
+<table class="data">
+  <tr>
+    <th>Question</th>
+    <th>Answer</th>
+  </tr>
+  <tr>
+    <td>Why no backend?</td>
+    <td>Google Sheets acts as a live CMS via the gviz CSV endpoint. No auth, no server, no cost. Content updates happen by editing a spreadsheet.</td>
+  </tr>
+  <tr>
+    <td>What if an API fails?</td>
+    <td>Every data request has a 3-tier fallback: check sessionStorage cache → fetch from Sheets → use bundled fallback.js. App works fully offline.</td>
+  </tr>
+  <tr>
+    <td>How does the itinerary know how many days?</td>
+    <td>The user sets days per destination in Stage 1 (the Trip Builder). The algorithm distributes the 5 curated places across the middle days, reserving Day 1 for arrival and the last day for departure.</td>
+  </tr>
+  <tr>
+    <td>Is this original work?</td>
+    <td>Yes — the multi-destination best-month overlap algorithm, the 3-tier data fallback architecture, the Sheets-as-backend pattern, and the itinerary generator are all original design and implementation decisions made by our team.</td>
+  </tr>
+</table>
+
+<hr class="divider"/>
+
+<p style="text-align:center; margin-top: 40px; font-size: 10pt; color: #666;">
+  VERITAS — Interactive Travel Globe Platform &nbsp;·&nbsp; Plan Mode Design Document<br/>
+  Barkha Rajawat (23BCON2119) &nbsp;&amp;&nbsp; Riddhi Sharma (23BCON2125)<br/>
+  Department of Computer Science &amp; Engineering &nbsp;·&nbsp; JECRC University, Jaipur &nbsp;·&nbsp; 2025–26
+</p>
+
+</body>
+</html>

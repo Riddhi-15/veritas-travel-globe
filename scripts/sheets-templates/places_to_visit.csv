@@ -1,0 +1,440 @@
+country_iso2,rank,name,category
+IN,1,Taj Mahal Agra,Heritage
+IN,2,Kerala Backwaters,Nature
+IN,3,Rajasthan Forts and Palaces,Heritage
+IN,4,Goa Beaches,Beach
+IN,5,Varanasi Ghats,Religion
+US,1,New York City,City
+US,2,Grand Canyon,Nature
+US,3,Yellowstone,Nature
+US,4,Las Vegas,City
+US,5,San Francisco,City
+GB,1,London,City
+GB,2,Scottish Highlands,Nature
+GB,3,Stonehenge,Heritage
+GB,4,Lake District,Nature
+GB,5,Oxford and Cambridge,Heritage
+FR,1,Paris,City
+FR,2,French Riviera,Beach
+FR,3,Mont Saint-Michel,Heritage
+FR,4,Loire Valley Chateaux,Heritage
+FR,5,Provence,Nature
+JP,1,Tokyo,City
+JP,2,Kyoto Temples and Geisha Districts,Heritage
+JP,3,Mount Fuji,Nature
+JP,4,Osaka,City
+JP,5,Hiroshima Peace Memorial,Heritage
+TH,1,Bangkok,City
+TH,2,Chiang Mai,Heritage
+TH,3,Phuket,Beach
+TH,4,Koh Samui,Beach
+TH,5,Ayutthaya Historical Park,Heritage
+AE,1,Dubai,City
+AE,2,Abu Dhabi,City
+AE,3,Burj Khalifa,Heritage
+AE,4,Desert Safari,Adventure
+AE,5,Palm Jumeirah,Beach
+IT,1,Rome,Heritage
+IT,2,Venice,City
+IT,3,Florence,Heritage
+IT,4,Amalfi Coast,Beach
+IT,5,Tuscany,Nature
+LK,1,Sigiriya Rock Fortress,Heritage
+LK,2,Kandy Temple of the Tooth,Religion
+LK,3,Ella Hill Country,Nature
+LK,4,Mirissa Beach,Beach
+LK,5,Galle Dutch Fort,Heritage
+NP,1,Kathmandu Valley,Heritage
+NP,2,Pokhara and Phewa Lake,Nature
+NP,3,Everest Base Camp Trek,Adventure
+NP,4,Chitwan National Park,Nature
+NP,5,Lumbini,Religion
+SG,1,Marina Bay Sands,City
+SG,2,Gardens by the Bay,Nature
+SG,3,Sentosa Island,Beach
+SG,4,Chinatown and Little India,Heritage
+SG,5,Universal Studios Singapore,Adventure
+AU,1,Sydney Opera House,Heritage
+AU,2,Great Barrier Reef,Nature
+AU,3,Uluru-Kata Tjuta,Heritage
+AU,4,Melbourne,City
+AU,5,The Whitsundays,Beach
+MY,1,Kuala Lumpur and Petronas Towers,City
+MY,2,Penang George Town,Heritage
+MY,3,Langkawi,Beach
+MY,4,Borneo Rainforest,Nature
+MY,5,Cameron Highlands,Nature
+DE,1,Berlin,City
+DE,2,Neuschwanstein Castle,Heritage
+DE,3,Munich,City
+DE,4,Black Forest,Nature
+DE,5,Rhine Valley,Nature
+ID,1,Bali,Beach
+ID,2,Borobudur Temple,Heritage
+ID,3,Komodo Island,Nature
+ID,4,Yogyakarta,Heritage
+ID,5,Raja Ampat,Nature
+VN,1,Ha Long Bay,Nature
+VN,2,Hoi An Ancient Town,Heritage
+VN,3,Ho Chi Minh City,City
+VN,4,Hanoi Old Quarter,Heritage
+VN,5,Sapa Rice Terraces,Nature
+TR,1,Istanbul,Heritage
+TR,2,Cappadocia,Nature
+TR,3,Pamukkale,Nature
+TR,4,Ephesus,Heritage
+TR,5,Bodrum,Beach
+EG,1,Pyramids of Giza,Heritage
+EG,2,Luxor Temples,Heritage
+EG,3,Sharm el-Sheikh,Beach
+EG,4,Cairo,City
+EG,5,Abu Simbel,Heritage
+GR,1,Athens and Acropolis,Heritage
+GR,2,Santorini,Beach
+GR,3,Mykonos,Beach
+GR,4,Meteora Monasteries,Religion
+GR,5,Crete,Nature
+MV,1,Male Atoll,Beach
+MV,2,Baa Atoll Biosphere Reserve,Nature
+MV,3,Snorkelling and Diving,Adventure
+MV,4,Overwater Bungalows,Beach
+MV,5,Sunset Dolphin Cruise,Nature
+ES,1,Barcelona,City
+ES,2,Madrid,City
+ES,3,Sagrada Familia,Heritage
+ES,4,Alhambra Granada,Heritage
+ES,5,Ibiza,Beach
+CH,1,Interlaken,Adventure
+CH,2,Matterhorn Zermatt,Nature
+CH,3,Zurich,City
+CH,4,Jungfraujoch,Nature
+CH,5,Lake Geneva,Nature
+ZA,1,Cape Town,City
+ZA,2,Kruger National Park,Nature
+ZA,3,Table Mountain,Nature
+ZA,4,Garden Route,Nature
+ZA,5,Stellenbosch Wine Region,Heritage
+BT,1,Paro Taktsang Tigers Nest,Religion
+BT,2,Thimphu,City
+BT,3,Punakha Dzong,Heritage
+BT,4,Dochula Pass,Nature
+BT,5,Haa Valley,Nature
+PT,1,Lisbon,City
+PT,2,Porto,Heritage
+PT,3,Sintra,Heritage
+PT,4,Algarve Coast,Beach
+PT,5,Douro Valley,Nature
+CA,1,Banff National Park,Nature
+CA,2,Niagara Falls,Nature
+CA,3,Toronto,City
+CA,4,Vancouver,City
+CA,5,Quebec City Old Town,Heritage
+MX,1,Chichen Itza,Heritage
+MX,2,Mexico City,City
+MX,3,Cancun and Riviera Maya,Beach
+MX,4,Oaxaca,Heritage
+MX,5,Copper Canyon,Nature
+BR,1,Rio de Janeiro,City
+BR,2,Iguazu Falls,Nature
+BR,3,Amazon Rainforest,Nature
+BR,4,Salvador,Heritage
+BR,5,Pantanal Wetlands,Nature
+AR,1,Buenos Aires,City
+AR,2,Patagonia and Torres del Paine,Nature
+AR,3,Iguazu Falls,Nature
+AR,4,Mendoza Wine Region,Nature
+AR,5,Tierra del Fuego,Nature
+PE,1,Machu Picchu,Heritage
+PE,2,Cusco,Heritage
+PE,3,Lima,City
+PE,4,Amazon Basin,Nature
+PE,5,Lake Titicaca,Nature
+MA,1,Marrakech Medina,Heritage
+MA,2,Fez,Heritage
+MA,3,Sahara Desert Merzouga,Nature
+MA,4,Chefchaouen Blue City,Heritage
+MA,5,Atlas Mountains,Nature
+KE,1,Masai Mara National Reserve,Nature
+KE,2,Amboseli National Park,Nature
+KE,3,Nairobi,City
+KE,4,Diani Beach,Beach
+KE,5,Mount Kenya,Nature
+TZ,1,Serengeti National Park,Nature
+TZ,2,Zanzibar Island,Beach
+TZ,3,Kilimanjaro,Nature
+TZ,4,Ngorongoro Crater,Nature
+TZ,5,Stone Town Zanzibar,Heritage
+JO,1,Petra,Heritage
+JO,2,Wadi Rum Desert,Nature
+JO,3,Amman,City
+JO,4,Dead Sea,Nature
+JO,5,Jerash Roman Ruins,Heritage
+SA,1,AlUla and Hegra,Heritage
+SA,2,Riyadh,City
+SA,3,Jeddah Historic District,Heritage
+SA,4,Diriyah,Heritage
+SA,5,Edge of the World,Nature
+OM,1,Muscat,City
+OM,2,Wahiba Sands,Nature
+OM,3,Wadi Shab,Nature
+OM,4,Nizwa Fort,Heritage
+OM,5,Jebel Akhdar Green Mountain,Nature
+QA,1,Doha Corniche,City
+QA,2,Museum of Islamic Art,Heritage
+QA,3,Souq Waqif,Heritage
+QA,4,The Pearl Qatar,City
+QA,5,Al Zubarah Fort,Heritage
+IL,1,Jerusalem Old City,Religion
+IL,2,Tel Aviv Beach,Beach
+IL,3,Masada,Heritage
+IL,4,Dead Sea,Nature
+IL,5,Nazareth,Religion
+PH,1,Palawan El Nido,Beach
+PH,2,Boracay,Beach
+PH,3,Chocolate Hills Bohol,Nature
+PH,4,Intramuros Manila,Heritage
+PH,5,Vigan Heritage Town,Heritage
+KR,1,Seoul,City
+KR,2,Jeju Island,Nature
+KR,3,Gyeongbokgung Palace,Heritage
+KR,4,Busan,City
+KR,5,Seoraksan National Park,Nature
+CN,1,Great Wall of China,Heritage
+CN,2,Beijing,City
+CN,3,Shanghai,City
+CN,4,Li River Guilin,Nature
+CN,5,Terracotta Army Xi an,Heritage
+TW,1,Taipei,City
+TW,2,Taroko Gorge,Nature
+TW,3,Sun Moon Lake,Nature
+TW,4,Jiufen Old Street,Heritage
+TW,5,Alishan Forest,Nature
+KH,1,Angkor Wat,Heritage
+KH,2,Phnom Penh,City
+KH,3,Siem Reap,Heritage
+KH,4,Sihanoukville,Beach
+LA,1,Luang Prabang,Heritage
+LA,2,Vang Vieng,Nature
+LA,3,Plain of Jars,Heritage
+LA,4,Si Phan Don Four Thousand Islands,Nature
+MM,1,Bagan Pagodas,Heritage
+MM,2,Inle Lake,Nature
+MM,3,Yangon,City
+MM,4,Mandalay,Heritage
+BD,1,Cox s Bazar Beach,Beach
+BD,2,Sundarbans Mangrove Forest,Nature
+BD,3,Dhaka,City
+BD,4,Paharpur Buddhist Monastery,Heritage
+PK,1,Lahore Fort and Badshahi Mosque,Heritage
+PK,2,Hunza Valley,Nature
+PK,3,Karachi,City
+PK,4,Mohenjo-Daro,Heritage
+PK,5,Karakoram Highway,Adventure
+RU,1,Moscow Red Square,Heritage
+RU,2,Saint Petersburg,Heritage
+RU,3,Lake Baikal,Nature
+RU,4,Trans-Siberian Railway,Adventure
+RU,5,Kamchatka Volcanoes,Nature
+AT,1,Vienna,City
+AT,2,Hallstatt,Nature
+AT,3,Salzburg,Heritage
+AT,4,Innsbruck,City
+AT,5,Grossglockner Mountain Road,Nature
+NL,1,Amsterdam,City
+NL,2,Tulip Fields Keukenhof,Nature
+NL,3,Kinderdijk Windmills,Heritage
+NL,4,The Hague,City
+NL,5,Giethoorn Village,Nature
+SE,1,Stockholm,City
+SE,2,Swedish Lapland Aurora,Nature
+SE,3,Gothenburg,City
+SE,4,Gotland Island,Heritage
+SE,5,Abisko National Park,Nature
+NO,1,Fjords of Western Norway,Nature
+NO,2,Oslo,City
+NO,3,Northern Lights Tromso,Nature
+NO,4,Lofoten Islands,Nature
+NO,5,Bergen,City
+DK,1,Copenhagen,City
+DK,2,Tivoli Gardens,City
+DK,3,Legoland Billund,Adventure
+DK,4,Viking Ship Museum,Heritage
+DK,5,Kronborg Castle Hamlet,Heritage
+PL,1,Krakow Old Town,Heritage
+PL,2,Warsaw,City
+PL,3,Auschwitz-Birkenau Memorial,Heritage
+PL,4,Wieliczka Salt Mine,Heritage
+PL,5,Tatra Mountains,Nature
+CZ,1,Prague,Heritage
+CZ,2,Cesky Krumlov,Heritage
+CZ,3,Kutna Hora,Heritage
+CZ,4,Bohemian Switzerland,Nature
+CZ,5,Brno,City
+HU,1,Budapest,City
+HU,2,Lake Balaton,Nature
+HU,3,Eger,Heritage
+HU,4,Pecs,Heritage
+HU,5,Aggtelek Caves,Nature
+RO,1,Bran Castle Dracula,Heritage
+RO,2,Transylvania,Heritage
+RO,3,Bucharest,City
+RO,4,Peles Castle,Heritage
+RO,5,Danube Delta,Nature
+HR,1,Dubrovnik,Heritage
+HR,2,Plitvice Lakes,Nature
+HR,3,Split Diocletians Palace,Heritage
+HR,4,Hvar Island,Beach
+HR,5,Istria,Nature
+GE,1,Tbilisi,Heritage
+GE,2,Kazbegi and Gergeti Trinity Church,Nature
+GE,3,Svaneti,Nature
+GE,4,Vardzia Cave Monastery,Heritage
+GE,5,Batumi,City
+AM,1,Yerevan,City
+AM,2,Geghard Monastery,Religion
+AM,3,Lake Sevan,Nature
+AM,4,Tatev Monastery,Religion
+AM,5,Dilijan National Park,Nature
+AZ,1,Baku,City
+AZ,2,Gobustan Rock Art,Heritage
+AZ,3,Sheki,Heritage
+AZ,4,Gabala,Nature
+AZ,5,Mud Volcanoes,Nature
+UZ,1,Samarkand,Heritage
+UZ,2,Bukhara,Heritage
+UZ,3,Khiva,Heritage
+UZ,4,Tashkent,City
+UZ,5,Fergana Valley,Nature
+UY,1,Montevideo,City
+UY,2,Punta del Este,Beach
+UY,3,Colonia del Sacramento,Heritage
+CO,1,Cartagena,Heritage
+CO,2,Medellin,City
+CO,3,Coffee Region,Nature
+CO,4,Bogota,City
+CO,5,Tayrona National Park,Beach
+CL,1,Torres del Paine,Nature
+CL,2,Atacama Desert,Nature
+CL,3,Santiago,City
+CL,4,Easter Island,Heritage
+CL,5,Valparaiso,Heritage
+IN_RAJASTHAN,1,Jaipur Amber Fort and Hawa Mahal,Heritage
+IN_RAJASTHAN,2,Jodhpur Mehrangarh Fort,Heritage
+IN_RAJASTHAN,3,Udaipur City of Lakes,Nature
+IN_RAJASTHAN,4,Jaisalmer Desert Safari,Adventure
+IN_RAJASTHAN,5,Pushkar Camel Fair,Religion
+IN_KERALA,1,Alleppey Backwaters Houseboat,Nature
+IN_KERALA,2,Munnar Tea Gardens,Nature
+IN_KERALA,3,Kovalam Beach,Beach
+IN_KERALA,4,Periyar Wildlife Sanctuary,Nature
+IN_KERALA,5,Fort Kochi,Heritage
+IN_GOA,1,Baga and Calangute Beach,Beach
+IN_GOA,2,Old Goa Churches,Heritage
+IN_GOA,3,Dudhsagar Waterfalls,Nature
+IN_GOA,4,Anjuna Flea Market,City
+IN_GOA,5,Palolem Beach,Beach
+IN_HIMACHAL_PRADESH,1,Manali and Rohtang Pass,Adventure
+IN_HIMACHAL_PRADESH,2,Shimla,Heritage
+IN_HIMACHAL_PRADESH,3,Dharamshala and McLeod Ganj,Religion
+IN_HIMACHAL_PRADESH,4,Spiti Valley,Adventure
+IN_HIMACHAL_PRADESH,5,Kullu Valley,Nature
+IN_UTTARAKHAND,1,Rishikesh Yoga and Rafting,Adventure
+IN_UTTARAKHAND,2,Haridwar Ganga Aarti,Religion
+IN_UTTARAKHAND,3,Jim Corbett National Park,Nature
+IN_UTTARAKHAND,4,Nainital,Nature
+IN_UTTARAKHAND,5,Kedarnath Temple,Religion
+IN_KARNATAKA,1,Hampi Ruins,Heritage
+IN_KARNATAKA,2,Coorg Coffee Estates,Nature
+IN_KARNATAKA,3,Mysore Palace,Heritage
+IN_KARNATAKA,4,Gokarna Beach,Beach
+IN_KARNATAKA,5,Chikmagalur,Nature
+IN_MAHARASHTRA,1,Mumbai,City
+IN_MAHARASHTRA,2,Ajanta and Ellora Caves,Heritage
+IN_MAHARASHTRA,3,Lonavala and Khandala,Nature
+IN_MAHARASHTRA,4,Shirdi,Religion
+IN_MAHARASHTRA,5,Mahabaleshwar,Nature
+IN_TAMIL_NADU,1,Madurai Meenakshi Temple,Religion
+IN_TAMIL_NADU,2,Ooty Nilgiri Hills,Nature
+IN_TAMIL_NADU,3,Mahabalipuram Shore Temple,Heritage
+IN_TAMIL_NADU,4,Kanyakumari,Religion
+IN_TAMIL_NADU,5,Rameswaram,Religion
+IN_UTTAR_PRADESH,1,Taj Mahal Agra,Heritage
+IN_UTTAR_PRADESH,2,Varanasi Ghats,Religion
+IN_UTTAR_PRADESH,3,Fatehpur Sikri,Heritage
+IN_UTTAR_PRADESH,4,Vrindavan and Mathura,Religion
+IN_UTTAR_PRADESH,5,Lucknow Nawabi Heritage,Heritage
+IN_JAMMU_AND_KASHMIR,1,Dal Lake and Shikara Ride,Nature
+IN_JAMMU_AND_KASHMIR,2,Gulmarg,Adventure
+IN_JAMMU_AND_KASHMIR,3,Pahalgam,Nature
+IN_JAMMU_AND_KASHMIR,4,Sonamarg,Nature
+IN_JAMMU_AND_KASHMIR,5,Vaishno Devi Temple,Religion
+IN_LADAKH,1,Pangong Lake,Nature
+IN_LADAKH,2,Nubra Valley and Sand Dunes,Adventure
+IN_LADAKH,3,Hemis Monastery,Religion
+IN_LADAKH,4,Khardung La Pass,Adventure
+IN_LADAKH,5,Magnetic Hill,Nature
+IN_WEST_BENGAL,1,Kolkata,City
+IN_WEST_BENGAL,2,Darjeeling Tea Gardens,Nature
+IN_WEST_BENGAL,3,Sundarbans Tiger Reserve,Nature
+IN_WEST_BENGAL,4,Bishnupur Terracotta Temples,Heritage
+IN_WEST_BENGAL,5,Kalimpong,Nature
+IN_ANDHRA_PRADESH,1,Tirupati Balaji Temple,Religion
+IN_ANDHRA_PRADESH,2,Araku Valley,Nature
+IN_ANDHRA_PRADESH,3,Visakhapatnam Beach,Beach
+IN_ANDHRA_PRADESH,4,Amaravati,Heritage
+IN_ANDHRA_PRADESH,5,Borra Caves,Nature
+IN_ASSAM,1,Kaziranga National Park,Nature
+IN_ASSAM,2,Majuli River Island,Heritage
+IN_ASSAM,3,Kamakhya Temple Guwahati,Religion
+IN_ASSAM,4,Manas National Park,Nature
+IN_ASSAM,5,Jorhat Tea Estates,Nature
+IN_BIHAR,1,Bodh Gaya Mahabodhi Temple,Religion
+IN_BIHAR,2,Nalanda University Ruins,Heritage
+IN_BIHAR,3,Rajgir,Religion
+IN_BIHAR,4,Patna,City
+IN_BIHAR,5,Vaishali,Heritage
+IN_GUJARAT,1,Rann of Kutch,Nature
+IN_GUJARAT,2,Gir Forest National Park,Nature
+IN_GUJARAT,3,Ahmedabad Heritage City,Heritage
+IN_GUJARAT,4,Dwarka,Religion
+IN_GUJARAT,5,Somnath Temple,Religion
+IN_MEGHALAYA,1,Cherrapunji Living Root Bridges,Nature
+IN_MEGHALAYA,2,Shillong,City
+IN_MEGHALAYA,3,Dawki Crystal River,Nature
+IN_MEGHALAYA,4,Mawsynram,Nature
+IN_MEGHALAYA,5,Elephant Falls,Nature
+IN_ODISHA,1,Puri Jagannath Temple,Religion
+IN_ODISHA,2,Konark Sun Temple,Heritage
+IN_ODISHA,3,Chilika Lake,Nature
+IN_ODISHA,4,Simlipal National Park,Nature
+IN_ODISHA,5,Udayagiri and Khandagiri Caves,Heritage
+IN_PUNJAB,1,Golden Temple Amritsar,Religion
+IN_PUNJAB,2,Wagah Border Ceremony,Heritage
+IN_PUNJAB,3,Chandigarh Rock Garden,Heritage
+IN_PUNJAB,4,Anandpur Sahib,Religion
+IN_PUNJAB,5,Patiala Heritage Walk,Heritage
+IN_SIKKIM,1,Gangtok,City
+IN_SIKKIM,2,Tsomgo Lake,Nature
+IN_SIKKIM,3,Rumtek Monastery,Religion
+IN_SIKKIM,4,Gurudongmar Lake,Nature
+IN_SIKKIM,5,Pelling and Kanchenjunga Views,Nature
+IN_TELANGANA,1,Charminar Hyderabad,Heritage
+IN_TELANGANA,2,Golconda Fort,Heritage
+IN_TELANGANA,3,Ramoji Film City,City
+IN_TELANGANA,4,Warangal Fort,Heritage
+IN_TELANGANA,5,Nagarjuna Sagar,Nature
+IN_DELHI,1,Red Fort,Heritage
+IN_DELHI,2,Qutub Minar,Heritage
+IN_DELHI,3,India Gate,Heritage
+IN_DELHI,4,Humayuns Tomb,Heritage
+IN_DELHI,5,Chandni Chowk,City
+IN_ANDAMAN_AND_NICOBAR,1,Radhanagar Beach Havelock,Beach
+IN_ANDAMAN_AND_NICOBAR,2,Cellular Jail Port Blair,Heritage
+IN_ANDAMAN_AND_NICOBAR,3,Neil Island,Beach
+IN_ANDAMAN_AND_NICOBAR,4,Barren Island Volcano,Nature
+IN_ANDAMAN_AND_NICOBAR,5,Snorkelling and Diving,Adventure
+IN_ARUNACHAL_PRADESH,1,Tawang Monastery,Religion
+IN_ARUNACHAL_PRADESH,2,Ziro Valley,Nature
+IN_ARUNACHAL_PRADESH,3,Namdapha National Park,Nature
+IN_ARUNACHAL_PRADESH,4,Sela Pass,Nature
+IN_ARUNACHAL_PRADESH,5,Dirang,Nature

@@ -1,0 +1,38 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment — contains real API keys, never commit
+.env
+.env.*
+!.env.example
+
+# Generated TSV exports — local only
+scripts/out/
+
+# Raw source geo data — 40 MB, not needed in repo (processed output is in public/geo/)
+scripts/ne_admin1.json
+
+# Viva / academic prep docs — local only
+viva-prep.html
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

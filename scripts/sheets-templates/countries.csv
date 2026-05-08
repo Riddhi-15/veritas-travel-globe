@@ -1,0 +1,191 @@
+iso2,name,visa_type,currency_code,currency_name,bt_jan,bt_feb,bt_mar,bt_apr,bt_may,bt_jun,bt_jul,bt_aug,bt_sep,bt_oct,bt_nov,bt_dec,peak_months,avoid_months,budget_local,midrange_local,luxury_local
+IN,India,e-Visa Available,INR,Indian Rupee,1,1,2,3,3,3,3,3,2,1,1,1,Oct – Mar,Jun – Sep (monsoon),1500,4000,15000
+US,United States of America,Visa Required,USD,US Dollar,2,2,1,1,1,2,2,2,1,1,2,2,Mar – May and Sep – Oct,Jul – Aug (peak crowds),80,180,500
+GB,United Kingdom,Visa Required,GBP,British Pound,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Sep,Dec – Feb (cold),60,130,350
+FR,France,Visa Required,EUR,Euro,2,2,2,1,1,1,2,3,1,1,2,2,Apr – Jun and Sep – Oct,Aug (overcrowded),70,150,400
+JP,Japan,Visa Required,JPY,Japanese Yen,2,2,1,1,1,2,3,3,2,1,1,2,Mar – May (cherry blossom) and Oct – Nov (foliage),Jul – Aug (humid),5000,12000,35000
+TH,Thailand,Visa on Arrival,THB,Thai Baht,1,1,1,3,3,3,2,2,2,2,1,1,Nov – Mar,Apr – Sep (monsoon and heat),1200,3000,9000
+AE,United Arab Emirates,Visa on Arrival,AED,UAE Dirham,1,1,1,2,3,3,3,3,3,2,1,1,Nov – Mar,Jun – Sep (extreme heat),250,600,2000
+IT,Italy,Visa Required,EUR,Euro,2,2,2,1,1,1,2,3,1,1,2,2,Apr – Jun and Sep – Oct,Aug (crowded and hot),65,140,380
+LK,Sri Lanka,e-Visa Available,LKR,Sri Lankan Rupee,1,1,1,2,3,3,2,2,2,2,1,1,Dec – Mar,May – Aug (SW monsoon),3000,8000,25000
+NP,Nepal,Visa on Arrival,NPR,Nepalese Rupee,2,2,1,1,2,3,3,3,2,1,1,2,Mar – May and Oct – Nov,Jun – Sep (monsoon),2500,5000,15000
+SG,Singapore,Visa Required,SGD,Singapore Dollar,1,1,1,2,2,1,1,1,2,2,2,2,Feb – Aug,Nov – Jan (wet season),100,220,600
+AU,Australia,Visa Required,AUD,Australian Dollar,2,2,1,1,2,2,2,2,1,1,1,2,Mar – May and Sep – Nov,Dec – Feb (outback heat),120,220,600
+MY,Malaysia,Visa-free,MYR,Malaysian Ringgit,2,1,1,1,1,1,1,1,2,2,3,3,Mar – Aug,Nov – Jan (NE monsoon),150,300,900
+DE,Germany,Visa Required,EUR,Euro,2,2,2,2,1,1,1,1,1,2,2,2,May – Sep,Nov – Feb (cold),70,140,400
+ID,Indonesia,Visa on Arrival,IDR,Indonesian Rupiah,3,3,2,1,1,1,1,1,1,2,3,3,Apr – Oct (Bali dry season),Nov – Mar (wet season),350000,750000,2500000
+VN,Vietnam,e-Visa Available,VND,Vietnamese Dong,1,1,1,2,2,2,2,2,2,2,1,1,Nov – Mar,May – Sep (south monsoon),600000,1500000,4500000
+TR,Turkey,e-Visa Available,TRY,Turkish Lira,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Jun and Sep – Oct,Jul – Aug (very hot),800,2000,6000
+EG,Egypt,Visa on Arrival,EGP,Egyptian Pound,1,1,1,2,2,3,3,3,2,1,1,1,Oct – Apr,Jun – Aug (extreme heat),800,2000,7000
+GR,Greece,Visa Required,EUR,Euro,2,2,2,1,1,1,2,3,1,1,2,2,Apr – Jun and Sep – Oct,Aug (peak crowds and heat),70,150,450
+MV,Maldives,Visa on Arrival,USD,US Dollar,1,1,1,2,3,3,3,3,2,2,2,1,Nov – Apr (dry season),May – Oct (wet season),200,500,2500
+ES,Spain,Visa Required,EUR,Euro,2,2,2,1,1,1,2,3,1,1,2,2,Apr – Jun and Sep – Oct,Aug (extreme heat and crowds),65,140,380
+CH,Switzerland,Visa Required,CHF,Swiss Franc,1,1,2,2,2,1,1,1,1,2,2,1,Jun – Sep (summer) and Dec – Feb (ski),Mar – May (shoulder),150,300,700
+ZA,South Africa,Visa Required,ZAR,South African Rand,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Sep,Nov – Feb (summer rain),600,1500,5000
+BT,Bhutan,Visa Required,BTN,Bhutanese Ngultrum,2,2,1,1,2,2,3,3,2,1,1,2,Mar – May and Oct – Nov,Jul – Aug (monsoon),3500,7000,20000
+PT,Portugal,Visa Required,EUR,Euro,2,2,2,1,1,1,1,2,1,1,2,2,Apr – Jun and Sep – Oct,Aug (crowds),60,120,350
+AF,Afghanistan,Visa Required,AFN,Afghan Afghani,2,2,2,1,1,2,3,3,2,1,2,2,Apr – May and Sep – Oct,Jul – Aug (extreme heat) and Dec – Feb (cold),600,1500,5000
+AL,Albania,Visa on Arrival,ALL,Albanian Lek,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Jun and Sep – Oct,Jul – Aug (heat),2500,6000,20000
+DZ,Algeria,Visa Required,DZD,Algerian Dinar,1,1,1,2,2,3,3,3,2,1,1,1,Oct – Apr,Jun – Aug (extreme heat),5000,12000,40000
+AO,Angola,Visa Required,AOA,Angolan Kwanza,2,2,2,2,2,2,3,3,2,2,2,2,May – Sep,Dec – Feb (heavy rain),8000,20000,70000
+AG,Antigua and Barbuda,Visa-free,XCD,East Caribbean Dollar,1,1,1,1,2,2,2,3,3,2,2,1,Dec – Apr (dry season),Aug – Oct (hurricane),80,200,700
+AR,Argentina,Visa Required,ARS,Argentine Peso,2,2,2,2,2,2,1,1,2,2,2,2,Nov – Mar (Patagonia summer),Jun – Aug (ski Andes),15000,40000,140000
+AM,Armenia,e-Visa Available,AMD,Armenian Dram,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Jun and Sep – Oct,Jan – Feb (cold) and Jul – Aug (hot),8000,20000,65000
+AZ,Azerbaijan,e-Visa Available,AZN,Azerbaijani Manat,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Jun and Sep – Oct,Jul – Aug (hot) and Dec – Feb (cold),50,120,400
+BS,Bahamas,Visa-free,BSD,Bahamian Dollar,1,1,1,1,2,2,2,3,3,2,1,1,Dec – May,Aug – Oct (hurricane),80,200,650
+BH,Bahrain,Visa on Arrival,BHD,Bahraini Dinar,1,1,1,2,3,3,3,3,3,2,1,1,Nov – Mar,Jun – Sep (extreme heat 45°C),20,50,180
+BD,Bangladesh,Visa on Arrival,BDT,Bangladeshi Taka,1,1,2,3,3,3,3,3,2,1,1,1,Nov – Feb,Mar – Sep (heat and monsoon),2000,5000,18000
+BB,Barbados,Visa-free,BBD,Barbadian Dollar,1,1,1,1,2,2,2,2,2,2,2,1,Dec – May,Aug – Oct (hurricane),80,200,650
+BY,Belarus,e-Visa Available,BYN,Belarusian Ruble,3,3,2,2,1,1,1,1,1,2,3,3,May – Sep,Nov – Mar (cold and grey),80,200,650
+BE,Belgium,Visa Required,EUR,Euro,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Sep,Nov – Feb (cold and wet),70,150,420
+BZ,Belize,Visa-free,BZD,Belize Dollar,2,2,2,2,2,3,2,2,3,2,2,1,Dec – May,Jun – Oct (hurricane season),80,200,650
+BJ,Benin,Visa on Arrival,XOF,West African CFA Franc,2,1,1,2,2,3,2,2,2,2,2,2,Nov – Feb,Jun – Sep (heavy rain),10000,25000,80000
+BO,Bolivia,Visa on Arrival,BOB,Bolivian Boliviano,2,2,2,2,2,2,1,1,1,2,2,2,May – Sep (dry season),Dec – Mar (rain and floods),150,400,1400
+BA,Bosnia and Herzegovina,Visa on Arrival,BAM,Bosnia-Herzegovina Convertible Mark,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Oct,Nov – Mar (cold),80,200,650
+BW,Botswana,Visa-free,BWP,Botswanan Pula,2,2,2,2,1,1,1,1,1,1,2,2,May – Sep (dry season and wildlife),Nov – Mar (rain),500,1200,4000
+BR,Brazil,Visa-free,BRL,Brazilian Real,2,2,2,2,2,2,2,2,2,2,2,2,Jun – Aug (SE dry) and Dec – Feb (Carnival),Jan – Mar (SE flooding),200,500,1800
+BN,Brunei,Visa-free,BND,Brunei Dollar,2,1,1,1,1,1,2,2,2,2,2,2,Mar – May,Dec – Jan (heavy rain),80,200,650
+BF,Burkina Faso,Visa Required,XOF,West African CFA Franc,1,1,2,3,3,3,3,3,3,2,1,1,Nov – Feb,Apr – Sep (extreme heat and rain),8000,20000,60000
+BI,Burundi,Visa on Arrival,BIF,Burundian Franc,2,2,2,2,2,3,1,1,1,2,2,2,Jun – Sep (dry season),Mar – May (rain),15000,40000,120000
+CV,Cape Verde,Visa on Arrival,CVE,Cape Verdean Escudo,1,1,1,1,2,2,2,2,2,1,1,1,Nov – Jun,Aug – Oct (Harmattan winds),4000,9000,28000
+KH,Cambodia,Visa on Arrival,KHR,Cambodian Riel,1,1,1,3,3,3,2,2,2,2,1,1,Nov – Mar,Apr – Sep (heat and monsoon),60000,150000,500000
+CM,Cameroon,Visa Required,XAF,Central African CFA Franc,2,2,2,2,2,3,2,2,3,2,2,2,Nov – Feb,Jul – Sep (heavy rain),8000,20000,65000
+CA,Canada,Visa Required,CAD,Canadian Dollar,3,3,2,2,1,1,1,1,1,2,3,3,May – Sep,Nov – Mar (extreme cold),90,180,550
+CF,Central African Republic,Visa Required,XAF,Central African CFA Franc,2,2,2,2,2,3,2,2,2,2,2,2,Nov – Mar,Jun – Sep (rain),6000,15000,50000
+TD,Chad,Visa Required,XAF,Central African CFA Franc,1,1,2,3,3,3,3,3,2,1,1,1,Oct – Feb,Apr – Sep (extreme heat),5000,12000,40000
+CL,Chile,Visa Required,CLP,Chilean Peso,2,2,2,2,2,2,2,2,1,1,1,2,Sep – Nov and Dec – Feb (south summer),Jun – Aug (south cold),25000,60000,200000
+CN,China,Visa Required,CNY,Chinese Yuan,2,2,1,1,1,2,3,3,1,1,2,2,Mar – May and Sep – Nov,Jul – Aug (heat and crowds),180,450,1500
+CO,Colombia,Visa Required,COP,Colombian Peso,2,1,1,1,1,2,2,1,1,1,1,2,Dec – Mar and Jul – Aug (dry),Apr – May and Oct – Nov (rain),80000,200000,700000
+KM,Comoros,Visa on Arrival,KMF,Comorian Franc,2,2,2,2,1,1,1,1,1,2,2,2,May – Oct,Jan – Apr (cyclone risk),15000,40000,120000
+CG,Republic of Congo,Visa Required,XAF,Central African CFA Franc,2,2,2,2,2,3,1,1,2,2,2,2,Jun – Sep,Nov – May (rain),8000,20000,65000
+CD,DR Congo,Visa Required,CDF,Congolese Franc,2,2,2,2,2,3,2,2,2,2,2,2,Jun – Sep,Nov – Mar (heavy rain),10000,25000,80000
+CR,Costa Rica,Visa-free,CRC,Costa Rican Colon,2,2,2,3,3,3,2,2,3,3,2,1,Dec – Apr (dry),May – Nov (rain),15000,38000,130000
+CI,Ivory Coast,Visa Required,XOF,West African CFA Franc,1,1,2,2,3,3,3,3,2,2,1,1,Nov – Feb,May – Sep (monsoon),8000,20000,65000
+HR,Croatia,Visa Required,EUR,Euro,2,2,2,1,1,1,2,3,1,1,2,2,Apr – Jun and Sep – Oct,Jul – Aug (crowds and heat),60,150,450
+CU,Cuba,Visa on Arrival,CUP,Cuban Peso,1,1,1,2,2,2,2,3,3,2,2,1,Dec – Apr,Aug – Oct (hurricane),2000,5000,18000
+CY,Cyprus,Visa Required,EUR,Euro,2,2,2,1,1,1,3,3,1,1,2,2,Apr – Jun and Sep – Oct,Jul – Aug (extreme heat),60,140,420
+CZ,Czech Republic,Visa Required,CZK,Czech Koruna,2,2,2,1,1,1,1,1,1,2,2,2,May – Sep,Nov – Feb (cold),1200,3000,10000
+DK,Denmark,Visa Required,DKK,Danish Krone,3,3,2,2,1,1,1,1,2,2,3,3,May – Aug,Nov – Mar (cold),700,1600,5000
+DJ,Djibouti,Visa on Arrival,DJF,Djiboutian Franc,1,1,2,2,3,3,3,3,3,2,1,1,Oct – Feb,Jun – Sep (extreme heat 45°C+),4000,10000,35000
+DM,Dominica,Visa-free,XCD,East Caribbean Dollar,1,1,1,1,2,2,2,3,3,2,2,1,Dec – May,Aug – Oct (hurricane),80,200,700
+DO,Dominican Republic,Visa on Arrival,DOP,Dominican Peso,1,1,1,1,2,2,2,3,3,2,2,1,Dec – May,Aug – Oct (hurricane),1500,4000,14000
+EC,Ecuador,Visa-free,USD,US Dollar,1,1,1,1,1,1,1,1,1,1,1,1,Jun – Sep (Galapagos) and Dec – May (coast),Varies by region,40,100,350
+SV,El Salvador,Visa-free,USD,US Dollar,2,2,1,1,1,2,2,2,2,2,2,2,Nov – Apr (dry),May – Oct (rain),40,100,350
+GQ,Equatorial Guinea,Visa Required,XAF,Central African CFA Franc,2,2,2,2,2,3,1,1,2,2,2,2,Jun – Sep,Nov – May (rain),8000,20000,65000
+ER,Eritrea,Visa Required,ERN,Eritrean Nakfa,1,1,2,2,3,3,3,3,2,1,1,1,Oct – Feb,Jun – Aug (extreme heat),800,2000,6000
+EE,Estonia,Visa Required,EUR,Euro,3,3,3,2,1,1,1,1,2,2,3,3,May – Aug,Nov – Mar (very cold),60,140,420
+ET,Ethiopia,Visa on Arrival,ETB,Ethiopian Birr,1,1,2,2,2,3,3,3,2,2,1,1,Oct – Feb,Jul – Sep (heavy rain lowlands),600,1500,5000
+FJ,Fiji,Visa-free,FJD,Fijian Dollar,2,2,2,2,1,1,1,1,1,1,2,2,May – Oct (dry season),Nov – Apr (cyclones),80,180,600
+FI,Finland,Visa Required,EUR,Euro,3,3,3,2,2,1,1,1,2,2,3,3,Jun – Aug and Dec – Feb (northern lights),Oct – Nov (dark),60,140,420
+GA,Gabon,Visa on Arrival,XAF,Central African CFA Franc,2,2,2,2,2,3,1,1,2,2,2,2,Jun – Sep,Nov – Apr (rain),8000,20000,65000
+GM,Gambia,Visa on Arrival,GMD,Gambian Dalasi,1,1,1,2,2,3,3,3,3,2,2,1,Nov – Apr,Jun – Oct (rainy season),800,2000,7000
+GE,Georgia,e-Visa Available,GEL,Georgian Lari,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Jun and Sep – Oct,Jan – Feb (cold) and Jul – Aug (hot),80,180,600
+GH,Ghana,Visa on Arrival,GHS,Ghanaian Cedi,1,1,2,2,2,3,2,1,2,2,2,1,Nov – Mar and Aug,Apr – Jun (heavy rain),200,500,1800
+GD,Grenada,Visa-free,XCD,East Caribbean Dollar,1,1,1,1,2,2,2,3,3,2,2,1,Dec – May,Aug – Oct (hurricane),80,200,700
+GT,Guatemala,Visa Required,GTQ,Guatemalan Quetzal,2,2,1,1,1,2,2,2,3,3,2,2,Oct – May,Jun – Sep (rain),200,500,1800
+GN,Guinea,Visa Required,GNF,Guinean Franc,1,1,2,2,2,3,3,3,3,2,1,1,Nov – Mar,May – Oct (heavy rain),80000,200000,700000
+GW,Guinea-Bissau,Visa on Arrival,XOF,West African CFA Franc,1,1,2,2,2,3,3,3,3,2,1,1,Nov – Mar,May – Sep (rain),6000,15000,50000
+GY,Guyana,Visa on Arrival,GYD,Guyanese Dollar,2,2,2,2,2,2,1,1,2,2,2,2,Aug – Nov and Feb – Apr,May – Jun (heavy rain),5000,12000,42000
+HT,Haiti,Visa-free,HTG,Haitian Gourde,2,1,1,1,2,3,3,3,3,3,2,2,Dec – Mar,Aug – Oct (hurricane),3000,7500,25000
+HN,Honduras,Visa Required,HNL,Honduran Lempira,2,2,1,1,1,2,2,2,3,3,2,2,Nov – Apr,Jun – Oct (rain),600,1500,5500
+HU,Hungary,Visa Required,HUF,Hungarian Forint,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Sep,Nov – Feb (cold),12000,30000,100000
+IS,Iceland,Visa Required,ISK,Icelandic Krona,3,3,3,2,2,1,1,1,2,2,3,3,Jun – Aug (midnight sun) and Dec – Feb (northern lights),Oct – May (storms),15000,35000,120000
+IE,Ireland,Visa Required,EUR,Euro,2,2,2,2,1,1,1,1,1,2,2,2,May – Sep,Nov – Feb (wet and cold),70,150,420
+IL,Israel,Visa Required,ILS,Israeli New Shekel,2,2,2,1,1,2,3,3,2,1,1,2,Mar – May and Oct – Nov,Jul – Aug (heat and crowds),250,600,2000
+IQ,Iraq,Visa Required,IQD,Iraqi Dinar,1,1,1,2,3,3,3,3,3,2,1,1,Oct – Apr,Jun – Sep (extreme heat 50°C+),30000,80000,280000
+IR,Iran,Visa on Arrival,IRR,Iranian Rial,2,2,1,1,2,3,3,3,2,1,1,2,Mar – May and Sep – Oct,Jul – Aug (extreme heat),600000,1500000,5000000
+JM,Jamaica,Visa-free,JMD,Jamaican Dollar,1,1,1,1,2,2,2,3,3,2,2,1,Dec – May,Aug – Oct (hurricane),4000,10000,35000
+JO,Jordan,Visa on Arrival,JOD,Jordanian Dinar,1,1,1,2,2,3,3,3,2,1,1,1,Oct – Apr,Jun – Aug (extreme heat),25,60,200
+KZ,Kazakhstan,Visa on Arrival,KZT,Kazakhstani Tenge,3,3,2,2,1,1,1,1,1,2,2,3,May – Sep,Nov – Mar (extreme cold),8000,20000,70000
+KE,Kenya,e-Visa Available,KES,Kenyan Shilling,1,1,1,2,2,2,1,1,2,2,1,1,Jan – Mar and Jul – Oct,Apr – May (long rains),4000,10000,35000
+KI,Kiribati,Visa on Arrival,AUD,Australian Dollar,2,2,2,2,1,1,1,1,1,1,2,2,Apr – Oct,Nov – Mar (heavy rain),80,200,600
+KP,North Korea,Visa Required,KPW,North Korean Won,3,3,2,2,1,1,1,1,1,2,3,3,May – Sep,Dec – Mar (very cold),N/A,N/A,N/A
+KR,South Korea,Visa Required,KRW,South Korean Won,2,2,1,1,1,3,3,3,1,1,2,2,Mar – May and Sep – Nov,Jul – Aug (humid and typhoons),50000,120000,400000
+KW,Kuwait,e-Visa Available,KWD,Kuwaiti Dinar,1,1,1,2,3,3,3,3,3,2,1,1,Nov – Mar,Jun – Sep (extreme heat 50°C),20,50,180
+KG,Kyrgyzstan,Visa on Arrival,KGS,Kyrgyzstani Som,3,3,2,2,1,1,1,1,1,2,2,3,May – Sep,Nov – Mar (cold),2000,5000,18000
+LA,Laos,Visa on Arrival,LAK,Lao Kip,1,1,1,3,3,3,2,2,2,2,1,1,Nov – Mar,Apr – Sep (heat and monsoon),350000,900000,3000000
+LV,Latvia,Visa Required,EUR,Euro,3,3,3,2,1,1,1,1,2,2,3,3,May – Aug,Nov – Mar (very cold),60,140,420
+LB,Lebanon,Visa on Arrival,LBP,Lebanese Pound,2,2,2,1,1,2,3,3,2,1,1,2,Mar – May and Oct – Nov,Jul – Aug (heat and humidity),500000,1500000,5000000
+LS,Lesotho,Visa-free,LSL,Lesotho Loti,2,2,2,1,1,1,1,1,1,1,2,2,Apr – Oct (dry and cool),Dec – Feb (cold mountains),500,1200,4000
+LR,Liberia,Visa on Arrival,LRD,Liberian Dollar,1,1,2,2,2,3,3,3,3,2,2,1,Nov – Mar,May – Oct (heavy rain),400,1000,3500
+LY,Libya,Visa Required,LYD,Libyan Dinar,1,1,1,2,2,3,3,3,2,1,1,1,Oct – Apr,Jun – Aug (extreme heat),50,120,400
+LI,Liechtenstein,Visa Required,CHF,Swiss Franc,2,2,2,2,1,1,1,1,1,2,2,2,Apr – Oct,Nov – Mar (cold),150,300,700
+LT,Lithuania,Visa Required,EUR,Euro,3,3,3,2,1,1,1,1,2,2,3,3,May – Aug,Nov – Mar (very cold),60,140,420
+LU,Luxembourg,Visa Required,EUR,Euro,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Sep,Nov – Feb (cold),80,180,550
+MG,Madagascar,Visa on Arrival,MGA,Malagasy Ariary,2,2,2,2,2,2,1,1,1,2,2,2,May – Oct (dry season),Jan – Mar (cyclones),60000,150000,500000
+MW,Malawi,Visa on Arrival,MWK,Malawian Kwacha,2,2,2,2,1,1,1,1,1,2,2,2,May – Oct (dry season),Nov – Apr (rain),5000,12000,40000
+ML,Mali,Visa Required,XOF,West African CFA Franc,1,1,2,3,3,3,3,3,3,2,1,1,Nov – Feb,Apr – Sep (extreme heat),8000,20000,65000
+MT,Malta,Visa Required,EUR,Euro,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Jun and Sep – Oct,Jul – Aug (heat and crowds),65,150,450
+MH,Marshall Islands,Visa-free,USD,US Dollar,1,1,1,1,2,2,2,2,2,1,1,1,Oct – Apr,Jun – Aug (rough seas),60,150,500
+MR,Mauritania,Visa on Arrival,MRO,Mauritanian Ouguiya,1,1,1,2,3,3,3,3,2,1,1,1,Oct – Mar,May – Sep (extreme heat),1200,3000,10000
+MU,Mauritius,Visa-free,MUR,Mauritian Rupee,2,2,2,2,1,1,1,1,1,2,2,2,May – Dec,Jan – Mar (cyclone risk),2500,6000,20000
+MX,Mexico,Visa Required,MXN,Mexican Peso,2,2,1,1,1,2,2,2,2,2,2,2,Nov – Apr,Jun – Oct (rain and coast hurricanes),500,1200,4000
+FM,Micronesia,Visa-free,USD,US Dollar,1,1,1,1,2,2,2,2,2,1,1,1,Oct – Apr,Jun – Sep (typhoons),60,150,500
+MD,Moldova,e-Visa Available,MDL,Moldovan Leu,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Oct,Nov – Mar (cold),500,1200,4000
+MC,Monaco,Visa Required,EUR,Euro,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Jun and Sep – Oct,Jul – Aug (crowded),100,300,1000
+MN,Mongolia,Visa on Arrival,MNT,Mongolian Tugrik,3,3,3,2,2,1,1,1,2,2,3,3,Jun – Aug,Nov – Apr (extreme cold),60000,150000,500000
+ME,Montenegro,Visa-free,EUR,Euro,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Jun and Sep – Oct,Jul – Aug (heat and crowds),60,140,420
+MA,Morocco,Visa Required,MAD,Moroccan Dirham,2,2,2,1,1,2,2,3,1,1,2,2,Mar – May and Sep – Nov,Jul – Aug (extreme heat inland),500,1200,4000
+MZ,Mozambique,Visa on Arrival,MZN,Mozambican Metical,2,2,2,2,1,1,1,1,1,2,2,2,May – Oct (dry season),Nov – Apr (cyclones and rain),1500,4000,14000
+MM,Myanmar,e-Visa Available,MMK,Myanmar Kyat,1,1,2,3,3,3,3,3,2,2,1,1,Nov – Feb,Apr – Oct (heat and monsoon),40000,100000,350000
+NA,Namibia,Visa-free,NAD,Namibian Dollar,2,2,2,2,1,1,1,1,1,2,2,2,May – Oct (dry and wildlife),Dec – Mar (rain and heat),600,1500,5500
+NR,Nauru,Visa on Arrival,AUD,Australian Dollar,1,1,1,1,1,2,2,2,2,1,1,1,Nov – May,Jun – Oct (wetter),80,200,600
+NL,Netherlands,Visa Required,EUR,Euro,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Sep (tulips Apr – May),Oct – Mar (cold and wet),75,160,450
+NZ,New Zealand,Visa Required,NZD,New Zealand Dollar,2,2,2,2,2,2,2,2,1,1,1,2,Dec – Feb and Sep – Nov,Jun – Aug (South Island winter),120,230,650
+NI,Nicaragua,Visa Required,NIO,Nicaraguan Cordoba,2,2,1,1,1,2,2,2,2,2,2,2,Nov – Apr (dry),May – Oct (rain),600,1500,5500
+NE,Niger,Visa Required,XOF,West African CFA Franc,1,1,2,3,3,3,3,3,3,2,1,1,Nov – Feb,Apr – Sep (extreme heat 50°C),8000,20000,65000
+NG,Nigeria,Visa Required,NGN,Nigerian Naira,1,1,2,2,2,3,3,3,3,2,1,1,Nov – Mar,Jun – Sep (heavy rain),25000,60000,200000
+MK,North Macedonia,Visa on Arrival,MKD,Macedonian Denar,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Oct,Nov – Mar (cold),1500,4000,14000
+NO,Norway,Visa Required,NOK,Norwegian Krone,3,3,3,2,2,1,1,1,2,2,3,3,Jun – Aug (fjords) and Dec – Feb (ski/aurora),Oct – May (cold),1200,2800,9000
+OM,Oman,e-Visa Available,OMR,Omani Rial,1,1,1,2,3,3,3,3,2,1,1,1,Oct – Apr,Jun – Aug (extreme heat 45°C+),20,50,180
+PW,Palau,Visa on Arrival,USD,US Dollar,1,1,1,1,2,2,2,2,2,1,1,1,Oct – May,Jun – Sep (typhoons),80,200,700
+PA,Panama,Visa Required,PAB,Panamanian Balboa,2,2,1,1,1,2,2,2,2,2,2,2,Dec – Apr (dry),May – Nov (rain),50,120,400
+PG,Papua New Guinea,Visa on Arrival,PGK,Papua New Guinean Kina,2,2,2,2,2,2,1,1,1,2,2,2,May – Sep,Dec – Apr (heavy rain),100,250,800
+PY,Paraguay,Visa on Arrival,PYG,Paraguayan Guarani,2,2,2,2,2,2,2,2,1,1,1,2,Apr – Sep,Dec – Feb (extreme heat),150000,380000,1300000
+PE,Peru,Visa Required,PEN,Peruvian Sol,2,2,2,2,2,2,1,1,1,1,2,2,May – Oct (dry),Dec – Mar (Inca Trail rain),90,220,750
+PH,Philippines,Visa-free,PHP,Philippine Peso,1,1,1,2,2,2,3,3,3,2,1,1,Nov – May,Jun – Sep (typhoons),1500,3500,12000
+PL,Poland,Visa Required,PLN,Polish Zloty,2,2,2,2,1,1,1,1,1,2,2,2,May – Sep,Nov – Feb (cold),100,250,800
+QA,Qatar,Visa on Arrival,QAR,Qatari Riyal,1,1,1,2,3,3,3,3,3,2,1,1,Nov – Mar,Jun – Sep (extreme heat 45°C+),200,500,1800
+RO,Romania,Visa Required,RON,Romanian Leu,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Sep,Nov – Feb (cold),120,300,1000
+RU,Russia,e-Visa Available,RUB,Russian Ruble,3,3,3,2,2,1,1,1,1,2,3,3,Jun – Aug (Moscow and St Petersburg),Nov – Mar (extreme cold),2000,5000,18000
+RW,Rwanda,e-Visa Available,RWF,Rwandan Franc,2,2,2,2,1,1,1,1,2,2,2,2,Jun – Sep and Jan – Feb,Mar – May (long rains),4000,10000,35000
+KN,St. Kitts and Nevis,Visa-free,XCD,East Caribbean Dollar,1,1,1,1,2,2,2,3,3,2,2,1,Dec – May,Aug – Oct (hurricane),80,200,700
+LC,St. Lucia,Visa-free,XCD,East Caribbean Dollar,1,1,1,1,2,2,2,3,3,2,2,1,Dec – May,Aug – Oct (hurricane),80,200,700
+VC,St. Vincent and the Grenadines,Visa-free,XCD,East Caribbean Dollar,1,1,1,1,2,2,2,3,3,2,2,1,Dec – May,Aug – Oct (hurricane),80,200,700
+WS,Samoa,Visa on Arrival,WST,Samoan Tala,2,2,2,2,1,1,1,1,1,1,2,2,May – Oct,Nov – Apr (cyclones),100,250,800
+SM,San Marino,Visa Required,EUR,Euro,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Oct,Nov – Mar (cold),70,160,450
+ST,Sao Tome and Principe,Visa on Arrival,STN,Sao Tomean Dobra,2,2,2,2,2,2,1,1,1,2,2,2,Jun – Sep (dry season),Nov – May (rain),150,400,1400
+SA,Saudi Arabia,e-Visa Available,SAR,Saudi Riyal,1,1,1,2,3,3,3,3,3,2,1,1,Nov – Mar,Jun – Sep (extreme heat 45°C+),200,500,1800
+SN,Senegal,Visa-free,XOF,West African CFA Franc,1,1,1,2,2,3,3,3,3,2,1,1,Nov – Apr,Jun – Oct (rainy season),8000,20000,65000
+RS,Serbia,Visa-free,RSD,Serbian Dinar,2,2,2,1,1,1,2,2,1,1,2,2,Apr – Oct,Nov – Mar (cold),2500,6000,20000
+SC,Seychelles,Visa-free,SCR,Seychellois Rupee,2,2,2,2,1,1,1,1,1,2,2,2,Apr – May and Oct – Nov,Dec – Feb (rough seas NW),1500,4000,15000
+SL,Sierra Leone,Visa on Arrival,SLL,Sierra Leonean Leone,1,1,2,2,2,3,3,3,3,2,2,1,Nov – Apr,Jun – Sep (heavy rain),4000,10000,35000
+SK,Slovakia,Visa Required,EUR,Euro,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Sep,Nov – Feb (cold),55,130,400
+SI,Slovenia,Visa Required,EUR,Euro,2,2,2,1,1,1,1,1,1,2,2,2,Apr – Sep,Nov – Feb (cold),60,140,420
+SB,Solomon Islands,Visa on Arrival,SBD,Solomon Islands Dollar,2,2,2,2,1,1,1,1,1,1,2,2,May – Oct,Nov – Apr (cyclones),200,500,1800
+SO,Somalia,Visa on Arrival,SOS,Somali Shilling,1,1,2,2,2,2,2,2,2,2,1,1,Dec – Mar,Jun – Aug,500,1200,4000
+SS,South Sudan,Visa Required,SSP,South Sudanese Pound,2,2,2,2,2,3,3,2,2,2,2,2,Nov – Mar,Jun – Sep (flooding),1000,2500,8000
+SD,Sudan,Visa Required,SDG,Sudanese Pound,1,1,1,2,3,3,3,3,2,1,1,1,Oct – Mar,Jun – Aug (extreme heat),500,1200,4000
+SR,Suriname,Visa on Arrival,SRD,Surinamese Dollar,2,2,2,2,2,2,1,1,2,2,2,2,Aug – Nov and Feb – Apr,May – Jun (rain),800,2000,7000
+SE,Sweden,Visa Required,SEK,Swedish Krona,3,3,3,2,2,1,1,1,2,2,3,3,Jun – Aug,Nov – Mar (cold and dark),1200,2800,9000
+SZ,Eswatini,Visa-free,SZL,Swazi Lilangeni,2,2,2,1,1,1,1,1,1,1,2,2,Apr – Oct,Nov – Mar (summer heat),400,1000,3500
+SY,Syria,Visa Required,SYP,Syrian Pound,2,2,1,1,2,2,3,3,2,1,1,2,Mar – May and Oct – Nov,Jul – Aug (extreme heat),50000,150000,500000
+TW,Taiwan,Visa Required,TWD,New Taiwan Dollar,2,2,2,1,1,2,2,2,2,1,1,2,Mar – May and Sep – Nov,Jun – Aug (typhoons and heat),1500,3500,12000
+TJ,Tajikistan,Visa on Arrival,TJS,Tajikistani Somoni,3,3,2,2,1,1,1,1,2,2,3,3,May – Sep,Nov – Mar (cold),250,600,2000
+TZ,Tanzania,e-Visa Available,TZS,Tanzanian Shilling,1,1,2,2,2,2,1,1,2,2,1,1,Jan – Mar and Jun – Oct,Apr – May (long rains),20000,50000,180000
+TL,Timor-Leste,Visa on Arrival,USD,US Dollar,2,2,2,2,2,2,1,1,1,2,2,2,Jun – Sep (dry season),Nov – Apr (rain),40,100,350
+TG,Togo,Visa on Arrival,XOF,West African CFA Franc,1,1,2,2,2,3,2,2,2,2,2,1,Nov – Feb,May – Sep (rain),8000,20000,65000
+TO,Tonga,Visa on Arrival,TOP,Tongan Paanga,2,2,2,2,1,1,1,1,1,1,2,2,May – Oct,Nov – Apr (cyclones),80,200,700
+TT,Trinidad and Tobago,Visa-free,TTD,Trinidad and Tobago Dollar,1,1,1,1,2,2,2,3,3,2,2,1,Dec – May (Carnival Feb/Mar),Aug – Oct (hurricane),200,500,1800
+TN,Tunisia,Visa Required,TND,Tunisian Dinar,1,1,1,2,1,2,3,3,1,1,1,1,Mar – Jun and Sep – Nov,Jul – Aug (extreme heat),70,180,600
+TM,Turkmenistan,Visa Required,TMT,Turkmenistani Manat,3,3,2,2,1,1,3,3,2,2,2,3,May – Jun and Sep – Oct,Jul – Aug (extreme heat) and Dec – Feb (cold),120,300,1000
+TV,Tuvalu,Visa on Arrival,AUD,Australian Dollar,2,2,2,2,1,1,1,1,1,1,2,2,May – Oct,Nov – Apr (rough seas),80,200,600
+UG,Uganda,Visa on Arrival,UGX,Ugandan Shilling,2,2,2,2,1,1,1,1,2,2,2,2,Jun – Sep and Dec – Feb,Mar – May (rain),60000,150000,500000
+UA,Ukraine,Visa Required,UAH,Ukrainian Hryvnia,3,3,2,2,1,1,1,1,1,2,3,3,May – Sep,Nov – Mar (cold),800,2000,7000
+UY,Uruguay,Visa-free,UYU,Uruguayan Peso,2,2,2,2,2,2,1,1,1,1,2,2,Nov – Mar (summer),Jun – Aug (winter),1000,2500,8500
+UZ,Uzbekistan,Visa on Arrival,UZS,Uzbekistani Som,2,2,2,1,1,2,3,3,2,1,1,2,Apr – Jun and Sep – Oct,Jul – Aug (extreme heat 40°C+),200000,500000,1800000
+VU,Vanuatu,Visa-free,VUV,Vanuatu Vatu,2,2,2,2,1,1,1,1,1,1,2,2,May – Oct,Nov – Apr (cyclones),3000,8000,28000
+VE,Venezuela,Visa Required,VES,Venezuelan Bolivar,2,1,1,1,2,3,3,3,3,2,2,2,Jan – Apr (dry season),Jun – Oct (rain),20,50,180
+YE,Yemen,Visa Required,YER,Yemeni Rial,1,1,1,2,3,3,3,3,2,1,1,1,Oct – Apr,Jun – Aug (extreme heat),1500,4000,14000
+ZM,Zambia,Visa on Arrival,ZMW,Zambian Kwacha,2,2,2,2,1,1,1,1,1,1,2,2,May – Oct (dry season),Nov – Apr (rain),500,1200,4200
+ZW,Zimbabwe,Visa on Arrival,ZWL,Zimbabwean Dollar,2,2,2,2,1,1,1,1,1,1,2,2,May – Oct (dry season),Nov – Apr (rain),200,500,1800
