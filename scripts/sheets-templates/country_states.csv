@@ -1,0 +1,257 @@
+country_iso2,state_name
+US,California
+US,New York
+US,Florida
+US,Texas
+US,Hawaii
+US,Nevada
+US,Arizona
+US,Colorado
+US,Massachusetts
+US,Louisiana
+US,Washington
+US,Oregon
+US,Illinois
+US,Georgia
+US,North Carolina
+CN,Beijing
+CN,Shanghai
+CN,Yunnan
+CN,Sichuan
+CN,Xinjiang
+CN,Guangdong
+CN,Zhejiang
+CN,Tibet
+CN,Henan
+CN,Jiangsu
+CN,Shaanxi
+CN,Fujian
+BR,Rio de Janeiro
+BR,Sao Paulo
+BR,Minas Gerais
+BR,Bahia
+BR,Amazonas
+BR,Pernambuco
+BR,Parana
+BR,Ceara
+BR,Rio Grande do Sul
+BR,Para
+BR,Mato Grosso do Sul
+AU,New South Wales
+AU,Victoria
+AU,Queensland
+AU,Western Australia
+AU,South Australia
+AU,Tasmania
+AU,Northern Territory
+AU,Australian Capital Territory
+CA,Ontario
+CA,British Columbia
+CA,Quebec
+CA,Alberta
+CA,Nova Scotia
+CA,Manitoba
+CA,Saskatchewan
+CA,Prince Edward Island
+CA,Newfoundland and Labrador
+RU,Moscow Oblast
+RU,Saint Petersburg
+RU,Irkutsk Oblast
+RU,Kamchatka Krai
+RU,Republic of Karelia
+RU,Novgorod Oblast
+RU,Republic of Tatarstan
+RU,Novosibirsk Oblast
+DE,Bavaria
+DE,North Rhine-Westphalia
+DE,Berlin
+DE,Baden-Wurttemberg
+DE,Hamburg
+DE,Saxony
+DE,Brandenburg
+DE,Bremen
+DE,Thuringia
+FR,Ile-de-France
+FR,Provence-Alpes-Cote d Azur
+FR,Occitanie
+FR,Nouvelle-Aquitaine
+FR,Auvergne-Rhone-Alpes
+FR,Bretagne
+FR,Normandie
+FR,Grand Est
+FR,Centre-Val de Loire
+GB,England
+GB,Scotland
+GB,Wales
+GB,Northern Ireland
+IT,Lazio
+IT,Tuscany
+IT,Lombardy
+IT,Veneto
+IT,Campania
+IT,Sicily
+IT,Sardinia
+IT,Puglia
+IT,Liguria
+IT,Emilia-Romagna
+IT,Trentino-Alto Adige
+ES,Catalonia
+ES,Andalusia
+ES,Community of Madrid
+ES,Valencia
+ES,Basque Country
+ES,Castile and Leon
+ES,Galicia
+ES,Canary Islands
+ES,Balearic Islands
+ES,Aragon
+JP,Tokyo
+JP,Kyoto
+JP,Osaka
+JP,Hokkaido
+JP,Hiroshima
+JP,Nagano
+JP,Okinawa
+JP,Nara
+JP,Kanagawa
+JP,Aichi
+KR,Seoul
+KR,Gyeonggi
+KR,Busan
+KR,Jeju
+KR,Gangwon
+KR,North Gyeongsang
+KR,South Gyeongsang
+KR,Incheon
+MX,Mexico City
+MX,Yucatan
+MX,Oaxaca
+MX,Jalisco
+MX,Baja California
+MX,Chiapas
+MX,Puebla
+MX,Guanajuato
+MX,Quintana Roo
+MX,Veracruz
+AR,Buenos Aires
+AR,Mendoza
+AR,Santa Cruz
+AR,Salta
+AR,Cordoba
+AR,Misiones
+AR,Tucuman
+AR,Neuquen
+AR,Chubut
+ZA,Western Cape
+ZA,Gauteng
+ZA,KwaZulu-Natal
+ZA,Mpumalanga
+ZA,Limpopo
+ZA,Eastern Cape
+ZA,Northern Cape
+ZA,Free State
+NG,Lagos
+NG,Abuja
+NG,Kano
+NG,Rivers
+NG,Ogun
+NG,Imo
+NG,Kaduna
+NG,Oyo
+NG,Cross River
+EG,Cairo
+EG,Luxor
+EG,Aswan
+EG,Alexandria
+EG,South Sinai
+EG,Giza
+EG,Red Sea
+ID,Bali
+ID,Java
+ID,North Sumatra
+ID,West Java
+ID,East Java
+ID,West Kalimantan
+ID,North Sulawesi
+ID,West Nusa Tenggara
+ID,East Nusa Tenggara
+ID,West Papua
+TH,Bangkok
+TH,Chiang Mai
+TH,Phuket
+TH,Chiang Rai
+TH,Kanchanaburi
+TH,Krabi
+TH,Surat Thani
+TH,Ayutthaya
+TH,Nakhon Ratchasima
+VN,Hanoi
+VN,Ho Chi Minh City
+VN,Quang Ninh
+VN,Quang Nam
+VN,Da Nang
+VN,Khanh Hoa
+VN,Lao Cai
+VN,Thua Thien Hue
+VN,Kien Giang
+TR,Istanbul
+TR,Nevsehir
+TR,Antalya
+TR,Izmir
+TR,Ankara
+TR,Trabzon
+TR,Mugla
+TR,Bursa
+TR,Canakkale
+SA,Riyadh
+SA,Makkah
+SA,Medina
+SA,Eastern Province
+SA,Al Madinah
+SA,Tabuk
+SA,Asir
+SA,Hail
+AE,Dubai
+AE,Abu Dhabi
+AE,Sharjah
+AE,Ras Al Khaimah
+AE,Fujairah
+AE,Ajman
+AE,Umm Al Quwain
+PK,Punjab
+PK,Sindh
+PK,Khyber Pakhtunkhwa
+PK,Balochistan
+PK,Islamabad Capital Territory
+PK,Gilgit-Baltistan
+PK,Azad Jammu and Kashmir
+BD,Dhaka
+BD,Chittagong
+BD,Cox s Bazar
+BD,Sylhet
+BD,Khulna
+BD,Rajshahi
+BD,Barisal
+LK,Western Province
+LK,Central Province
+LK,Southern Province
+LK,Eastern Province
+LK,Northern Province
+LK,Uva Province
+LK,Sabaragamuwa Province
+NP,Bagmati Province
+NP,Gandaki Province
+NP,Lumbini Province
+NP,Koshi Province
+NP,Madhesh Province
+NP,Sudurpashchim Province
+MY,Kuala Lumpur
+MY,Penang
+MY,Kedah
+MY,Sabah
+MY,Sarawak
+MY,Johor
+MY,Perak
+MY,Selangor
+MY,Malacca
+MY,Kelantan

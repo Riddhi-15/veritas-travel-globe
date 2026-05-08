@@ -1,0 +1,37 @@
+state_name,currency_code,bt_jan,bt_feb,bt_mar,bt_apr,bt_may,bt_jun,bt_jul,bt_aug,bt_sep,bt_oct,bt_nov,bt_dec,peak_months,avoid_months,budget_local,midrange_local,luxury_local
+Rajasthan,INR,1,1,1,2,3,3,2,2,2,1,1,1,Oct – Mar,Apr – Jun (extreme heat 45°C+),1200,3500,12000
+Kerala,INR,1,1,1,2,3,3,3,3,2,2,1,1,Oct – Feb,Jun – Aug (heavy SW monsoon),1500,4000,14000
+Goa,INR,1,1,1,2,3,3,3,3,2,1,1,1,Nov – Feb,Jun – Sep (monsoon),1500,3500,12000
+Himachal Pradesh,INR,3,3,2,1,1,1,3,3,1,1,2,3,Apr – Jun and Sep – Oct,Jul – Aug (landslides) and Dec – Feb (snow),1200,3000,10000
+Uttarakhand,INR,3,3,2,1,1,2,3,3,2,1,2,3,Apr – Jun and Sep – Oct,Jul – Sep (monsoon floods),1200,3000,10000
+Tamil Nadu,INR,1,1,2,2,3,2,2,2,2,2,2,1,Oct – Feb,Apr – Jun (heat),1200,3000,10000
+Maharashtra,INR,1,1,2,3,3,2,2,2,2,1,1,1,Oct – Mar,Apr – May (heat),1500,4000,15000
+Karnataka,INR,1,1,2,2,3,2,3,3,2,1,1,1,Oct – Feb,Jun – Aug (heavy rain on coast),1200,3500,12000
+West Bengal,INR,1,1,2,3,3,3,3,3,2,1,1,1,Oct – Mar,Apr – Sep (heat and monsoon),1200,3000,10000
+Uttar Pradesh,INR,1,1,2,3,3,3,2,2,2,1,1,1,Oct – Mar,Apr – Sep (heat and monsoon),1000,2500,9000
+Jammu and Kashmir,INR,2,2,2,2,1,1,1,1,1,2,2,2,May – Sep,Nov – Mar (heavy snowfall),1500,4000,14000
+Ladakh,INR,3,3,3,2,1,1,1,1,1,2,3,3,May – Sep,Oct – Apr (roads closed by snow),2000,5000,16000
+Andhra Pradesh,INR,1,1,2,3,3,2,2,2,2,2,1,1,Oct – Feb,Apr – Jun (extreme heat),1000,2500,9000
+Arunachal Pradesh,INR,2,2,1,1,1,3,3,3,2,1,1,2,Mar – May and Oct – Nov,Jun – Sep (heavy monsoon),1200,3000,9000
+Assam,INR,1,1,1,2,2,3,3,3,2,1,1,1,Oct – Apr,Jun – Sep (heavy monsoon),1000,2500,8000
+Bihar,INR,1,1,2,3,3,3,2,2,2,1,1,1,Oct – Mar,Apr – Sep (heat and monsoon),800,2000,7000
+Chhattisgarh,INR,1,1,2,3,3,3,3,3,2,1,1,1,Oct – Feb,Jun – Sep (heavy monsoon),800,2000,7000
+Gujarat,INR,1,1,1,2,3,3,3,3,2,1,1,1,Oct – Mar (Rann festival Nov – Feb),Apr – Jun (extreme heat),1200,3000,10000
+Haryana,INR,1,1,2,3,3,3,2,2,2,1,1,1,Oct – Mar,Apr – Jun (heat) and Jul – Sep (monsoon),1000,2500,9000
+Jharkhand,INR,1,1,2,3,3,3,3,3,2,1,1,1,Oct – Feb,Jun – Sep (heavy monsoon),800,2000,7000
+Madhya Pradesh,INR,1,1,2,3,3,3,3,3,2,1,1,1,Oct – Mar (wildlife peak),Jun – Sep (monsoon),1000,2500,9000
+Manipur,INR,2,2,1,1,1,3,3,3,2,1,1,2,Oct – Apr,Jun – Sep (heavy monsoon),1000,2500,8000
+Meghalaya,INR,1,1,1,2,2,3,3,3,2,1,1,1,Oct – May,Jun – Sep (heaviest rain on earth),1200,3000,9000
+Mizoram,INR,2,2,1,1,1,3,3,3,2,1,1,2,Oct – Apr,Jun – Sep (monsoon),1000,2500,8000
+Nagaland,INR,2,2,1,1,1,3,3,3,2,1,1,1,Oct – Apr (Hornbill Festival Dec),Jun – Sep (monsoon),1000,2500,8000
+Odisha,INR,1,1,2,3,3,3,3,3,2,1,1,1,Oct – Feb,Jun – Sep (monsoon and cyclones),1000,2500,8000
+Punjab,INR,1,1,2,3,3,3,2,2,2,1,1,1,Oct – Mar,Apr – Jun (extreme heat),1200,3000,10000
+Sikkim,INR,2,2,1,1,1,3,3,3,2,1,1,2,Mar – May and Oct – Nov,Jun – Aug (heavy monsoon) and Dec – Feb (snow),1200,3000,10000
+Telangana,INR,1,1,2,3,3,2,2,2,2,1,1,1,Oct – Feb,Apr – Jun (heat 42°C+),1000,2800,10000
+Tripura,INR,1,1,2,2,2,3,3,3,2,1,1,1,Oct – Mar,Jun – Sep (heavy monsoon),900,2200,7500
+Andaman and Nicobar Islands,INR,1,1,1,2,2,3,3,3,2,1,1,1,Oct – May,Jun – Sep (monsoon and cyclones),1500,4000,14000
+Chandigarh,INR,1,1,2,3,3,3,2,2,2,1,1,1,Oct – Mar,Apr – Jun (heat) and Jul – Sep (monsoon),1200,3000,10000
+Dadra and Nagar Haveli and Daman and Diu,INR,1,1,2,3,3,3,3,3,2,1,1,1,Oct – Feb,Jun – Sep (monsoon),1000,2500,9000
+Delhi,INR,1,1,2,3,3,3,2,2,2,1,1,1,Oct – Mar,Apr – Jun (extreme heat 45°C+),1500,4000,14000
+Lakshadweep,INR,1,1,1,2,2,3,3,3,3,2,1,1,Oct – May,Jun – Sep (monsoon),2000,5000,18000
+Puducherry,INR,1,1,2,3,3,2,2,2,3,2,2,1,Jan – Mar and Jul – Aug,Oct – Dec (NE monsoon) and Apr – Jun (heat),1200,3000,10000
