@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import FALLBACK from '../data/fallback'
 import { fetchWikiImage, getScenicQuery } from '../utils/wikiImage'
 
@@ -85,12 +85,20 @@ export default function LandingOverlay() {
   const [slide, setSlide]       = useState(0)
   const [featImg, setFeatImg]   = useState(null)
   const [featLoaded, setFeatLoaded] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   // Cycle featured country by slide index
   const feat = bestNow[slide] ?? featured
 
-  // Load scenic image whenever the featured country changes
+  // Load scenic image on desktop only
   useEffect(() => {
+    if (isMobile) return
     let cancelled = false
     if (!feat?.name) return
     setFeatLoaded(false)
@@ -99,7 +107,9 @@ export default function LandingOverlay() {
       if (!cancelled) setFeatImg(url ?? null)
     })
     return () => { cancelled = true }
-  }, [feat?.name])
+  }, [feat?.name, isMobile])
+
+  if (isMobile) return <MobileSheet bestNow={bestNow} />
 
   return (
     <>
@@ -331,21 +341,123 @@ export default function LandingOverlay() {
         ))}
       </div>
 
-      <style>{`
-        @media (max-width: 767px) {
-          .overlay-lhs  { display: none !important; }
-          .overlay-stats { display: none !important; }
-          .overlay-rhs {
-            left: 12px !important;
-            right: 12px !important;
-            width: auto !important;
-            top: auto !important;
-            bottom: 16px !important;
-            max-height: 55vh !important;
-          }
-        }
-      `}</style>
     </>
+  )
+}
+
+// ── Mobile bottom sheet ───────────────────────────────────────────────────────
+
+function MobileSheet({ bestNow }) {
+  const [open, setOpen] = useState(false)
+  const MONTH_NAME = MONTH_LABELS[new Date().getMonth()]
+  const startY = useRef(null)
+
+  const handleTouchStart = (e) => { startY.current = e.touches[0].clientY }
+  const handleTouchEnd   = (e) => {
+    if (startY.current === null) return
+    const dy = startY.current - e.changedTouches[0].clientY
+    if (dy > 28) setOpen(true)   // swipe up → expand
+    if (dy < -28) setOpen(false) // swipe down → collapse
+    startY.current = null
+  }
+
+  return (
+    <div
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      style={{
+        position: 'fixed', bottom: 0, left: 0, right: 0,
+        zIndex: 5,
+        background: 'rgba(6,10,24,0.94)',
+        backdropFilter: 'blur(22px)', WebkitBackdropFilter: 'blur(22px)',
+        borderTop: '1px solid rgba(255,255,255,0.10)',
+        borderRadius: '18px 18px 0 0',
+        overflow: 'hidden',
+        transition: 'height 0.32s cubic-bezier(0.4,0,0.2,1)',
+        height: open ? 214 : 64,
+      }}
+    >
+      {/* Handle + header row */}
+      <div
+        onClick={() => setOpen(o => !o)}
+        style={{
+          height: 64, display: 'flex', alignItems: 'center',
+          padding: '0 20px', gap: 10, cursor: 'pointer',
+          position: 'relative', userSelect: 'none',
+        }}
+      >
+        {/* Drag handle pill */}
+        <div style={{
+          position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)',
+          width: 36, height: 4, borderRadius: 2,
+          background: 'rgba(255,255,255,0.22)',
+        }} />
+        <span style={{ fontSize: 16 }}>🌿</span>
+        <span style={{
+          flex: 1, fontSize: 13, fontWeight: 700,
+          color: '#00d4aa', fontFamily: 'system-ui,sans-serif',
+          letterSpacing: '0.10em', textTransform: 'uppercase',
+        }}>
+          Best Right Now · {MONTH_NAME}
+        </span>
+        <span style={{
+          fontSize: 16, color: 'rgba(255,255,255,0.45)',
+          transition: 'transform 0.25s ease',
+          transform: open ? 'rotate(180deg)' : 'none',
+          display: 'inline-block',
+        }}>∨</span>
+      </div>
+
+      {/* Horizontal scroll cards */}
+      <div style={{
+        display: 'flex', gap: 12,
+        overflowX: 'auto', overflowY: 'hidden',
+        padding: '0 16px 18px',
+        scrollbarWidth: 'none',
+        WebkitOverflowScrolling: 'touch',
+        opacity: open ? 1 : 0,
+        transition: 'opacity 0.18s ease',
+        pointerEvents: open ? 'auto' : 'none',
+      }}>
+        {bestNow.map(c => (
+          <div
+            key={c.iso2}
+            onClick={() => setOpen(false)}
+            style={{
+              flexShrink: 0, width: 136, height: 128,
+              borderRadius: 14, overflow: 'hidden',
+              background: GRADIENTS[c.iso2] ?? GRADIENTS.DEFAULT,
+              border: '1px solid rgba(255,255,255,0.13)',
+              position: 'relative',
+              display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
+              padding: '10px 12px', cursor: 'pointer',
+              boxShadow: '0 4px 18px rgba(0,0,0,0.45)',
+            }}
+          >
+            <span style={{ fontSize: 26, lineHeight: 1, marginBottom: 6 }}>{FLAGS[c.iso2] ?? '🌍'}</span>
+            <div style={{ fontSize: 14, fontWeight: 700, color: '#fff', fontFamily: 'system-ui,sans-serif', lineHeight: 1.2 }}>{c.name}</div>
+            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.55)', fontFamily: 'system-ui,sans-serif', marginTop: 3, lineHeight: 1.3 }}>
+              {getSeasonDesc(c).split(' ')[0] + ' ' + (getSeasonDesc(c).split(' ')[1] ?? '')}
+            </div>
+          </div>
+        ))}
+        {/* Hint card */}
+        <div style={{
+          flexShrink: 0, width: 120, height: 128,
+          borderRadius: 14,
+          background: 'rgba(255,255,255,0.04)',
+          border: '1px dashed rgba(255,255,255,0.15)',
+          display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center', gap: 8,
+          padding: 12,
+        }}>
+          <span style={{ fontSize: 22 }}>🌍</span>
+          <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', fontFamily: 'system-ui,sans-serif', textAlign: 'center', lineHeight: 1.4 }}>
+            Tap any country on the globe
+          </span>
+        </div>
+      </div>
+    </div>
   )
 }
 

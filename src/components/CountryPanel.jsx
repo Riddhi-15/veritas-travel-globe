@@ -222,7 +222,7 @@ export default function CountryPanel() {
         }}
       >
         {/* Hero photo */}
-        <div style={{
+        <div className="panel-hero" style={{
           position: 'relative', height: 260, flexShrink: 0, overflow: 'hidden',
           background: COUNTRY_GRADIENTS[iso2] ?? COUNTRY_GRADIENTS.default,
         }}>
@@ -342,12 +342,13 @@ export default function CountryPanel() {
           .panel-root {
             top: auto !important;
             left: 0 !important; right: 0 !important; bottom: 0 !important;
-            width: 100% !important; height: 60vh !important;
+            width: 100% !important; height: 72vh !important;
             border-left: none !important;
             border-top: 1px solid rgba(255,255,255,0.08) !important;
-            border-radius: 16px 16px 0 0 !important;
+            border-radius: 18px 18px 0 0 !important;
             transform: ${isOpen ? 'translateY(0)' : 'translateY(100%)'} !important;
           }
+          .panel-hero { height: 160px !important; }
         }
         .panel-root ::-webkit-scrollbar { width: 3px; }
         .panel-root ::-webkit-scrollbar-track { background: transparent; }
