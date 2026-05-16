@@ -104,7 +104,7 @@ export default function LandingOverlay() {
   return (
     <>
       {/* ══ LHS ══ */}
-      <div style={{
+      <div className="overlay-lhs" style={{
         position:'fixed', left:32, top:72, bottom:80,
         width:380, zIndex:5,
         pointerEvents:'none', userSelect:'none',
@@ -187,7 +187,7 @@ export default function LandingOverlay() {
       </div>
 
       {/* ══ RHS ══ */}
-      <div className="no-scrollbar" style={{
+      <div className="no-scrollbar overlay-rhs" style={{
         position:'fixed', right:20, top:72, bottom:80,
         width:400, zIndex:5, userSelect:'none',
         overflowY:'auto',
@@ -305,7 +305,7 @@ export default function LandingOverlay() {
       </div>
 
       {/* ══ Bottom stats bar ══ */}
-      <div style={{
+      <div className="overlay-stats" style={{
         position:'fixed', bottom:10, left:412, right:420,
         zIndex:5, display:'flex',
         background:'rgba(4,8,22,0.92)',
@@ -330,6 +330,21 @@ export default function LandingOverlay() {
           </div>
         ))}
       </div>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .overlay-lhs  { display: none !important; }
+          .overlay-stats { display: none !important; }
+          .overlay-rhs {
+            left: 12px !important;
+            right: 12px !important;
+            width: auto !important;
+            top: auto !important;
+            bottom: 16px !important;
+            max-height: 55vh !important;
+          }
+        }
+      `}</style>
     </>
   )
 }

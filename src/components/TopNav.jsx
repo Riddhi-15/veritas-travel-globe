@@ -26,7 +26,7 @@ export default function TopNav() {
     }}>
 
       {/* ── Left: mode tabs ── */}
-      <div style={{ position: 'absolute', left: 20, display: 'flex', alignItems: 'center', gap: 6 }}>
+      <div className="topnav-tabs" style={{ position: 'absolute', left: 20, display: 'flex', alignItems: 'center', gap: 6 }}>
         <div style={{
           padding: '5px 14px', borderRadius: 20,
           background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.18)',
@@ -108,6 +108,11 @@ export default function TopNav() {
           )}
         </button>
       </div>
+      <style>{`
+        @media (max-width: 767px) {
+          .topnav-tabs { display: none !important; }
+        }
+      `}</style>
     </div>
   )
 }
