@@ -30,8 +30,7 @@ const HM_NO_DATA = 'rgba(255,255,255,0.04)'  // near-invisible for unmapped coun
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-function buildStarfield() {
-  const count = 8000
+function buildStarfield(count = 8000) {
   const geo = new THREE.BufferGeometry()
   const pos = new Float32Array(count * 3)
   for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 3000
@@ -159,12 +158,13 @@ export default function Globe() {
       .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
       .showAtmosphere(true).atmosphereColor('#3fa9f5').atmosphereAltitude(0.30)
       .backgroundColor('#000000')
+    const mobile = window.innerWidth < 768
     globe.controls().autoRotate      = true
-    globe.controls().autoRotateSpeed = 0.4
+    globe.controls().autoRotateSpeed = mobile ? 0.6 : 0.4
     globe.controls().enableDamping   = true
     globe.width(el.clientWidth).height(el.clientHeight)
-    globe.pointOfView({ altitude: 1.8 })
-    globe.scene().add(buildStarfield())
+    globe.pointOfView({ altitude: mobile ? 2.0 : 1.8 })
+    globe.scene().add(buildStarfield(mobile ? 1500 : 8000))
 
     fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
       .then((r) => r.json())
