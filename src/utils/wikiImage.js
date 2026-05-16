@@ -183,8 +183,8 @@ const SCENIC = {
   'Meteora Monasteries':          'Meteora',
   'Delphi Oracle':                'Delphi',
   'Mykonos Windmills':            'Windmill of Mykonos',
-  'Santorini Caldera':            'Meteora',
-  'Santorini Island':             'Meteora',
+  'Santorini Caldera':            'Oia, Santorini',
+  'Santorini Island':             'Oia, Santorini',
   'Thessaloniki Waterfront':      'Thessaloniki',
   'Corfu Old Town':               'Corfu',
   'Olympia':                      'Olympia, Greece',
@@ -221,11 +221,11 @@ const SCENIC = {
   'Hassan II Mosque':             'Hassan II Mosque',
   'Sahara Desert Dunes':          'Erg Chebbi',
   'Merzouga Dunes':               'Erg Chebbi',
-  'Ait Benhaddou':                'Hassan II Mosque',
-  'Marrakech Souks':              'Hassan II Mosque',
+  'Ait Benhaddou':                'Ksar of Aït-Ben-Haddou',
+  'Marrakech Souks':              'Majorelle Garden',
   'Jardin Majorelle':             'Majorelle Garden',
   'Majorelle Garden':             'Majorelle Garden',
-  'Essaouira Medina':             'Chefchaouen',
+  'Essaouira Medina':             'Essaouira',
   // ── Algeria places ─────────────────────────────────────────────────────────
   'Hoggar':                       'Hoggar Mountains',
   'Tassili n\'Ajjer':             'Hoggar Mountains',
@@ -319,17 +319,17 @@ const SCENIC = {
   'Varanasi Ghats':               'Dashashwamedh Ghat',
   // ── Indian city places ─────────────────────────────────────────────────────
   'Brahma Temple':                'Brahma temple, Pushkar',
-  'Pushkar Camel Fair':           'Pushkar fair',
+  'Pushkar Camel Fair':           'Pushkar Camel Fair',
   'Pushkar Lake':                 'Pushkar Lake',
   'Savitri Temple':               'Savitri Temple, Pushkar',
   'Lake Pichola':                 'Lake Pichola',
   'Jag Mandir':                   'Jag Mandir',
-  'Sajjangarh':                   'Sajjangarh Palace',
+  'Sajjangarh':                   'Sajjangarh',
   'Bagore Ki Haveli':             'Bagore Ki Haveli',
   'City Palace':                  'City Palace, Udaipur',
   'City Palace, Udaipur':         'City Palace, Udaipur',
   'Fatehpur Sikri':               'Fatehpur Sikri',
-  'Mehrangarh':                   'Mehrangarh Fort',
+  'Mehrangarh':                   'Mehrangarh',
   'Umaid Bhawan':                 'Umaid Bhawan Palace',
   'Jaswant Thada':                'Jaswant Thada',
   'Thar Desert':                  'Thar Desert',
@@ -340,11 +340,11 @@ const SCENIC = {
   // Pakistan / South Asia place names
   'Lahore Fort and Badshahi Mosque': 'Lahore Fort',
   'Lahore Fort & Badshahi Mosque':   'Lahore Fort',
-  'Hunza Valley':                    'K2',
-  'Fairy Meadows':                   'Nanga Parbat',
+  'Hunza Valley':                    'Hunza Valley',
+  'Fairy Meadows':                   'Fairy Meadows',
   'Nanga Parbat':                    'Nanga Parbat',
-  'Karakoram Highway':               'K2',
-  'Shandur Pass':                    'Fairy Meadows',
+  'Karakoram Highway':               'Karakoram Highway',
+  'Shandur Pass':                    'Shandur Pass',
   'Swat Valley':                     'Swat, Pakistan',
   'Mohenjo-Daro':                    'Mohenjo-daro',
   'Mohenjo Daro':                    'Mohenjo-daro',
@@ -376,6 +376,206 @@ const SCENIC = {
   'Temples':                      'Brihadeeswarar Temple',
   'Lakes':                        'Dal Lake',
   'Waterfalls':                   'Nohkalikai Falls',
+
+  // ── India state drill-down place names (INDIA_STATES fallback) ──────────────
+  // Names here are AFTER cleanPlaceName() transformation (suffix stripped, split on ' & ' and ',')
+  // Rajasthan
+  'Jaipur – Amber Fort':           'Amber Fort',
+  'Jodhpur – Mehrangarh Fort':     'Mehrangarh Fort',
+  'Udaipur – City of Lakes':       'Lake Pichola',
+  'Jaisalmer Desert':                   'Jaisalmer',
+  // Kerala
+  'Alleppey Backwaters Houseboat':      'Kerala backwaters',
+  'Munnar Tea Gardens':                 'Munnar',
+  'Kovalam Beach':                      'Kovalam',
+  'Periyar':                            'Periyar Tiger Reserve',
+  'Fort Kochi':                         'Fort Kochi',
+  // Goa
+  'Old Goa Churches':                   'Basilica of Bom Jesus',
+  'Palolem Beach':                      'Palolem Beach',
+  // Himachal Pradesh
+  'Manali':                             'Rohtang Pass',
+  'Shimla':                             'Shimla',
+  'Dharamshala':                        'McLeod Ganj',
+  'Kullu Valley':                       'Kullu Valley',
+  // Uttarakhand
+  'Rishikesh – Yoga':              'Rishikesh',
+  'Haridwar Ganga Aarti':               'Har ki Pauri',
+  'Nainital':                           'Nainital',
+  'Kedarnath Temple':                   'Kedarnath',
+  // Tamil Nadu
+  'Madurai Meenakshi Temple':           'Meenakshi Amman Temple',
+  'Ooty Nilgiri Hills':                 'Ooty',
+  'Mahabalipuram Shore Temple':         'Shore Temple',
+  'Kanyakumari':                        'Kanyakumari',
+  'Rameswaram':                         'Ramanathaswamy Temple',
+  // Maharashtra
+  'Ajanta':                             'Ajanta Caves',
+  'Lonavala':                           'Lonavala',
+  'Shirdi':                             'Shirdi',
+  'Mahabaleshwar':                      'Mahabaleshwar',
+  // Karnataka
+  'Hampi Ruins':                        'Hampi',
+  'Coorg Coffee Estates':               'Coorg district',
+  'Gokarna Beach':                      'Gokarna, Karnataka',
+  'Gokarna':                            'Gokarna, Karnataka',
+  'Chikmagalur':                        'Chikmagalur',
+  // West Bengal
+  'Kolkata':                            'Victoria Memorial, Kolkata',
+  'Darjeeling Tea Gardens':             'Happy Valley Tea Estate',
+  'Sundarbans Tiger Reserve':           'Sundarbans',
+  'Bishnupur Terracotta Temples':       'Bishnupur',
+  'Kalimpong':                          'Kalimpong',
+  // Uttar Pradesh
+  'Vrindavan':                          'Vrindavan',
+  'Lucknow Nawabi Heritage':            'Bara Imambara',
+  // Jammu & Kashmir
+  'Dal Lake':                           'Dal Lake',
+  'Gulmarg':                            'Gulmarg',
+  'Gulmarg Skiing':                     'Gulmarg',
+  'Betaab Valley':                      'Betaab Valley',
+  'Vaishno Devi Temple':                'Vaishno Devi',
+  'Dal Lake & Shikara Ride, Srinagar': 'Dal Lake',
+  'Gulmarg Skiing & Gondola':      'Gulmarg',
+  'Pahalgam Valley':                    'Pahalgam',
+  // Ladakh
+  'Pangong Lake':                       'Pangong Lake',
+  'Magnetic Hill':                      'Magnetic Hill, Leh',
+  'Nubra Valley and Sand Dunes':        'Nubra Valley',
+  'Magnetic Hill & Leh Palace':    'Magnetic Hill, Leh',
+  'Pangong Tso Lake':                   'Pangong Lake',
+  // Andhra Pradesh
+  'Tirupati Balaji Temple':             'Tirumala Venkateswara Temple',
+  'Visakhapatnam Beach':                'Visakhapatnam',
+  'Amaravati':                          'Amaravati Stupa',
+  'Borra Caves':                        'Borra Caves',
+  'Araku Valley':                       'Araku Valley',
+  // Telangana
+  'Charminar Hyderabad':                'Charminar',
+  'Ramoji Film City':                   'Ramoji Film City',
+  'Warangal Fort':                      'Warangal Fort',
+  'Nagarjuna Sagar':                    'Nagarjuna Sagar',
+  // Gujarat
+  'Ahmedabad':                          'Sabarmati Ashram',
+  'Gir Forest National Park':           'Gir Forest National Park',
+  'Dwarka':                             'Dwarkadhish Temple',
+  'Somnath Temple':                     'Somnath temple',
+  // Madhya Pradesh
+  'Khajuraho Temples':                  'Khajuraho',
+  'Kanha National Park':                'Kanha Tiger Reserve',
+  'Bandhavgarh Tiger Reserve':          'Bandhavgarh National Park',
+  'Sanchi':                             'Sanchi',
+  'Orchha':                             'Orchha',
+  // Punjab
+  'Golden Temple Amritsar':             'Harmandir Sahib',
+  'Wagah Border Ceremony':              'Wagah border ceremony',
+  'Chandigarh Rock Garden':             'Rock Garden of Chandigarh',
+  'Anandpur Sahib':                     'Anandpur Sahib',
+  'Patiala Heritage Walk':              'Patiala',
+  // Bihar
+  'Bodh Gaya Mahabodhi Temple':         'Mahabodhi Temple',
+  'Nalanda University Ruins':           'Nalanda',
+  'Rajgir':                             'Rajgir',
+  'Patna':                              'Golghar',
+  'Vaishali':                           'Vaishali, Bihar',
+  // Odisha
+  'Puri Jagannath Temple':              'Jagannath Temple, Puri',
+  'Chilika Lake':                       'Chilika Lake',
+  'Simlipal National Park':             'Simlipal National Park',
+  'Udayagiri and Khandagiri Caves':     'Udayagiri and Khandagiri Caves',
+  // Assam
+  'Majuli River Island':                'Majuli',
+  'Kamakhya Temple Guwahati':           'Kamakhya Temple',
+  'Manas National Park':                'Manas National Park',
+  'Jorhat Tea Estates':                 'Jorhat',
+  // Jharkhand
+  'Deoghar Baidyanath Temple':          'Baidyanath Jyotirlinga',
+  'Betla National Park':                'Betla National Park',
+  'Ranchi':                             'Hundru Falls',
+  'Parasnath Hill':                     'Parasnath',
+  // Chhattisgarh
+  'Bastar Tribal Region':               'Bastar district',
+  'Raipur':                             'Raipur',
+  'Tirathgarh Falls':                   'Tirathgarh Falls',
+  'Kanger Valley National Park':        'Kanger Valley National Park',
+  // Haryana
+  'Kurukshetra':                        'Kurukshetra',
+  'Sultanpur Bird Sanctuary':           'Sultanpur National Park',
+  'Panipat Museum':                     'Panipat',
+  'Morni Hills':                        'Morni Hills',
+  'Faridabad Surajkund':                'Surajkund',
+  // Meghalaya
+  'Cherrapunji Living Root Bridges':    'Living root bridge',
+  'Shillong':                           'Ward\'s Lake',
+  'Mawsynram':                          'Mawsynram',
+  'Elephant Falls':                     'Elephant Falls, Shillong',
+  // Sikkim
+  'Gangtok':                            'Rumtek Monastery',
+  'Gurudongmar Lake':                   'Gurudongmar Lake',
+  'Pelling and Kanchenjunga Views':     'Pelling',
+  // Manipur
+  'Loktak Lake':                        'Loktak Lake',
+  'Keibul Lamjao National Park':        'Keibul Lamjao National Park',
+  'Imphal War Cemetery':                'Imphal War Cemetery',
+  'Kangla Fort':                        'Kangla Fort',
+  'Dzukou Valley Trek':                 'Dzukou Valley',
+  // Mizoram
+  'Aizawl':                             'Aizawl',
+  'Phawngpui Blue Mountain':            'Phawngpui',
+  'Champhai':                           'Champhai',
+  'Vantawng Falls':                     'Vantawng Falls',
+  'Reiek Peak':                         'Reiek',
+  // Nagaland
+  'Hornbill Festival Kohima':           'Kisama Heritage Village',
+  'Hornbill Festival':                  'Kisama Heritage Village',
+  'Kohima War Cemetery':                'Kohima War Cemetery',
+  'Japfu Peak':                         'Dzukou Valley',
+  'Mount Japfü':                        'Dzukou Valley',
+  'Khonoma Green Village':              'Khonoma',
+  // Tripura
+  'Ujjayanta Palace Agartala':          'Ujjayanta Palace',
+  'Neermahal Water Palace':             'Neermahal',
+  'Tripura Sundari Temple':             'Tripura Sundari',
+  'Sepahijala':                         'Sepahijala Wildlife Sanctuary',
+  'Unakoti Rock Carvings':              'Unakoti',
+  // Arunachal Pradesh
+  'Ziro Valley':                        'Ziro Valley',
+  'Namdapha National Park':             'Namdapha National Park',
+  'Sela Pass':                          'Sela Pass',
+  'Dirang':                             'Dirang',
+  // Delhi
+  'India Gate':                         'India Gate',
+  'Humayuns Tomb':                      'Humayun\'s Tomb',
+  // Puducherry
+  'Promenade Beach':                    'Pondicherry',
+  'Auroville':                          'Auroville',
+  'Paradise Beach':                     'Pondicherry',
+  'Puducherry French Quarter':          'Pondicherry',
+  // Andaman & Nicobar
+  'Radhanagar Beach Havelock':          'Radhanagar Beach',
+  'Cellular Jail Port Blair':           'Cellular Jail',
+  'Neil Island':                        'Neil Island',
+  'Barren Island Volcano':              'Barren Island (Andaman Islands)',
+  'Snorkelling and Diving':             'Radhanagar Beach',
+  // Chandigarh
+  'Rock Garden':                        'Rock Garden of Chandigarh',
+  'Sukhna Lake':                        'Sukhna Lake',
+  'Rose Garden':                        'Zakir Hussain Rose Garden',
+  'Capitol Complex':                    'Capitol Complex, Chandigarh',
+  'Sector 17 Plaza':                    'Chandigarh',
+  // Lakshadweep
+  'Agatti Island':                      'Agatti Island',
+  'Bangaram Atoll Snorkelling':         'Bangaram Atoll',
+  'Kavaratti Marine Museum':            'Kavaratti',
+  'Kalpeni Island':                     'Kalpeni',
+  'Minicoy Lighthouse':                 'Minicoy',
+  // Daman and Diu
+  'Diu Fort':                           'Diu Fort',
+  'Nagoa Beach':                        'Nagoa Beach',
+  'St. Paul\'s Church Diu':             'St. Paul\'s Church, Diu',
+  'Ghogla Beach':                       'Ghogla',
+  'INS Khukri Memorial':                'INS Khukri (F149)',
+
   // ── City-level place names (cities.js) ────────────────────────────────────
   // Tokyo
   'Senso-ji Temple Asakusa':          'Sensō-ji',
@@ -467,7 +667,7 @@ const SCENIC = {
   'Kingdom Centre Tower':             'Kingdom Centre',
   'National Museum of Saudi Arabia':  'National Museum of Saudi Arabia',
   'Edge of the World Escarpment':     'Jebel Fihrayn',
-  'Souq Al Zal':                      'Al-Ula',
+  'Souq Al Zal':                      'Diriyah',
   // Istanbul city places
   'Hagia Sophia':                     'Hagia Sophia',
   'Topkapi Palace':                   'Topkapi Palace',
@@ -676,17 +876,21 @@ const SCENIC = {
   'Dharavi Slum Tour':                'Dharavi',
   'Elephanta Caves':                  'Elephanta Caves',
   'Marine Drive':                     'Marine Drive, Mumbai',
+  "Marine Drive Queen's Necklace":    'Marine Drive, Mumbai',
   'Dhobi Ghat':                       'Dhobi Ghat',
+  'Dhobi Ghat Open Air Laundry':      'Dhobi Ghat',
   // Delhi city places
   'Red Fort':                         'Red Fort',
   'Qutub Minar':                      'Qutb Minar',
   "Humayun's Tomb":                   "Humayun's Tomb",
   'Chandni Chowk':                    'Chandni Chowk',
-  'Lodhi Art District':               'Lodhi Art District',
+  'Chandni Chowk Street Food Walk':   'Chandni Chowk',
+  'Lodhi':                            'Lodhi Colony',
   // Jaipur city places
   'Hawa Mahal Palace of Winds':       'Hawa Mahal',
   'City Palace':                      'City Palace, Jaipur',
   'Jantar Mantar Observatory':        'Jantar Mantar, Jaipur',
+  'Anokhi Block Print Museum':        'Anokhi Museum of Hand Printing',
   // Varanasi city places
   'Dashashwamedh Ghat Aarti Ceremony':'Dashashwamedh Ghat',
   'Sunrise Boat Ride on Ganges':      'Dashashwamedh Ghat',
@@ -714,21 +918,25 @@ const SCENIC = {
   'Taj Mahal Sunrise View':           'Taj Mahal',
   'Agra Fort':                        'Agra Fort',
   'Mehtab Bagh Moonrise Garden':      'Mehtab Bagh',
-  // Udaipur city places
-  'Jag Mandir Island Palace':         'Jag Mandir',
-  'Sajjangarh Monsoon Palace':        'Sajjangarh Palace',
+  // Udaipur city places (keys = post-cleanPlaceName output)
+  'Lake Pichola':                     'Lake Pichola',
+  'Jag Mandir':                       'Jag Mandir',
+  // 'Sajjangarh' key already defined above (mapped to 'Sajjangarh') — no duplicate needed
   'Bagore Ki Haveli Folk Show':       'Bagore Ki Haveli',
   // Jodhpur city places
   'Blue City Rooftop Views':          'Jodhpur',
   'Mandore Gardens':                  'Mandore',
-  // Amritsar city places
-  'Golden Temple (Harmandir Sahib)':  'Harmandir Sahib',
+  // Amritsar city places (key for Golden Temple = after stripping parenthetical)
+  'Golden Temple':                    'Harmandir Sahib',
   'Wagah Border Beating Retreat':     'Wagah border ceremony',
   'Jallianwala Bagh Memorial':        'Jallianwala Bagh',
+  'Partition Museum':                 'Partition Museum',
   // Rishikesh city places
   'Laxman Jhula':                     'Laxman Jhula',
   'Triveni Ghat Evening Aarti':       'Triveni Ghat',
   'Beatles Ashram (Chaurasi Kutia)':  'Chaurasi Kutia',
+  'Beatles Ashram':                   'Chaurasi Kutia',
+  'White-Water Rafting Ganges':       'Rishikesh',
   // Shimla city places
   'Toy Train Kalka-Shimla Railway':   'Kalka-Shimla Railway',
   'Jakhu Temple':                     'Jakhu Temple',
@@ -745,14 +953,20 @@ const SCENIC = {
   'Shaniwar Wada Palace Ruins':       'Shaniwar Wada',
   'Aga Khan Palace':                  'Aga Khan Palace, Pune',
   'Sinhagad Fort Trek':               'Sinhagad',
+  'Osho Meditation Resort':           'Osho International Meditation Resort',
+  'Koregaon Park Café District':      'Koregaon Park',
   // Ahmedabad city places
   'Sabarmati Ashram':                 'Sabarmati Ashram',
+  'Old City Pols':                    'Pol (architecture)',
   'Adalaj Stepwell':                  'Adalaj',
   'Kankaria Lake':                    'Kankaria',
+  'Calico Museum of Textiles':        'Calico Museum of Textiles',
   // Mysuru city places
   'Mysore Palace (Amba Vilas)':       'Mysore Palace',
   'Chamundi Hill Temple':             'Chamundeshwari Temple',
   'Brindavan Gardens':                'Brindavan Gardens',
+  'Devaraja Market':                  'Devaraja Market, Mysore',
+  'Namdroling Monastery Bylakuppe':   'Namdroling Monastery',
   // Munich city places
   'Marienplatz':                      'Marienplatz',
   'Marienplatz & Glockenspiel':       'Marienplatz',
@@ -1081,7 +1295,7 @@ const SCENIC = {
   'Jaipur':       'Amber Fort',
   'Varanasi':     'Dashashwamedh Ghat',
   'Agra':         'Taj Mahal',
-  'Moscow':       'Olkhon Island',
+  'Moscow':       "Saint Basil's Cathedral",
   'Saint Petersburg': 'Peterhof Palace',
   'Prague':       'Prague Old Town Square',
   'Vienna':       'Schönbrunn Palace',
@@ -1093,21 +1307,21 @@ const SCENIC = {
   'Lisbon':       'Belém Tower',
   'Madrid':       'Royal Palace of Madrid',
   'Brussels':     'Grand Place, Brussels',
-  'Zurich':       'Matterhorn',
-  'Dublin':       'Cliffs of Moher',
-  'Warsaw':       'Wawel Castle',
-  'Bucharest':    'Bran Castle',
+  'Zurich':       'Old Town of Zurich',
+  'Dublin':       'Trinity College, Dublin',
+  'Warsaw':       'Warsaw Old Town Market Place',
+  'Bucharest':    'Palace of the Parliament',
   'Cairo':        'Great Pyramid of Giza',
   'Marrakech':    'Jardin Majorelle',
   'Cape Town':    'Table Mountain',
-  'Nairobi':      'Maasai Mara National Reserve',
+  'Nairobi':      'Nairobi National Park',
   'Petra':        'Petra',
-  'Riyadh':       'Al-Ula',
+  'Riyadh':       'Kingdom Centre',
   'Kathmandu':    'Boudhanath',
-  'Colombo':      'Sigiriya',
+  'Colombo':      'Gangaramaya Temple',
   'Hanoi':        'Ha Long Bay',
-  'Ho Chi Minh City': 'Hội An',
-  'Phnom Penh':   'Angkor Wat',
+  'Ho Chi Minh City': 'Bến Thành Market',
+  'Phnom Penh':   'Royal Palace, Phnom Penh',
   'Kuala Lumpur': 'Petronas Towers',
   'Manila':       'Chocolate Hills',
   'Seoul':        'Gyeongbokgung Palace',
@@ -1120,8 +1334,8 @@ const SCENIC = {
   'Casablanca':   'Hassan II Mosque',
   'Fez':          'Fez, Morocco',
   'Marrakech':    'Majorelle Garden',
-  'Algiers':      'Hoggar Mountains',
-  'Montreal':     'Canadian Rockies',
+  'Algiers':      'Casbah of Algiers',
+  'Montreal':     'Old Montreal',
   'Toronto':      'CN Tower',
   'Calgary':      'Banff National Park',
   'Quebec City':  'Old Quebec',
@@ -1323,7 +1537,7 @@ const SCENIC = {
   'Lofoten Islands':               'Lofoten',
   'Bergen':                        'Bryggen',
   'Oslo':                          'Oslo City Hall',
-  'Turku Archipelago':             'Turku Archipelago',
+  'Turku Archipelago':             'Archipelago Sea',
   'Tampere':                       'Tampere',
   'Helsinki':                      'Helsinki Cathedral',
   'Rovaniemi':                     'Rovaniemi',
@@ -1490,11 +1704,738 @@ const SCENIC = {
   'Tirana':                        'Tirana',
   'Podgorica':                     'Ostrog monastery',
   'Skopje':                        'Skopje',
+
+  // ── Sri Lanka fallback places ─────────────────────────────────────────────
+  'Kandy Temple of the Tooth':     'Temple of the Tooth',
+  'Ella Hill Country':             'Nine Arch Bridge, Demodara',
+  'Mirissa Beach':                 'Mirissa',
+  'Galle Dutch Fort':              'Galle Fort',
+
+  // ── Australia fallback ────────────────────────────────────────────────────
+  'The Whitsundays':               'Whitsunday Islands',
+
+  // ── Malaysia fallback ─────────────────────────────────────────────────────
+  'Penang George Town':            'George Town, Penang',
+  'Borneo Rainforest':             'Borneo',
+
+  // ── Singapore fallback ───────────────────────────────────────────────────
+  'Chinatown':                     'Chinatown, Singapore',
+
+  // ── Egypt fallback ────────────────────────────────────────────────────────
+  'Luxor Temples':                 'Luxor Temple',
+
+  // ── China fallback ────────────────────────────────────────────────────────
+  "Terracotta Army Xi'an":         'Terracotta Army',
+
+  // ── Mexico fallback ───────────────────────────────────────────────────────
+  'Cancun and Riviera Maya':       'Cancún',
+
+  // ── Morocco fallback ─────────────────────────────────────────────────────
+  'Marrakech Medina':              'Medina of Marrakech',
+  'Sahara Desert Merzouga':        'Erg Chebbi',
+  'Chefchaouen Blue City':         'Chefchaouen',
+
+  // ── Jordan fallback ───────────────────────────────────────────────────────
+  'Wadi Rum Desert':               'Wadi Rum',
+  'Jerash Roman Ruins':            'Jerash',
+
+  // ── Canada fallback ───────────────────────────────────────────────────────
+  'Quebec City Old Town':          'Old Quebec',
+
+  // ── Argentina fallback ────────────────────────────────────────────────────
+  'Patagonia and Torres del Paine':'Torres del Paine National Park',
+
+  // ── Philippines fallback ─────────────────────────────────────────────────
+  'Chocolate Hills Bohol':         'Chocolate Hills',
+  'Intramuros Manila':             'Intramuros',
+  'Vigan Heritage Town':           'Vigan',
+
+  // ── Colombia fallback ─────────────────────────────────────────────────────
+  'Cartagena Old Walled City':     'Cartagena de Indias',
+  'Coffee Cultural Landscape':     'Coffee Cultural Landscape of Colombia',
+
+  // ── Cuba fallback ─────────────────────────────────────────────────────────
+  'Havana Old Town':               'Old Havana',
+  'Trinidad Colonial Town':        'Trinidad, Cuba',
+
+  // ── Ecuador fallback ─────────────────────────────────────────────────────
+  'Quito Historic Centre':         'Historic Centre of Quito',
+  'Amazon Napo River Basin':       'Amazon rainforest',
+  'Otavalo Indigenous Market':     'Otavalo',
+
+  // ── Bolivia fallback ─────────────────────────────────────────────────────
+  'Salar de Uyuni Salt Flats':     'Salar de Uyuni',
+  'Tiwanaku Ruins':                'Tiwanaku',
+  'Sucre White City':              'Sucre, Bolivia',
+
+  // ── Chile fallback ────────────────────────────────────────────────────────
+  'Valparaíso Street Art':         'Valparaíso',
+
+  // ── Costa Rica fallback ───────────────────────────────────────────────────
+  'Tortuguero Sea Turtle Nesting': 'Tortuguero National Park',
+
+  // ── Panama fallback ───────────────────────────────────────────────────────
+  'Panama Canal Miraflores Locks': 'Miraflores Locks',
+  'Bocas del Toro Archipelago':    'Bocas del Toro Province',
+  'Panama City Casco Viejo':       'Casco Viejo, Panama',
+
+  // ── Jamaica fallback ─────────────────────────────────────────────────────
+  'Seven Mile Beach Negril':       'Negril',
+  'Blue Mountains Coffee':         'Blue Mountains, Jamaica',
+  'Kingston Bob Marley Museum':    'Bob Marley Museum',
+
+  // ── Ethiopia fallback ─────────────────────────────────────────────────────
+  'Lalibela Rock-Hewn Churches':   'Lalibela',
+  'Axum Obelisks':                 'Obelisks of Axum',
+
+  // ── Rwanda fallback ───────────────────────────────────────────────────────
+  'Volcanoes NP Gorilla':          'Volcanoes National Park',
+  'Nyungwe Forest Canopy Walk':    'Nyungwe Forest National Park',
+
+  // ── Namibia fallback ─────────────────────────────────────────────────────
+  'Sossusvlei Red Sand Dunes':     'Deadvlei',
+
+  // ── Tanzania fallback ────────────────────────────────────────────────────
+  'Zanzibar Island':               'Unguja',
+  'Stone Town Zanzibar':           'Stone Town',
+
+  // ── Georgia (country) fallback ────────────────────────────────────────────
+  'Kazbegi and Gergeti Trinity Church': 'Gergeti Trinity Church',
+
+  // ── Israel fallback ───────────────────────────────────────────────────────
+  'Tel Aviv Beach':                'Tel Aviv',
+
+  // ── Iran fallback ─────────────────────────────────────────────────────────
+  'Yazd Old City':                 'Yazd',
+
+  // ── Myanmar fallback ─────────────────────────────────────────────────────
+  'Shwedagon Pagoda Yangon':       'Shwedagon Pagoda',
+  'Hpa-An Caves':                  'Hpa-an',
+
+  // ── Laos fallback ─────────────────────────────────────────────────────────
+  'Vang Vieng Karst Landscape':    'Vang Vieng',
+  'Vientiane Patuxai':             'Patuxai',
+  'Si Phan Don 4000 Islands':      'Si Phan Don',
+
+  // ── Kyrgyzstan fallback ───────────────────────────────────────────────────
+  'Song-Köl Lake':                 'Song Kol',
+  'Tash Rabat Silk Road Caravanserai': 'Tash Rabat',
+
+  // ── Mongolia fallback ────────────────────────────────────────────────────
+  'Terelj National Park Ger Camps':'Gorkhi-Terelj National Park',
+
+  // ── Fiji fallback ─────────────────────────────────────────────────────────
+  'Coral Coast':                   'Fiji',
+  'Nadi and Sabeto Mud Pools':     'Nadi, Fiji',
+
+  // ── Vanuatu fallback ─────────────────────────────────────────────────────
+  'Mount Yasur Active Volcano Tanna': 'Mount Yasur',
+  'Espiritu Santo Blue Holes':     'Espiritu Santo, Vanuatu',
+  'Kastom Villages':               'Kastom',
+
+  // ── Papua New Guinea fallback ─────────────────────────────────────────────
+  'Tufi Fjords':                   'Tufi, Oro Province',
+  'Huli Wigmen Highlands':         'Huli people',
+
+  // ── Malta fallback ───────────────────────────────────────────────────────
+  'Valletta UNESCO Capital':       'Valletta',
+  'Mdina Silent City':             'Mdina',
+  'Blue Lagoon Comino':            'Blue Lagoon (Comino)',
+
+  // ── Cyprus fallback ───────────────────────────────────────────────────────
+  'Troodos Mountains Monasteries': 'Troodos Mountains',
+  'Kyrenia Harbour':               'Kyrenia',
+  "Aphrodite's Rock Beach":        'Rock of Aphrodite',
+  'Nicosia Divided Capital':       'Nicosia',
+
+  // ── Tunisia fallback ─────────────────────────────────────────────────────
+  'Sahara Tozeur':                 'Tozeur',
+  'Sidi Bou Said Blue Village':    'Sidi Bou Said',
+
+  // ── Nigeria fallback ─────────────────────────────────────────────────────
+  'Lagos Beaches and Nightlife':   'Lagos',
+  'Olumo Rock Abeokuta':           'Olumo Rock',
+  'Benin City Bronze Kingdom':     'Benin City',
+
+  // ── Mauritius fallback ───────────────────────────────────────────────────
+  'Le Morne UNESCO Beach':         'Le Morne Brabant',
+  'Chamarel Seven Coloured Earth': 'Seven Coloured Earths',
+  'Grand Bassin Sacred Lake':      'Grand Bassin, Mauritius',
+
+  // ── Seychelles fallback ───────────────────────────────────────────────────
+  "Anse Source d'Argent La Digue": "Anse Source d'Argent",
+  "Vallée de Mai Coco de Mer":     'Vallée de Mai',
+  'Beau Vallon Beach Mahé':        'Beau Vallon',
+  'Victoria Market':               'Victoria, Seychelles',
+
+  // ── Zambia fallback ───────────────────────────────────────────────────────
+  'Victoria Falls Zambia Side':    'Victoria Falls',
+  'Lake Kariba Houseboat':         'Lake Kariba',
+
+  // ── Uganda fallback ───────────────────────────────────────────────────────
+  'Bwindi Gorilla':                'Bwindi Impenetrable Forest',
+  'Kibale Chimpanzee Tracking':    'Kibale National Park',
+  'Source of the Nile Jinja':      'Jinja, Uganda',
+
+  // ── Madagascar fallback ───────────────────────────────────────────────────
+  'Tsingy de Bemaraha Stone Forests': 'Tsingy de Bemaraha',
+  'Ranomafana Rainforest':         'Ranomafana National Park',
+
+  // ── Mozambique fallback ───────────────────────────────────────────────────
+  'Tofo Beach Manta Rays':         'Tofo Beach',
+
+  // ── Cape Verde fallback ───────────────────────────────────────────────────
+  'Sal Island Santa Maria Beach':  'Sal, Cape Verde',
+  'Santo Antão Hiking Valleys':    'Santo Antão, Cape Verde',
+  'Mindelo São Vicente Culture':   'Mindelo',
+  'Fogo Volcano':                  'Fogo (island)',
+  'Boa Vista Sand Dunes':          'Boa Vista, Cape Verde',
+
+  // ── Dominican Republic fallback ───────────────────────────────────────────
+  'Punta Cana Beaches':            'Punta Cana',
+  'Santo Domingo Colonial Zone':   'Colonial City of Santo Domingo',
+  '27 Waterfalls Damajagua':       'Los Charcos del Damajagua',
+  'Jarabacoa Mountain Adventure':  'Jarabacoa',
+
+  // ── Guatemala fallback ────────────────────────────────────────────────────
+  'Tikal Mayan Ruins':             'Tikal',
+  'Antigua Colonial City':         'Antigua Guatemala',
+  'Semuc Champey Pools':           'Semuc Champey',
+  'Chichicastenango Market':       'Chichicastenango',
+
+  // ── Uruguay fallback ─────────────────────────────────────────────────────
+  'Montevideo Old Town Rambla':    'Montevideo',
+  'Punta del Este Beaches':        'Punta del Este',
+  'Carmelo Wine Region':           'Carmelo, Uruguay',
+
+  // ── Trinidad and Tobago fallback ──────────────────────────────────────────
+  'Port of Spain Carnival':        'Trinidad Carnival',
+  'Tobago Coral Reefs':            'Tobago',
+  'Maracas Bay Beach':             'Maracas Bay',
+  'Pitch Lake La Brea':            'Pitch Lake',
+
+  // ── Belize fallback ───────────────────────────────────────────────────────
+  'Ambergris Caye Beach':          'Ambergris Caye',
+  'Actun Tunichil Muknal Cave':    'Actun Tunichil Muknal',
+  'Caracol Mayan Ruins':           'Caracol',
+
+  // ── Honduras fallback ────────────────────────────────────────────────────
+  'Roatán Bay Islands':            'Roatán',
+  'Copán Mayan Ruins':             'Copán',
+  'Utila Island Whale Sharks':     'Utila',
+
+  // ── Venezuela fallback ────────────────────────────────────────────────────
+  'Angel Falls Canaima':           'Angel Falls',
+  'Roraima Tepui':                 'Mount Roraima',
+  'Mérida Cable Car Andes':        'Mérida, Venezuela',
+
+  // ── Bangladesh fallback ───────────────────────────────────────────────────
+  'Sundarbans Mangrove Forest':    'Sundarbans',
+  "Cox's Bazar World's Longest Beach": "Cox's Bazar",
+  'Dhaka Old City Rickshaw Tour':  'Dhaka',
+  'Srimangal Tea Gardens':         'Srimangal',
+
+  // ── Armenia fallback ─────────────────────────────────────────────────────
+  'Noravank Red Rock Canyon':      'Noravank',
+  'Yerevan Cascade':               'Cascade (Yerevan)',
+  'Tatev Monastery Wings of Tatev':'Tatev Monastery',
+
+  // ── Azerbaijan fallback ───────────────────────────────────────────────────
+  'Baku Old City Icheri Sheher':   'Icherisheher',
+  'Gobustan Rock Art':             'Gobustan National Park',
+  'Lahij Copper Craft Village':    'Lahij',
+  'Sheki Palace and Caravanserai': 'Palace of the Sheki Khans',
+
+  // ── Hong Kong fallback ───────────────────────────────────────────────────
+  'Temple Street':                 'Temple Street Night Market',
+  'Mong Kok Street Markets':       'Mong Kok',
+
+  // ── Kosovo fallback ───────────────────────────────────────────────────────
+  'Pristina – Newborn Monument':   'Newborn (monument)',
+
+  // ── Lebanon fallback ─────────────────────────────────────────────────────
+  'Baalbek Roman Temples':         'Baalbek',
+  'Byblos Ancient Port City':      'Byblos',
+
+  // ── Bahrain fallback ─────────────────────────────────────────────────────
+  "Bahrain Fort Qal'at al-Bahrain":'Bahrain Fort',
+  'Manama Gold Souq':              'Manama',
+
+  // ── Kuwait fallback ───────────────────────────────────────────────────────
+  'Grand Mosque':                  'Grand Mosque of Kuwait',
+
+  // ── Qatar fallback ────────────────────────────────────────────────────────
+  'The Pearl Qatar':               'The Pearl, Qatar',
+  'Katara Cultural Village':       'Katara Cultural Village',
+
+  // ── Oman fallback ─────────────────────────────────────────────────────────
+  'Jebel Akhdar Green Mountain':   'Jebel Akhdar (Oman)',
+  'Al Jalali':                     'Al Jalali Fort',
+  'Qurum Natural Park':            'Qurum',
+
+  // ── Senegal fallback ─────────────────────────────────────────────────────
+  'Gorée Island':                  'Île de Gorée',
+  'Dakar Pink Lake Retba':         'Lake Retba',
+  'Saint-Louis Historic Town':     'Saint-Louis, Senegal',
+
+  // ── Ghana fallback ────────────────────────────────────────────────────────
+  'Kakum Canopy Walk':             'Kakum National Park',
+
+  // ── Zimbabwe fallback ────────────────────────────────────────────────────
+  'Great Zimbabwe Ruins':          'Great Zimbabwe',
+
+  // ── Maldives city places ──────────────────────────────────────────────────
+  'Overwater Villa Experience':    'Maldives',
+  'Whale Shark Snorkelling':       'Maldives',
+  'Maafushi Local Island Stay':    'Maafushi',
+  'Hukuru Miskiy Friday Mosque':   'Hukuru Miskiy',
+  'Malé Fish Market':              'Malé',
+
+  // ── Armenia city places ───────────────────────────────────────────────────
+  'Cascade Stairway':              'Cascade (Yerevan)',
+  'Khor Virap Monastery':          'Khor Virap',
+  'Vernissage Weekend Market':     'Vernissage Market',
+
+  // ── Azerbaijan city places ────────────────────────────────────────────────
+  'Baku Boulevard Caspian':        'Baku Boulevard',
+
+  // ── Iceland city places ───────────────────────────────────────────────────
+  'Whale Watching Faxaflói Bay':   'Faxaflói',
+  'Santorini Wine Tasting':        'Santorini',
+
+  // ── Colombia city places ──────────────────────────────────────────────────
+  'Gold Museum':                   'Museo del Oro',
+  'La Candelaria Historic Centre': 'La Candelaria',
+  'Usaquén Antiques Market':       'Usaquén',
+  'Ciclovía Sunday Cycling Route': 'Ciclovía',
+  'Metro Cable Car Barrio View':   'Medellín Metro Cable',
+  'Antioquia Museum':              'Museum of Antioquia',
+  'El Poblado Nightlife':          'El Poblado',
+  'Rosario Islands Day Trip':      'Rosario Islands',
+  'Getsemaní Street Art':          'Getsemaní',
+
+  // ── Cuba city places ──────────────────────────────────────────────────────
+  'Malecón Seafront':              'Malecón, Havana',
+  'Classic Car Tour':              'Old Havana',
+  'Fusterlandia Mosaic Village':   'Fusterlandia',
+
+  // ── Egypt city places ─────────────────────────────────────────────────────
+  'Al-Muizz Street Islamic Cairo': 'Al-Muizz Street',
+  'Hot Air Balloon at Sunrise':    'Luxor',
+
+  // ── Various cities missing entries ────────────────────────────────────────
+  'Walter Peak Farm Experience':   'Walter Peak',
+  'Cozumel Scuba':                 'Cozumel',
+  'Deep Dish Pizza Tour':          'Chicago-style pizza',
+  'Fotografiska Photography Museum':'Fotografiska',
+  'Oslomarka Forest Trails':       'Oslomarka',
+  'NDSM Wharf Arts District':      'NDSM-werf',
+  'Roma':                          'Roma, Mexico City',
+  'Distillery':                    'Distillery District',
+  'The Getty Villa Malibu':        'Getty Villa',
+  'Kreuzberg Street Food':         'Kreuzberg',
+  'San Telmo Antiques Market':     'San Telmo',
+  'Game of Thrones filming locations': 'Dubrovnik',
+  'Konavle Valley Wine Region':    'Konavle',
+  'LX Factory Creative Market':    'LX Factory',
+  'Le Marais District':            'Le Marais',
+  'Vienna Woods Hiking':           'Vienna Woods',
+  'Vinohrady Local Neighbourhood': 'Vinohrady',
+  'Ruin Bars of the Jewish Quarter':'Ruin bar',
+  'Memento Park Soviet Statues':   'Memento Park',
+  'Dorsoduro Sestiere':            'Dorsoduro',
+  'Foz do Douro Beach District':   'Foz do Douro',
+  'Canal Boat Rides':              'Bruges',
+  'Groeningemuseum Flemish Art':   'Groeningemuseum',
+  'Bruges Chocolate Trail':        'Bruges',
+  'National Museum Complex':       'National Museum of the Philippines',
+  'Phnom Penh Riverfront':         'Phnom Penh',
+  'Pub Street':                    'Pub Street',
+  'Vietnamese Cooking Class':      'Hội An',
+  'Night Market':                  'Luang Prabang',
+  'Siab Bazaar':                   'Siab Bazaar, Samarkand',
+  'Corniche Atlantic':             'Corniche, Casablanca',
+  'Old City Jama Masjid':          'Jamia Masjid, Srinagar',
+  'Kuttanad Paddy Fields':         'Kuttanad',
+  'Top Station':                   'Top Station, Munnar',
+  'Mattupetty Dam':                'Mattupetty',
+  'Tea Museum':                    'Munnar',
+  'Anamudi Peak':                  'Anamudi',
+  'Matanga Hill Sunrise':          'Matanga Hill',
+  'Hampi Bazaar Ruins':            'Hampi',
+  'Grishneshwar Jyotirlinga Temple':'Grishneshwar',
+  'Sri Padmavathi Ammavari Temple':'Padmavathi Temple',
+  'Chandragiri Fort':              'Chandragiri Fort',
+  'Kapila Theertham':              'Kapila Theertham',
+  'TTD Gardens':                   'Tirumala Tirupati Devasthanams',
+  'Raghurajpur Artist Village':    'Raghurajpur',
+  'Innovative Film City':          'Innovative Film City',
+  'Commercial Street':             'Commercial Street, Bangalore',
+  'Old City Laad Bazaar':          'Laad Bazaar',
+  'Park Street':                   'Park Street, Kolkata',
+  'College Street Book District':  'College Street, Kolkata',
+  'Paradesi Synagogue Quarter':    'Paradesi Synagogue',
+  'Kinari Bazaar':                 'Kinari Bazaar, Agra',
+  'Shilpgram Crafts Village':      'Shilpgram',
+  'Jaswant Thada Memorial':        'Jaswant Thada',
+  'Umaid Bhawan Palace Museum':    'Umaid Bhawan Palace',
+  'Amritsari Kulcha':              'Amritsar',
+  'The Mall':                      'The Mall, Shimla',
+  'Chadwick Falls':                'Chadwick Falls, Shimla',
+  'Viceregal Lodge':               'Rashtrapati Nivas',
+  'Spiti Valley Day Trip':         'Spiti Valley',
+  'Old Manali Village Cafés':      'Manali, Himachal Pradesh',
+  'Tashi':                         'Tashi Viewpoint',
+  'MG Marg Walkway':               'M.G. Marg',
+  "Ward's Lake":                   "Ward's Lake",
+  'Gandhi Museum':                 'Gandhi Memorial Museum',
+  'Alagar Kovil Temple':           'Alagar Kovil',
+  'Vaigai Riverfront':             'Vaigai River',
+  'Ooty Lake':                     'Ooty Lake',
+  'Pykara Falls':                  'Pykara',
+  'Botanical Gardens':             'Government Botanical Garden, Ooty',
+
+  // ── Seville city places ────────────────────────────────────────────────────
+  'Real Alcázar Palace':           'Alcázar of Seville',
+  'Seville Cathedral':             'Seville Cathedral',
+  'Barrio Santa Cruz':             'Santa Cruz, Seville',
+  'Triana Flamenco District':      'Triana, Seville',
+  'Plaza de España':               'Plaza de España, Seville',
+
+  // ── Phuket city places ────────────────────────────────────────────────────
+  'Phi Phi Islands Day Trip':      'Phi Phi Islands',
+  'Phang Nga Bay Sea Kayaking':    'Phang Nga Bay',
+  'Big Buddha':                    'Big Buddha, Phuket',
+  'Old Phuket Town Sino-Portuguese':'Phuket Old Town',
+  'Similan Islands Snorkelling':   'Similan Islands',
+
+  // ── Colombo city places ────────────────────────────────────────────────────
+  'Gangaramaya Temple':            'Gangaramaya Temple',
+  'Galle Face Green':              'Galle Face Green',
+  'National Museum of Colombo':    'National Museum of Colombo',
+  'Pettah Bazaar District':        'Pettah',
+  'Beira Lake':                    'Beira Lake',
+
+  // ── Taipei city places ────────────────────────────────────────────────────
+  'Taipei 101 Sky Deck':           'Taipei 101',
+  'Jiufen Old Street':             'Jiufen',
+  'Chiang Kai-shek Memorial Hall': 'Chiang Kai-shek Memorial Hall',
+  'Shilin':                        'Shilin Night Market',
+  'Yangmingshan National Park':    'Yangmingshan National Park',
+
+  // ── Manila city places ────────────────────────────────────────────────────
+  'Intramuros Walled City':        'Intramuros',
+  'Rizal Park':                    'Rizal Park',
+  'Binondo Chinatown Food Walk':   'Binondo',
+  'BGC':                           'Bonifacio Global City',
+
+  // ── Yangon city places ────────────────────────────────────────────────────
+  'Bogyoke Aung San Market':       'Bogyoke Aung San Market',
+  'Kandawgyi Lake':                'Kandawgyi Lake',
+  'Circular Train City Loop':      'Yangon Circular Railway',
+
+  // ── Phnom Penh city places ────────────────────────────────────────────────
+  'Royal Palace':                  'Royal Palace, Phnom Penh',
+  'Tuol Sleng Genocide Museum':    'Tuol Sleng Genocide Museum',
+  'Wat Phnom Hill Temple':         'Wat Phnom',
+  'Central Market Art Deco Dome':  'Phsar Thmei',
+
+  // ── Muscat city places ────────────────────────────────────────────────────
+  'Sultan Qaboos Grand Mosque':    'Sultan Qaboos Grand Mosque',
+  'Royal Opera House Muscat':      'Royal Opera House Muscat',
+
+  // ── Chicago city places ───────────────────────────────────────────────────
+  'Millennium Park':               'Millennium Park',
+  'Art Institute of Chicago':      'Art Institute of Chicago',
+  'Chicago Riverwalk Architecture':'Chicago Riverwalk',
+  'Lincoln Park Zoo':              'Lincoln Park Zoo',
+
+  // ── Miami city places ─────────────────────────────────────────────────────
+  'South Beach Art Deco District': 'South Beach, Miami Beach',
+  'Wynwood Walls Street Art':      'Wynwood Walls',
+  'Everglades Airboat Tour':       'Everglades National Park',
+  'Little Havana Calle Ocho':      'Calle Ocho',
+  'Vizcaya Museum Gardens':        'Vizcaya Museum and Gardens',
+
+  // ── Lima city places ──────────────────────────────────────────────────────
+  'Miraflores Cliff Paragliding':  'Miraflores District, Lima',
+  'Larco Museum Pre-Columbian Art':'Larco Museum',
+  'Historic Centre':               'Historic Centre of Lima',
+  'Barranco':                      'Barranco District',
+  'Lima':                          'Lima',
+
+  // ── Bogotá city places ────────────────────────────────────────────────────
+  'Monserrate Hill Gondola':       'Monserrate (Bogotá)',
+
+  // ── Medellín city places ──────────────────────────────────────────────────
+  'Plaza Botero Sculptures':       'Plaza Botero',
+  'Guatapé Piedra del Peñol Day Trip': 'La Piedra del Peñol',
+
+  // ── Havana city places ────────────────────────────────────────────────────
+  'Old Havana UNESCO Historic Centre': 'Old Havana',
+  'Viñales Valley Day Trip':       'Viñales Valley',
+
+  // ── Salzburg city places ──────────────────────────────────────────────────
+  'Hellbrunn Trick Fountains':     'Hellbrunn Palace',
+  'Salzkammergut Lakes Day Trip':  'Salzkammergut',
+  'Hohensalzburg Fortress':        'Hohensalzburg Castle',
+  'Mirabell Gardens':              'Mirabell Palace',
+
+  // ── Comprehensive audit fixes (v11) ──────────────────────────────────────
+
+  // Nagaland — confirmed broken in console logs
+  // 'Gokarna' and 'Hornbill Festival' already fixed above; 'Japfu Peak'/'Mount Japfü' above
+
+  // Karnataka city fixes
+  'Palolem':                        'Palolem Beach',   // 'Palolem Beach & Canacona' → strips & → 'Palolem Beach' → strips Beach? No—but cleanPlaceName splits on ',' too, so 'Palolem Beach & Canacona' → split ' & ' → 'Palolem Beach' (Beach not in suffix list, left as-is). Direct query 'Palolem Beach' works fine on WP (has image).
+
+  // Ho Chi Minh City places
+  'Bui Vien Walking Street':        'Bến Thành Market',  // Walking Street not stripped; explicit key
+
+  // Colombo city — Galle Face Green Promenade
+  'Galle Face Green':               'Galle Face Green',  // already present; also add:
+  'Galle Face Green Promenade':     'Galle Face Green',
+
+  // Pondicherry city
+  'French Quarter Promenade Beach': 'Pondicherry',
+  'Serenity Beach':                 'Pondicherry',
+
+  // Hoi An city
+  'An Bang Beach':                  'An Bàng Beach',
+  'Tailoring Street Custom Clothes':'Hội An',
+
+  // Mombasa city
+  'Haller Park':                    'Haller Park',
+  'Nyali':                          'Mombasa',
+  'Nyali & Bamburi Beach':          'Mombasa',
+
+  // Casablanca city
+  'Mahkama du Pacha Palace':        'Hassan II Mosque',
+
+  // Munich city
+  'BMW Welt':                       'BMW Welt',
+
+  // Edinburgh city
+  'Scottish Whisky Experience':     'Scotch whisky',
+  'Royal Mile':                     'Palace of Holyroodhouse',
+
+  // Nairobi city
+  'Carnivore Restaurant':           'Nairobi National Park',
+
+  // Yangon city
+  'Colonial Strand Hotel':          'Yangon',
+
+  // Varanasi city — 'Old City Silk Weaving Workshops' strips suffix → 'Old City' which clashes with Jerusalem
+  'Old City Silk Weaving':          'Varanasi',  // cleanPlaceName strips 'Silk Weaving Workshops' → 'Old City Silk Weaving' — actually let's use explicit key
+
+  // Israel city — Old City should map Jerusalem
+  // 'Old City' already maps to 'Jerusalem Old City' — correct for Jerusalem panel
+
+  // Leh city — 'Nubra Valley & Diskit Monastery' → splits → 'Nubra Valley' — already in SCENIC ✓
+  'Nubra Valley & Diskit Monastery':'Nubra Valley',
+
+  // Ladakh state — 'Nubra Valley & Bactrian Camels' → 'Nubra Valley' — already in SCENIC ✓
+
+  // Puri city
+  'Puri Beach':                     'Puri, Odisha',
+
+  // Alleppey city
+  'Backwater Houseboat':            'Kerala backwaters',
+  'Alleppey Beach':                 'Kerala backwaters',
+  'Marari Beach':                   'Marari Beach',
+
+  // Munnar city — 'Top Station Viewpoint' → strips 'View Point' variant? Actually regex has 'View\s*Point' → 'Top Station' — add explicit
+  'Top Station Viewpoint':          'Munnar',
+  'Mattupetty Dam':                 'Mattupetty',
+  'Tea Museum':                     'Munnar',
+  'Anamudi Peak':                   'Anamudi',
+
+  // Shillong city — "Ward's Lake & Shillong Peak" → splits → "Ward's Lake"
+  "Ward's Lake":                    "Ward's Lake",
+
+  // Gangtok city
+  'Tashi Viewpoint':                'Tashi Viewpoint',
+  'MG Marg Walkway':                'M.G. Marg',
+
+  // Madurai city
+  'Vaigai Riverfront':              'Vaigai River',
+  'Alagar Kovil Temple':            'Alagar Kovil',
+
+  // Ooty city
+  'Pykara Falls':                   'Pykara',
+  'Botanical Gardens':              'Government Botanical Garden, Ooty',
+  'Ooty Lake':                      'Ooty Lake',
+
+  // Pushkar city — 'Sand Dunes Desert Safari' → strips 'Safari' → 'Sand Dunes Desert' — add key
+  'Sand Dunes Desert':              'Thar Desert',
+
+  // Hampi city
+  'Matanga Hill Sunrise':           'Matanga Hill',
+  'Hampi Bazaar Ruins':             'Hampi',
+  'Vittala Temple':                 'Vittala Temple',
+
+  // Tirupati city
+  'Sri Padmavathi Ammavari Temple': 'Padmavathi Temple',
+  'Chandragiri Fort':               'Chandragiri Fort',
+  'Kapila Theertham':               'Kapila Theertham',
+
+  // Aurangabad city
+  'Grishneshwar Jyotirlinga Temple':'Grishneshwar',
+
+  // Shimla city — 'The Mall & Ridge Promenade' → splits → 'The Mall' → SCENIC: 'The Mall': 'The Mall, Shimla' ✓
+  // 'Viceregal Lodge (IIAS)' → strips '(IIAS)' → 'Viceregal Lodge' → SCENIC: 'Viceregal Lodge': 'Rashtrapati Nivas' ✓
+  // 'Jakhu Temple & Forest Trek' → splits → 'Jakhu Temple' → SCENIC: 'Jakhu Temple': 'Jakhu Temple' ✓
+  // 'Chadwick Falls' → not in SCENIC directly, but 'Chadwick Falls': 'Chadwick Falls, Shimla' already added in SCENIC ✓
+
+  // Ahmedabad state-level: 'Ahmedabad Heritage City' → strips 'Heritage City' → 'Ahmedabad' → not in SCENIC → queries 'Ahmedabad' (good)
+  'Ahmedabad':                      'Sabarmati Ashram',  // Ahmedabad article is fine too, but this gives scenic photo
+
+  // Sanchi Stupa → 'Sanchi Stupa' → 'Sanchi' SCENIC already ✓ (strips Stupa? No, Stupa IS in suffix list) → 'Sanchi' → SCENIC: 'Sanchi': 'Sanchi' ✓
+
+  // Countries — new fallback entries that may have issues
+  // 'Volcanoes NP Gorilla Trekking' → strips 'Trekking' → 'Volcanoes NP Gorilla' → SCENIC ✓
+  // 'Nyungwe Forest Canopy Walk' → no suffix → SCENIC: 'Nyungwe Forest Canopy Walk': 'Nyungwe Forest National Park' ✓
+  // 'Kigali Genocide Memorial' → no suffix → not in SCENIC → queries 'Kigali Genocide Memorial' (good article)
+  'Kigali Genocide Memorial':       'Kigali Genocide Memorial',
+  // 'Akagera National Park' → not in SCENIC → queries directly (fine)
+  'Akagera National Park':          'Akagera National Park',
+
+  // 'Sossusvlei Red Sand Dunes' → SCENIC: 'Sossusvlei Red Sand Dunes': 'Deadvlei' ✓ already added
+  // 'Etosha National Park' → not in SCENIC → queries directly (fine, has image)
+  'Etosha National Park':           'Etosha National Park',
+
+  // Rwanda — country places
+  'Lake Kivu':                      'Lake Kivu',
+
+  // Botswana
+  'Moremi Game Reserve':            'Moremi Game Reserve',
+  'Makgadikgadi Salt Pans':         'Makgadikgadi Pans',
+  'Central Kalahari Game Reserve':  'Central Kalahari Game Reserve',
+
+  // Zambia
+  'South Luangwa National Park':    'South Luangwa National Park',
+  'Lower Zambezi National Park':    'Lower Zambezi National Park',
+  'Kafue National Park':            'Kafue National Park',
+  'Lake Kariba':                    'Lake Kariba',
+
+  // Uganda
+  'Murchison Falls':                'Murchison Falls',
+  'Queen Elizabeth National Park':  'Queen Elizabeth National Park',
+
+  // Madagascar
+  'Isalo National Park':            'Isalo National Park',
+  'Nosy Be Island':                 'Nosy Be',
+
+  // Mozambique
+  'Bazaruto Archipelago':           'Bazaruto Archipelago',
+  'Ilha de Moçambique':             'Island of Mozambique',
+  'Gorongosa National Park':        'Gorongosa National Park',
+
+  // Slovakia
+  'Bratislava Castle':              'Bratislava Castle',
+  'Banská Štiavnica':               'Banská Štiavnica',
+
+  // Cyprus
+  'Paphos Archaeological Park':     'Paphos Archaeological Park',
+
+  // Malta
+  'Ħal Saflieni Hypogeum':          'Ħal Saflieni Hypogeum',
+  'Gozo Island':                    'Gozo',
+
+  // Luxembourg
+  'Luxembourg City Old Town':       'Luxembourg City',
+  'Vianden Castle':                 'Vianden Castle',
+  'Mullerthal Trail':               'Müllerthal Trail',
+  'Moselle Valley Vineyards':       'Moselle wine region',
+  'Echternach':                     'Echternach',
+
+  // Monaco
+  'Monte-Carlo Casino':             'Casino de Monte-Carlo',
+  'Oceanographic Museum':           'Oceanographic Museum of Monaco',
+  'Jardin Exotique':                'Jardin Exotique de Monaco',
+
+  // Andorra
+  'Vallnord':                       'Vallnord',
+  'Madriu-Perafita-Claror Valley':  'Madriu-Perafita-Claror',
+  'Sant Joan de Caselles Church':   'Sant Joan de Caselles',
+  'Caldea Thermal':                 'Caldea',
+
+  // Kosovo
+  'Prizren Old Town':               'Prizren',
+  'Rugova Canyon':                  'Rugova',
+  'Visoki Dečani Monastery':        'Visoki Dečani',
+  'Mirusha Waterfalls':             'Mirusha',
+
+  // Malawi
+  'Lake Malawi – Cape Maclear':     'Lake Malawi',
+  'Liwonde National Park':          'Liwonde National Park',
+  'Mulanje Massif':                 'Mount Mulanje',
+  'Nyika National Park':            'Nyika National Park',
+  'Zomba Plateau':                  'Zomba Plateau',
+
+  // El Salvador
+  'El Tunco Beach':                 'El Tunco',
+  'Santa Ana Volcano':              'Santa Ana volcano',
+  'Suchitoto Colonial Town':        'Suchitoto',
+  'Ruta de las Flores':             'Ruta de las Flores',
+  'Joya de Cerén UNESCO Site':      'Joya de Cerén',
+
+  // Nicaragua
+  'Ometepe Island':                 'Ometepe',
+  'Granada Colonial City':          'Granada, Nicaragua',
+  'León Cathedral':                 'León Cathedral',
+  'Cerro Negro Volcano':            'Cerro Negro',
+  'San Juan del Sur Beach':         'San Juan del Sur',
+
+  // Honduras
+  'Roatán Bay Islands':             'Roatán',
+  'Pico Bonito National Park':      'Pico Bonito National Park',
+  'Lake Yojoa':                     'Lake Yojoa',
+
+  // Venezuela
+  'Los Roques Archipelago':         'Los Roques',
+  'Morrocoy National Park':         'Morrocoy National Park',
+  'Mérida Cable Car Andes':         'Mérida, Venezuela',
+
+  // Palau
+  'Jellyfish Lake':                 'Jellyfish Lake',
+  'Rock Islands Southern Lagoon':   'Rock Islands',
+  'Ngardmau Waterfall':             'Ngardmau',
+  'Badrulchau Stone Monoliths':     'Badrulchau',
+
+  // Samoa
+  'Lalomanu Beach':                 'Lalomanu',
+  'Papapapaitai Falls':             'Papapapaitai Falls',
+  'Apia Flea Market':               'Apia',
+
+  // Tonga
+  "Ha'amonga Trilithon":            "Ha'amonga 'a Maui",
+  "Nuku'alofa Royal Palace":        "Royal Palace of Tonga",
+
+  // Brunei
+  'Kampong Ayer Water Village':     'Kampong Ayer',
+  'Ulu Temburong National Park':    'Ulu Temburong National Park',
+  "Jame'Asr Hassanil Bolkiah Mosque":'Jame Asr Hassanil Bolkiah Mosque',
+  'Royal Regalia Museum':           'Royal Regalia Museum, Brunei',
+
+  // Algeria
+  'Casbah of Algiers':              'Casbah of Algiers',
+  'Ghardaïa M\'zab Valley':         'Ghardaia',
+
+  // Hong Kong
+  'Lantau Island':                  'Lantau Island',
+  'Sai Kung Country Park':          'Sai Kung Country Park',
+  'Victoria Peak':                  'Victoria Peak',
+  'Victoria Peak Tram':             'Peak Tram',
+
+  // Georgia (country)
+  'Svaneti':                        'Svaneti',
+  'Vardzia Cave Monastery':         'Vardzia',
 }
 
 // ── In-memory + localStorage cache ──────────────────────────────────────────
 const cache = new Map()
-const LS_KEY = 'veritas_wiki_v6'
+const LS_KEY = 'veritas_wiki_v11'
 
 function hydrateCache() {
   try {
@@ -1531,7 +2472,7 @@ export function cleanPlaceName(raw) {
 export async function fetchWikiImagesBatch(articleNames) {
   if (!articleNames?.length) return {}
   const valid = articleNames.filter(Boolean)
-  const uncached = valid.filter(n => !cache.has(n.toLowerCase().trim()))
+  const uncached = valid.filter(n => !cache.get(n.toLowerCase().trim()))
 
   if (uncached.length > 0) {
     // Deduplicate
@@ -1546,26 +2487,35 @@ export async function fetchWikiImagesBatch(articleNames) {
         url.searchParams.set('action', 'query')
         url.searchParams.set('titles', group.join('|'))
         url.searchParams.set('prop', 'pageimages')
+        url.searchParams.set('piprop', 'thumbnail')
         url.searchParams.set('pithumbsize', '1200')
         url.searchParams.set('format', 'json')
         url.searchParams.set('origin', '*')
+        url.searchParams.set('redirects', '1')
 
         const res = await fetch(url.toString())
         if (!res.ok) return
 
         const data = await res.json()
         const pages = data?.query?.pages ?? {}
-        // Build normalized title → original title map
+        // Map canonical title → original title (handles both normalization and redirects)
         const normMap = {}
         for (const { from, to } of (data?.query?.normalized ?? [])) normMap[to] = from
+        for (const { from, to } of (data?.query?.redirects ?? [])) {
+          // redirects map may chain through normalizations — resolve to the original
+          normMap[to] = normMap[from] ?? from
+        }
 
         for (const page of Object.values(pages)) {
           const imgUrl = page?.thumbnail?.source ?? null
           const title = page.title
-          cache.set(title.toLowerCase().trim(), imgUrl)
-          // Also cache under the original (unnormalized) title if different
-          const orig = normMap[title]
-          if (orig) cache.set(orig.toLowerCase().trim(), imgUrl)
+          // Only cache successful results — null means no thumbnail found, and we
+          // want failed lookups to retry on next load (after SCENIC fixes, etc.)
+          if (imgUrl) {
+            cache.set(title.toLowerCase().trim(), imgUrl)
+            const orig = normMap[title]
+            if (orig) cache.set(orig.toLowerCase().trim(), imgUrl)
+          }
         }
         persistCache()
       } catch {}

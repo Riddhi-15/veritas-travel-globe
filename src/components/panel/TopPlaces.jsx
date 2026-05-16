@@ -64,11 +64,6 @@ export default function TopPlaces({ places }) {
 }
 
 function PlaceCard({ place: p, img }) {
-  const [loaded, setLoaded] = useState(false)
-
-  // Reset loaded state when img URL changes
-  useEffect(() => { setLoaded(false) }, [img])
-
   const cat  = p.category || 'default'
   const grad = CAT_GRAD[cat] ?? CAT_GRAD.default
   const icon = CAT_ICON[cat] ?? CAT_ICON.default
@@ -93,17 +88,13 @@ function PlaceCard({ place: p, img }) {
           <img
             src={img}
             alt={p.name}
-            loading="lazy"
             decoding="async"
-            onLoad={() => setLoaded(true)}
             style={{
               position: 'absolute',
               top: 0, left: 0,
               width: '100%', height: '100%',
               objectFit: 'cover', objectPosition: 'center 30%',
               display: 'block',
-              opacity: loaded ? 1 : 0,
-              transition: 'opacity 0.4s ease',
             }}
           />
         )}
