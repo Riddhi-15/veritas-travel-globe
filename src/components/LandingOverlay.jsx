@@ -348,116 +348,201 @@ export default function LandingOverlay() {
 // ── Mobile bottom sheet ───────────────────────────────────────────────────────
 
 function MobileSheet({ bestNow }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen]     = useState(false)
+  const [images, setImages] = useState({})
   const MONTH_NAME = MONTH_LABELS[new Date().getMonth()]
   const startY = useRef(null)
+
+  // Fetch Wikipedia photos on mount (load in background, show when ready)
+  useEffect(() => {
+    bestNow.forEach(c => {
+      if (!c?.name) return
+      fetchWikiImage(getScenicQuery(c.name)).then(url => {
+        if (url) setImages(prev => ({ ...prev, [c.iso2]: url }))
+      })
+    })
+  }, []) // eslint-disable-line
 
   const handleTouchStart = (e) => { startY.current = e.touches[0].clientY }
   const handleTouchEnd   = (e) => {
     if (startY.current === null) return
     const dy = startY.current - e.changedTouches[0].clientY
-    if (dy > 28) setOpen(true)   // swipe up → expand
-    if (dy < -28) setOpen(false) // swipe down → collapse
+    if (dy > 28) setOpen(true)
+    if (dy < -28) setOpen(false)
     startY.current = null
   }
 
+  const SHEET_OPEN_H = 290
+
   return (
-    <div
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      style={{
-        position: 'fixed', bottom: 0, left: 0, right: 0,
-        zIndex: 5,
-        background: 'rgba(6,10,24,0.94)',
-        backdropFilter: 'blur(22px)', WebkitBackdropFilter: 'blur(22px)',
-        borderTop: '1px solid rgba(255,255,255,0.10)',
-        borderRadius: '18px 18px 0 0',
-        overflow: 'hidden',
-        transition: 'height 0.32s cubic-bezier(0.4,0,0.2,1)',
-        height: open ? 214 : 64,
-      }}
-    >
-      {/* Handle + header row */}
-      <div
-        onClick={() => setOpen(o => !o)}
-        style={{
-          height: 64, display: 'flex', alignItems: 'center',
-          padding: '0 20px', gap: 10, cursor: 'pointer',
-          position: 'relative', userSelect: 'none',
-        }}
-      >
-        {/* Drag handle pill */}
-        <div style={{
-          position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)',
-          width: 36, height: 4, borderRadius: 2,
-          background: 'rgba(255,255,255,0.22)',
-        }} />
-        <span style={{ fontSize: 16 }}>🌿</span>
-        <span style={{
-          flex: 1, fontSize: 13, fontWeight: 700,
-          color: '#00d4aa', fontFamily: 'system-ui,sans-serif',
-          letterSpacing: '0.10em', textTransform: 'uppercase',
+    <>
+      {/* Tagline — below TopNav */}
+      <div style={{
+        position: 'fixed', top: 66, left: 0, right: 0,
+        zIndex: 5, textAlign: 'center',
+        padding: '10px 28px',
+        pointerEvents: 'none', userSelect: 'none',
+      }}>
+        <p style={{
+          margin: 0, fontSize: 14, fontWeight: 400,
+          color: 'rgba(255,255,255,0.65)',
+          fontFamily: 'system-ui, sans-serif',
+          fontStyle: 'italic', lineHeight: 1.5,
         }}>
-          Best Right Now · {MONTH_NAME}
-        </span>
-        <span style={{
-          fontSize: 16, color: 'rgba(255,255,255,0.45)',
-          transition: 'transform 0.25s ease',
-          transform: open ? 'rotate(180deg)' : 'none',
-          display: 'inline-block',
-        }}>∨</span>
+          Click the world,{' '}
+          <span style={{
+            background: 'linear-gradient(90deg,#4ea8ff,#a78bfa)',
+            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+            fontWeight: 600,
+          }}>discover your next story.</span>
+        </p>
       </div>
 
-      {/* Horizontal scroll cards */}
+      {/* Drag to explore hint — floats above the sheet */}
       <div style={{
-        display: 'flex', gap: 12,
-        overflowX: 'auto', overflowY: 'hidden',
-        padding: '0 16px 18px',
-        scrollbarWidth: 'none',
-        WebkitOverflowScrolling: 'touch',
-        opacity: open ? 1 : 0,
-        transition: 'opacity 0.18s ease',
-        pointerEvents: open ? 'auto' : 'none',
+        position: 'fixed',
+        bottom: open ? SHEET_OPEN_H + 14 : 78,
+        left: 0, right: 0,
+        zIndex: 5, textAlign: 'center',
+        pointerEvents: 'none', userSelect: 'none',
+        transition: 'bottom 0.32s cubic-bezier(0.4,0,0.2,1)',
       }}>
-        {bestNow.map(c => (
-          <div
-            key={c.iso2}
-            onClick={() => setOpen(false)}
-            style={{
-              flexShrink: 0, width: 136, height: 128,
-              borderRadius: 14, overflow: 'hidden',
-              background: GRADIENTS[c.iso2] ?? GRADIENTS.DEFAULT,
-              border: '1px solid rgba(255,255,255,0.13)',
-              position: 'relative',
-              display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
-              padding: '10px 12px', cursor: 'pointer',
-              boxShadow: '0 4px 18px rgba(0,0,0,0.45)',
-            }}
-          >
-            <span style={{ fontSize: 26, lineHeight: 1, marginBottom: 6 }}>{FLAGS[c.iso2] ?? '🌍'}</span>
-            <div style={{ fontSize: 14, fontWeight: 700, color: '#fff', fontFamily: 'system-ui,sans-serif', lineHeight: 1.2 }}>{c.name}</div>
-            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.55)', fontFamily: 'system-ui,sans-serif', marginTop: 3, lineHeight: 1.3 }}>
-              {getSeasonDesc(c).split(' ')[0] + ' ' + (getSeasonDesc(c).split(' ')[1] ?? '')}
-            </div>
+        <span style={{
+          fontSize: 11, color: 'rgba(255,255,255,0.28)',
+          fontFamily: 'system-ui, sans-serif', letterSpacing: '0.12em',
+        }}>✦ Drag to explore</span>
+      </div>
+
+      {/* Bottom sheet */}
+      <div
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{
+          position: 'fixed', bottom: 0, left: 0, right: 0,
+          zIndex: 5,
+          background: 'rgba(6,10,24,0.95)',
+          backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
+          borderTop: '1px solid rgba(255,255,255,0.10)',
+          borderRadius: '20px 20px 0 0',
+          overflow: 'hidden',
+          transition: 'height 0.32s cubic-bezier(0.4,0,0.2,1)',
+          height: open ? SHEET_OPEN_H : 64,
+        }}
+      >
+        {/* Handle + header */}
+        <div
+          onClick={() => setOpen(o => !o)}
+          style={{
+            height: 64, display: 'flex', alignItems: 'center',
+            padding: '0 20px', gap: 10, cursor: 'pointer',
+            position: 'relative', userSelect: 'none', flexShrink: 0,
+          }}
+        >
+          <div style={{
+            position: 'absolute', top: 8, left: '50%', transform: 'translateX(-50%)',
+            width: 36, height: 4, borderRadius: 2,
+            background: 'rgba(255,255,255,0.22)',
+          }} />
+          <span style={{ fontSize: 15 }}>🌿</span>
+          <div style={{ flex: 1 }}>
+            <div style={{
+              fontSize: 10, fontWeight: 700, color: '#00d4aa',
+              fontFamily: 'system-ui,sans-serif',
+              letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 1,
+            }}>Best Right Now</div>
+            <div style={{
+              fontSize: 15, fontWeight: 700, color: '#fff',
+              fontFamily: 'system-ui,sans-serif',
+            }}>{MONTH_NAME}</div>
           </div>
-        ))}
-        {/* Hint card */}
+          <span style={{
+            fontSize: 14, color: 'rgba(255,255,255,0.40)',
+            transition: 'transform 0.25s ease',
+            transform: open ? 'rotate(180deg)' : 'none',
+            display: 'inline-block',
+          }}>∨</span>
+        </div>
+
+        {/* Description row */}
         <div style={{
-          flexShrink: 0, width: 120, height: 128,
-          borderRadius: 14,
-          background: 'rgba(255,255,255,0.04)',
-          border: '1px dashed rgba(255,255,255,0.15)',
-          display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'center', gap: 8,
-          padding: 12,
+          padding: '0 20px 12px',
+          opacity: open ? 1 : 0,
+          transition: 'opacity 0.15s ease',
+          pointerEvents: 'none',
         }}>
-          <span style={{ fontSize: 22 }}>🌍</span>
-          <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', fontFamily: 'system-ui,sans-serif', textAlign: 'center', lineHeight: 1.4 }}>
-            Tap any country on the globe
-          </span>
+          <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.40)', fontFamily: 'system-ui,sans-serif', lineHeight: 1.5 }}>
+            Perfect destinations based on weather, season &amp; crowd.
+          </p>
+        </div>
+
+        {/* Photo cards — horizontal scroll */}
+        <div style={{
+          display: 'flex', gap: 12,
+          overflowX: 'auto', overflowY: 'hidden',
+          padding: '0 16px 20px',
+          scrollbarWidth: 'none',
+          WebkitOverflowScrolling: 'touch',
+          opacity: open ? 1 : 0,
+          transition: 'opacity 0.20s ease',
+          pointerEvents: open ? 'auto' : 'none',
+        }}>
+          {bestNow.map(c => (
+            <div
+              key={c.iso2}
+              onClick={() => setOpen(false)}
+              style={{
+                flexShrink: 0, width: 144, height: 152,
+                borderRadius: 16, overflow: 'hidden',
+                background: GRADIENTS[c.iso2] ?? GRADIENTS.DEFAULT,
+                border: '1px solid rgba(255,255,255,0.12)',
+                position: 'relative', cursor: 'pointer',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.50)',
+              }}
+            >
+              {/* Wikipedia photo */}
+              {images[c.iso2] && (
+                <img
+                  src={images[c.iso2]}
+                  alt={c.name}
+                  style={{
+                    position: 'absolute', inset: 0,
+                    width: '100%', height: '100%',
+                    objectFit: 'cover', objectPosition: 'center',
+                  }}
+                />
+              )}
+              {/* Bottom gradient */}
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.10) 55%, transparent 100%)',
+              }} />
+              {/* Info overlay */}
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '8px 10px 10px' }}>
+                <div style={{ fontSize: 18, lineHeight: 1, marginBottom: 5 }}>{FLAGS[c.iso2] ?? '🌍'}</div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', fontFamily: 'system-ui,sans-serif', lineHeight: 1.2 }}>{c.name}</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.55)', fontFamily: 'system-ui,sans-serif', marginTop: 3, lineHeight: 1.3 }}>
+                  {getSeasonDesc(c).slice(0, 24)}
+                </div>
+              </div>
+            </div>
+          ))}
+          {/* Hint tile */}
+          <div style={{
+            flexShrink: 0, width: 116, height: 152,
+            borderRadius: 16,
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px dashed rgba(255,255,255,0.14)',
+            display: 'flex', flexDirection: 'column',
+            alignItems: 'center', justifyContent: 'center', gap: 8, padding: 12,
+          }}>
+            <span style={{ fontSize: 22 }}>🌍</span>
+            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.38)', fontFamily: 'system-ui,sans-serif', textAlign: 'center', lineHeight: 1.5 }}>
+              Tap any country on the globe
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
