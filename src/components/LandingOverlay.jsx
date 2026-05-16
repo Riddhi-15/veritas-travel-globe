@@ -379,22 +379,26 @@ function MobileSheet({ bestNow }) {
       {/* Tagline — below TopNav */}
       <div style={{
         position: 'fixed', top: 66, left: 0, right: 0,
-        zIndex: 5, textAlign: 'center',
-        padding: '10px 28px',
+        zIndex: 5, textAlign: 'left',
+        padding: '12px 24px',
         pointerEvents: 'none', userSelect: 'none',
       }}>
         <p style={{
-          margin: 0, fontSize: 14, fontWeight: 400,
-          color: 'rgba(255,255,255,0.65)',
+          margin: 0,
+          fontSize: 28, fontWeight: 800, lineHeight: 1.25,
+          color: '#ffffff',
           fontFamily: 'system-ui, sans-serif',
-          fontStyle: 'italic', lineHeight: 1.5,
         }}>
-          Click the world,{' '}
-          <span style={{
-            background: 'linear-gradient(90deg,#4ea8ff,#a78bfa)',
-            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-            fontWeight: 600,
-          }}>discover your next story.</span>
+          Click the world,
+        </p>
+        <p style={{
+          margin: 0,
+          fontSize: 28, fontWeight: 800, lineHeight: 1.25,
+          fontFamily: 'system-ui, sans-serif',
+          background: 'linear-gradient(90deg,#4ea8ff,#a78bfa)',
+          WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+        }}>
+          discover your story.
         </p>
       </div>
 
@@ -526,20 +530,6 @@ function MobileSheet({ bestNow }) {
               </div>
             </div>
           ))}
-          {/* Hint tile */}
-          <div style={{
-            flexShrink: 0, width: 116, height: 152,
-            borderRadius: 16,
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px dashed rgba(255,255,255,0.14)',
-            display: 'flex', flexDirection: 'column',
-            alignItems: 'center', justifyContent: 'center', gap: 8, padding: 12,
-          }}>
-            <span style={{ fontSize: 22 }}>🌍</span>
-            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.38)', fontFamily: 'system-ui,sans-serif', textAlign: 'center', lineHeight: 1.5 }}>
-              Tap any country on the globe
-            </span>
-          </div>
         </div>
       </div>
     </>

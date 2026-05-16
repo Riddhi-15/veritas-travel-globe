@@ -58,7 +58,7 @@ const toFlag = (iso2) => {
   return String.fromCodePoint(iso2.charCodeAt(0) + o, iso2.charCodeAt(1) + o)
 }
 
-const TABS = ['Overview', 'Places', 'Info']
+const TABS = ['Overview', 'Places & Info']
 
 export default function CountryPanel() {
   const selectedCountry      = useGlobeStore((s) => s.selectedCountry)
@@ -95,6 +95,23 @@ export default function CountryPanel() {
 
   // Reset tab when country changes
   useEffect(() => { setActiveTab('Overview') }, [iso2])
+
+  // Intercept hardware back button on mobile — close panel instead of leaving site
+  useEffect(() => {
+    if (!isMobile || !isOpen) return
+    window.history.pushState({ veritasPanel: true }, '')
+    const onPop = () => clearSelectedCountry()
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [isOpen, isMobile]) // eslint-disable-line
+
+  const handleMobileClose = () => {
+    if (window.history.state?.veritasPanel) {
+      window.history.back() // triggers popstate → clearSelectedCountry
+    } else {
+      clearSelectedCountry()
+    }
+  }
 
   // ── 0. Hero image ─────────────────────────────────────────────────────────
   useEffect(() => {
@@ -221,15 +238,15 @@ export default function CountryPanel() {
             flexShrink: 0, background: 'rgba(8,12,24,0.98)',
           }}>
             <button
-              onClick={clearSelectedCountry}
+              onClick={handleMobileClose}
               style={{
-                width: 36, height: 36, borderRadius: '50%', flexShrink: 0,
-                background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.14)',
-                color: 'rgba(255,255,255,0.80)', fontSize: 16,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer',
+                display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0,
+                padding: '7px 14px', borderRadius: 20,
+                background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.20)',
+                color: '#fff', fontSize: 13, fontWeight: 600,
+                fontFamily: 'system-ui,sans-serif', cursor: 'pointer',
               }}
-            >←</button>
+            >← Back</button>
 
             <div style={{ flex: 1, minWidth: 0 }}>
               <h2 style={{
@@ -335,10 +352,9 @@ export default function CountryPanel() {
               </>
             )}
 
-            {activeTab === 'Places' && <TopPlaces places={places} />}
-
-            {activeTab === 'Info' && (
+            {activeTab === 'Places & Info' && (
               <>
+                <TopPlaces places={places} />
                 <TravelSummaryRow row={countryRow} />
                 <div style={{ padding: '14px 20px 32px' }}>
                   <p style={{ margin: 0, fontSize: 10, fontStyle: 'italic', color: 'rgba(140,160,210,0.22)', fontFamily: 'system-ui,sans-serif', lineHeight: 1.6 }}>
