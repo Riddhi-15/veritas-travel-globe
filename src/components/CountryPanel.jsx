@@ -51,9 +51,18 @@ const COUNTRY_GRADIENTS = {
   default: 'linear-gradient(135deg,#080c20,#101830,#1a2848,#243060)',
 }
 
+// Converts iso2 → flag emoji (works for any valid iso2)
+const toFlag = (iso2) => {
+  if (!iso2 || iso2.length !== 2) return '🌍'
+  const o = 0x1F1E6 - 65
+  return String.fromCodePoint(iso2.charCodeAt(0) + o, iso2.charCodeAt(1) + o)
+}
+
+const TABS = ['Overview', 'Places', 'Info']
+
 export default function CountryPanel() {
   const selectedCountry      = useGlobeStore((s) => s.selectedCountry)
-  const selectedState        = useGlobeStore((s) => s.selectedState)   // ← was missing
+  const selectedState        = useGlobeStore((s) => s.selectedState)
   const selectedCity         = useGlobeStore((s) => s.selectedCity)
   const clearSelectedCountry = useGlobeStore((s) => s.clearSelectedCountry)
 
@@ -62,6 +71,8 @@ export default function CountryPanel() {
   const [dataLevel, setDataLevel]   = useState('country')
   const [heroImg, setHeroImg]       = useState(null)
   const [heroLoaded, setHeroLoaded] = useState(false)
+  const [isMobile, setIsMobile]     = useState(() => window.innerWidth < 768)
+  const [activeTab, setActiveTab]   = useState('Overview')
 
   const advisoryMap = useGlobeStore((s) => s.advisoryMap)
 
@@ -69,33 +80,38 @@ export default function CountryPanel() {
   const countryName = selectedCountry?.properties?.name ?? ''
   const iso2        = nameToIso2(countryName)
 
-  // Derive the display name: city > state > country
-  const stateName  = selectedState?.properties?.name ?? null
+  const stateName   = selectedState?.properties?.name ?? null
   const displayName = selectedCity?.name ?? stateName ?? countryName
 
   const advisoryLevel = getAdvisoryLevel(advisoryMap, iso2)
   const advisoryDef   = advisoryLevel ? ADVISORY_LEVELS[advisoryLevel] : null
 
-  // ── 0. Hero image — fetch from Wikipedia whenever displayed subject changes ─
+  // Mobile detection
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  // Reset tab when country changes
+  useEffect(() => { setActiveTab('Overview') }, [iso2])
+
+  // ── 0. Hero image ─────────────────────────────────────────────────────────
   useEffect(() => {
     let cancelled = false
     if (!displayName) { setHeroImg(null); setHeroLoaded(false); return }
     setHeroLoaded(false)
     setHeroImg(null)
-    const query = getScenicQuery(displayName)
-    fetchWikiImage(query).then(url => {
+    fetchWikiImage(getScenicQuery(displayName)).then(url => {
       if (!cancelled) setHeroImg(url ?? null)
     })
     return () => { cancelled = true }
   }, [displayName])
 
-  // ── 1. Country changes → load country-level data ─────────────────────────
+  // ── 1. Country data ───────────────────────────────────────────────────────
   useEffect(() => {
     if (!iso2) { setCountryRow(null); setPlaces([]); return }
-    setCountryRow(null)
-    setPlaces([])
-    setDataLevel('country')
-
+    setCountryRow(null); setPlaces([]); setDataLevel('country')
     Promise.all([getCountryRow(iso2), getPlaces(iso2)]).then(([row, pl]) => {
       const fb = FALLBACK[iso2] ?? null
       setCountryRow(row ?? fb)
@@ -103,19 +119,13 @@ export default function CountryPanel() {
     })
   }, [iso2])
 
-  // ── 2. State polygon clicked → load state-level data (India only) ────────
+  // ── 2. State data (India) ─────────────────────────────────────────────────
   useEffect(() => {
     if (!selectedState || !iso2) return
-
-    const sName   = selectedState.properties?.name ?? ''
-    const isIndia = iso2 === 'IN'
-
-    if (isIndia && sName) {
+    const sName = selectedState.properties?.name ?? ''
+    if (iso2 === 'IN' && sName) {
       setDataLevel('state')
-      Promise.all([
-        getIndiaStateRow(sName),
-        getStatePlaces(sName),
-      ]).then(([stateRow, statePlaces]) => {
+      Promise.all([getIndiaStateRow(sName), getStatePlaces(sName)]).then(([stateRow, statePlaces]) => {
         if (stateRow) {
           setCountryRow((prev) => ({ ...prev, ...stateRow }))
           if (statePlaces?.length) setPlaces(statePlaces)
@@ -125,14 +135,11 @@ export default function CountryPanel() {
         }
       })
     }
-    // For non-India drilldown countries: panel keeps country data, state name
-    // shows in breadcrumb/header only — no per-state data available yet.
   }, [selectedState, iso2])
 
-  // ── 3. City searched → load city-level data, fall back to state/country ──
+  // ── 3. City data ──────────────────────────────────────────────────────────
   useEffect(() => {
     if (!selectedCity) {
-      // Search cleared → revert to country or state level
       if (selectedState && iso2 === 'IN') {
         const sName = selectedState.properties?.name ?? ''
         setDataLevel('state')
@@ -152,30 +159,21 @@ export default function CountryPanel() {
       }
       return
     }
-
-    const cityName = selectedCity.name
-    const cityIso2 = selectedCity.countryIso2?.toUpperCase() ?? iso2
-    const stateName = selectedCity.state ?? ''
-    const isIndia = cityIso2 === 'IN'
-
-    // Always try city-specific data first (all countries)
-    Promise.all([
-      getCityRow(cityName, cityIso2),
-      getCityPlaces(cityName, cityIso2),
-    ]).then(([cityRow, cityPlaces]) => {
+    const cityName  = selectedCity.name
+    const cityIso2  = selectedCity.countryIso2?.toUpperCase() ?? iso2
+    const cStateName = selectedCity.state ?? ''
+    const isIndia   = cityIso2 === 'IN'
+    Promise.all([getCityRow(cityName, cityIso2), getCityPlaces(cityName, cityIso2)]).then(([cityRow, cityPlaces]) => {
       if (cityRow) {
-        // We have city-level data — use it, merged on top of country base for currency etc.
         const fb = FALLBACK[cityIso2] ?? {}
         setCountryRow({ ...fb, ...cityRow })
         if (cityPlaces?.length) setPlaces(cityPlaces)
         setDataLevel('city')
         return
       }
-
-      // No city data — fall back to state (India) or country level
-      if (isIndia && stateName) {
+      if (isIndia && cStateName) {
         setDataLevel('state')
-        Promise.all([getIndiaStateRow(stateName), getStatePlaces(stateName)]).then(([stateRow, statePlaces]) => {
+        Promise.all([getIndiaStateRow(cStateName), getStatePlaces(cStateName)]).then(([stateRow, statePlaces]) => {
           if (stateRow) {
             const fb = FALLBACK[iso2] ?? {}
             setCountryRow({ ...fb, ...stateRow })
@@ -186,24 +184,184 @@ export default function CountryPanel() {
           }
         })
       } else {
-        // Non-India or no state — keep country data, just mark level
         setDataLevel('city_no_data')
       }
     })
   }, [selectedCity, selectedState, iso2])
 
+  // ── Shared: dim overlay ───────────────────────────────────────────────────
+  const dimOverlay = (
+    <div style={{
+      position: 'fixed', inset: 0,
+      background: 'rgba(0,0,0,0.40)',
+      zIndex: 10, pointerEvents: 'none',
+      opacity: isOpen ? 1 : 0,
+      transition: 'opacity 0.4s cubic-bezier(0.4,0,0.2,1)',
+    }} />
+  )
+
+  // ══ MOBILE: full-screen panel with tabs ═══════════════════════════════════
+  if (isMobile) {
+    return (
+      <>
+        {dimOverlay}
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 20,
+          background: 'rgb(8,12,24)',
+          display: 'flex', flexDirection: 'column',
+          transform: isOpen ? 'translateY(0)' : 'translateY(100%)',
+          transition: 'transform 0.4s cubic-bezier(0.4,0,0.2,1)',
+        }}>
+
+          {/* ── Top bar ── */}
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 10,
+            padding: '14px 16px 12px',
+            borderBottom: '1px solid rgba(255,255,255,0.08)',
+            flexShrink: 0, background: 'rgba(8,12,24,0.98)',
+          }}>
+            <button
+              onClick={clearSelectedCountry}
+              style={{
+                width: 36, height: 36, borderRadius: '50%', flexShrink: 0,
+                background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.14)',
+                color: 'rgba(255,255,255,0.80)', fontSize: 16,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer',
+              }}
+            >←</button>
+
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h2 style={{
+                margin: 0, fontSize: 17, fontWeight: 700,
+                color: '#fff', fontFamily: 'system-ui,sans-serif',
+                overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+              }}>{displayName}</h2>
+              <p style={{ margin: '2px 0 0', fontSize: 11, color: 'rgba(200,220,255,0.50)', fontFamily: 'system-ui,sans-serif' }}>
+                {selectedCity
+                  ? `${selectedCity.state ? selectedCity.state + ' · ' : ''}${countryName}`
+                  : selectedState ? countryName
+                  : `${iso2 ?? ''}${countryRow?.currency_code ? ' · ' + countryRow.currency_code : ''}`}
+              </p>
+            </div>
+
+            <span style={{ fontSize: 28, flexShrink: 0 }}>{toFlag(iso2)}</span>
+
+            {advisoryDef && (
+              <span style={{
+                display: 'flex', alignItems: 'center', gap: 5,
+                padding: '4px 9px', borderRadius: 10, flexShrink: 0,
+                background: 'rgba(0,0,0,0.55)', border: `1px solid ${advisoryDef.border}`,
+                fontSize: 10, fontWeight: 700, color: advisoryDef.color,
+                fontFamily: 'system-ui,sans-serif',
+              }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: advisoryDef.color }} />
+                L{advisoryLevel}
+              </span>
+            )}
+          </div>
+
+          {/* ── Sticky search ── */}
+          <div style={{
+            flexShrink: 0, background: 'rgba(8,12,24,0.98)',
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
+          }}>
+            <CitySearchBar countryName={countryName} countryIso2={iso2} />
+          </div>
+
+          {/* ── Tab bar ── */}
+          <div style={{
+            display: 'flex', flexShrink: 0,
+            borderBottom: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(8,12,24,0.98)',
+          }}>
+            {TABS.map(tab => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                style={{
+                  flex: 1, padding: '11px 0',
+                  background: 'none', border: 'none', cursor: 'pointer',
+                  fontFamily: 'system-ui,sans-serif', fontSize: 13,
+                  fontWeight: activeTab === tab ? 700 : 500,
+                  color: activeTab === tab ? '#4ea8ff' : 'rgba(255,255,255,0.38)',
+                  borderBottom: activeTab === tab ? '2px solid #4ea8ff' : '2px solid transparent',
+                  transition: 'all 0.18s ease',
+                  letterSpacing: '0.02em',
+                }}
+              >{tab}</button>
+            ))}
+          </div>
+
+          {/* ── Scrollable tab content ── */}
+          <div style={{ flex: 1, overflowY: 'auto', WebkitOverflowScrolling: 'touch' }}>
+
+            {activeTab === 'Overview' && (
+              <>
+                {/* Hero photo */}
+                <div style={{
+                  position: 'relative', height: 210, flexShrink: 0, overflow: 'hidden',
+                  background: COUNTRY_GRADIENTS[iso2] ?? COUNTRY_GRADIENTS.default,
+                }}>
+                  {heroImg && (
+                    <img
+                      src={heroImg} alt={displayName}
+                      loading="eager" decoding="async"
+                      onLoad={() => setHeroLoaded(true)}
+                      style={{
+                        position: 'absolute', inset: 0,
+                        width: '100%', height: '100%',
+                        objectFit: 'cover', objectPosition: 'center 30%',
+                        opacity: heroLoaded ? 1 : 0,
+                        transition: 'opacity 0.7s ease',
+                      }}
+                    />
+                  )}
+                  {/* Data level badge */}
+                  <div style={{ position: 'absolute', top: 12, right: 12 }}>
+                    {dataLevel === 'city'        && <span style={dlBadge('#64b8ff','rgba(100,180,255,0.15)','rgba(100,180,255,0.25)')}>city data</span>}
+                    {dataLevel === 'state'       && <span style={dlBadge('#64dc96','rgba(100,200,140,0.15)','rgba(100,200,140,0.25)')}>state data</span>}
+                    {(dataLevel === 'city_no_data' || dataLevel === 'state_no_data') && <span style={dlBadge('#ffc850','rgba(255,200,80,0.1)','rgba(255,200,80,0.2)')}>country data</span>}
+                  </div>
+                  {/* Fade to background at bottom */}
+                  <div style={{
+                    position: 'absolute', bottom: 0, left: 0, right: 0,
+                    height: 70,
+                    background: 'linear-gradient(to top, rgb(8,12,24), transparent)',
+                  }} />
+                </div>
+                <LocalInsight />
+                <LatestNews />
+              </>
+            )}
+
+            {activeTab === 'Places' && <TopPlaces places={places} />}
+
+            {activeTab === 'Info' && (
+              <>
+                <TravelSummaryRow row={countryRow} />
+                <div style={{ padding: '14px 20px 32px' }}>
+                  <p style={{ margin: 0, fontSize: 10, fontStyle: 'italic', color: 'rgba(140,160,210,0.22)', fontFamily: 'system-ui,sans-serif', lineHeight: 1.6 }}>
+                    Data sourced from Google Sheets · Travel Advisory API · NewsData.io · Frankfurter
+                  </p>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+
+        <style>{`
+          .panel-mobile-scroll::-webkit-scrollbar { display: none; }
+        `}</style>
+      </>
+    )
+  }
+
+  // ══ DESKTOP: right slide-in panel ════════════════════════════════════════
   return (
     <>
-      {/* Dim overlay */}
-      <div style={{
-        position: 'fixed', inset: 0,
-        background: 'rgba(0,0,0,0.38)',
-        zIndex: 10, pointerEvents: 'none',
-        opacity: isOpen ? 1 : 0,
-        transition: 'opacity 0.4s cubic-bezier(0.4,0,0.2,1)',
-      }} />
+      {dimOverlay}
 
-      {/* Panel */}
       <div
         className="panel-root"
         style={{
@@ -222,21 +380,17 @@ export default function CountryPanel() {
         }}
       >
         {/* Hero photo */}
-        <div className="panel-hero" style={{
+        <div style={{
           position: 'relative', height: 260, flexShrink: 0, overflow: 'hidden',
           background: COUNTRY_GRADIENTS[iso2] ?? COUNTRY_GRADIENTS.default,
         }}>
-          {/* Real Wikipedia photo — fades in over the gradient */}
           {heroImg && (
             <img
-              src={heroImg}
-              alt={displayName}
-              loading="eager"
-              decoding="async"
+              src={heroImg} alt={displayName}
+              loading="eager" decoding="async"
               onLoad={() => setHeroLoaded(true)}
               style={{
-                position: 'absolute',
-                top: 0, left: 0,
+                position: 'absolute', top: 0, left: 0,
                 width: '100%', height: '100%',
                 objectFit: 'cover', objectPosition: 'center 30%',
                 display: 'block',
@@ -245,7 +399,7 @@ export default function CountryPanel() {
               }}
             />
           )}
-          {/* Close button — top left */}
+          {/* Close button */}
           <button
             onClick={clearSelectedCountry}
             aria-label="Close panel"
@@ -261,14 +415,13 @@ export default function CountryPanel() {
             onMouseLeave={e => { e.currentTarget.style.background = 'rgba(0,0,0,0.55)'; e.currentTarget.style.color = 'rgba(255,255,255,0.85)' }}
           >✕</button>
 
-          {/* Travel Advisory badge — top right */}
+          {/* Advisory badge */}
           <div style={{ position: 'absolute', top: 12, right: 12 }}>
             {advisoryDef ? (
               <span style={{
                 display: 'inline-flex', alignItems: 'center', gap: 6,
                 padding: '5px 12px', borderRadius: 20,
-                background: 'rgba(0,0,0,0.72)',
-                border: `1px solid ${advisoryDef.border}`,
+                background: 'rgba(0,0,0,0.72)', border: `1px solid ${advisoryDef.border}`,
                 fontSize: 11, fontWeight: 700, color: advisoryDef.color,
                 fontFamily: 'system-ui,sans-serif',
                 backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
@@ -288,7 +441,7 @@ export default function CountryPanel() {
             )}
           </div>
 
-          {/* Bottom gradient overlay + name + data level */}
+          {/* Country name overlay */}
           <div style={{
             position: 'absolute', bottom: 0, left: 0, right: 0,
             background: 'linear-gradient(transparent 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.85) 100%)',
@@ -300,9 +453,7 @@ export default function CountryPanel() {
                   margin: 0, fontSize: 22, fontWeight: 700,
                   color: '#ffffff', letterSpacing: '-0.2px',
                   lineHeight: 1.2, fontFamily: 'system-ui,sans-serif',
-                }}>
-                  {displayName}
-                </h2>
+                }}>{displayName}</h2>
                 <p style={{ margin: '3px 0 0', fontSize: 12, color: 'rgba(200,220,255,0.65)', fontFamily: 'system-ui,sans-serif' }}>
                   {selectedCity ? (
                     <>{selectedCity.state ? `${selectedCity.state} · ` : ''}{countryName}</>
@@ -313,9 +464,8 @@ export default function CountryPanel() {
                   ) : null}
                 </p>
               </div>
-              {/* Data level badge */}
-              {dataLevel === 'city' && <span style={dlBadge('#64b8ff','rgba(100,180,255,0.15)','rgba(100,180,255,0.25)')}>city data</span>}
-              {dataLevel === 'state' && <span style={dlBadge('#64dc96','rgba(100,200,140,0.15)','rgba(100,200,140,0.25)')}>state data</span>}
+              {dataLevel === 'city'        && <span style={dlBadge('#64b8ff','rgba(100,180,255,0.15)','rgba(100,180,255,0.25)')}>city data</span>}
+              {dataLevel === 'state'       && <span style={dlBadge('#64dc96','rgba(100,200,140,0.15)','rgba(100,200,140,0.25)')}>state data</span>}
               {(dataLevel === 'city_no_data' || dataLevel === 'state_no_data') && <span style={dlBadge('#ffc850','rgba(255,200,80,0.1)','rgba(255,200,80,0.2)')}>country data</span>}
             </div>
           </div>
@@ -328,7 +478,6 @@ export default function CountryPanel() {
           <TopPlaces places={places} />
           <LocalInsight />
           <TravelSummaryRow row={countryRow} />
-
           <div style={{ padding: '14px 20px 24px' }}>
             <p style={{ margin: 0, fontSize: '10px', fontStyle: 'italic', color: 'rgba(140,160,210,0.25)', fontFamily: 'system-ui, sans-serif', lineHeight: 1.6 }}>
               Data sourced from Google Sheets · Travel Advisory API · NewsData.io · Frankfurter
@@ -338,18 +487,6 @@ export default function CountryPanel() {
       </div>
 
       <style>{`
-        @media (max-width: 767px) {
-          .panel-root {
-            top: auto !important;
-            left: 0 !important; right: 0 !important; bottom: 0 !important;
-            width: 100% !important; height: 72vh !important;
-            border-left: none !important;
-            border-top: 1px solid rgba(255,255,255,0.08) !important;
-            border-radius: 18px 18px 0 0 !important;
-            transform: ${isOpen ? 'translateY(0)' : 'translateY(100%)'} !important;
-          }
-          .panel-hero { height: 160px !important; }
-        }
         .panel-root ::-webkit-scrollbar { width: 3px; }
         .panel-root ::-webkit-scrollbar-track { background: transparent; }
         .panel-root ::-webkit-scrollbar-thumb {
