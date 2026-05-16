@@ -23,8 +23,22 @@ scripts/out/
 # Raw source geo data — 40 MB, not needed in repo (processed output is in public/geo/)
 scripts/ne_admin1.json
 
-# Viva / academic prep docs — local only
+# Academic / local-only docs — never push
 viva-prep.html
+veritas-guide.html
+veritas-ppt.html
+Minor_Project_Report_VERITAS.md
+analyze_india.js
+
+# Word / Office documents and temp lock files
+*.docx
+*.doc
+*.pptx
+*.ppt
+~$*
+
+# Diagram source files (drawio, PDF) — local only
+diagrams/
 
 # Editor directories and files
 .vscode/*
