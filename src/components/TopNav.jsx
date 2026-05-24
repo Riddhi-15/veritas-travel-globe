@@ -61,7 +61,7 @@ export default function TopNav() {
           color: '#ffffff', fontFamily: 'system-ui, sans-serif',
           textTransform: 'uppercase', lineHeight: 1,
         }}>Veritas</h1>
-        <p style={{
+        <p className="topnav-subtitle" style={{
           margin: '4px 0 0', fontSize: 10, fontWeight: 400,
           color: 'rgba(255,255,255,0.35)', letterSpacing: '0.14em',
           textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif',
@@ -111,6 +111,7 @@ export default function TopNav() {
       <style>{`
         @media (max-width: 767px) {
           .topnav-tabs { display: none !important; }
+          .topnav-subtitle { display: none !important; }
         }
       `}</style>
     </div>

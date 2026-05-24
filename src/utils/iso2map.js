@@ -55,3 +55,8 @@ const ISO2_TO_NAME = Object.fromEntries(
 export function iso2ToName(iso2) {
   return ISO2_TO_NAME[iso2?.toUpperCase()] ?? null
 }
+
+// Sorted list of all countries for search
+export const COUNTRY_LIST = Object.entries(ISO2_MAP)
+  .map(([name, iso2]) => ({ name, iso2 }))
+  .sort((a, b) => a.name.localeCompare(b.name))
