@@ -382,12 +382,12 @@ function MobileSearchBar() {
       {/* Input */}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
         {/* SVG magnifying glass icon */}
-        <svg style={{ position: 'absolute', left: 14, pointerEvents: 'none' }}
-          width="18" height="18" viewBox="0 0 24 24" fill="none"
-          stroke="rgba(255,255,255,0.50)" strokeWidth="2.2"
+        <svg style={{ position: 'absolute', left: 16, pointerEvents: 'none' }}
+          width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="rgba(255,255,255,0.75)" strokeWidth="2.5"
           strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="11" cy="11" r="7" />
-          <line x1="16.5" y1="16.5" x2="22" y2="22" />
+          <circle cx="11" cy="11" r="7.5" />
+          <line x1="17" y1="17" x2="22" y2="22" />
         </svg>
         <input
           type="text"
@@ -397,9 +397,9 @@ function MobileSearchBar() {
           onBlur={() => setTimeout(() => setOpen(false), 180)}
           placeholder="Search countries, cities, places..."
           style={{
-            width: '100%', padding: '12px 16px 12px 42px',
-            borderRadius: 28,
-            background: 'rgba(20,26,48,0.88)',
+            width: '100%', padding: '12px 16px 12px 46px',
+            borderRadius: 14,
+            background: 'rgba(20,26,48,0.82)',
             border: '1px solid rgba(255,255,255,0.18)',
             color: '#fff', fontSize: 14,
             fontFamily: 'system-ui,sans-serif',

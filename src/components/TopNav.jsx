@@ -81,12 +81,12 @@ export default function TopNav() {
             fontFamily: 'system-ui, sans-serif', fontSize: 11, fontWeight: 600,
             letterSpacing: '0.05em', transition: 'all 0.2s ease',
             border: heatmapMode
-              ? '1px solid rgba(52,211,153,0.55)'
-              : `1px solid rgba(255,255,255,${btnHovered ? '0.22' : '0.10'})`,
+              ? '1px solid rgba(52,211,153,0.40)'
+              : `1px solid rgba(255,255,255,${btnHovered ? '0.14' : '0.07'})`,
             background: heatmapMode
-              ? 'rgba(52,211,153,0.12)'
-              : `rgba(255,255,255,${btnHovered ? '0.08' : '0.04'})`,
-            color: heatmapMode ? 'rgba(52,211,153,0.95)' : 'rgba(255,255,255,0.55)',
+              ? 'rgba(52,211,153,0.08)'
+              : `rgba(255,255,255,${btnHovered ? '0.05' : '0.02'})`,
+            color: heatmapMode ? 'rgba(52,211,153,0.85)' : 'rgba(255,255,255,0.40)',
             boxShadow: heatmapMode ? '0 0 12px rgba(52,211,153,0.15)' : 'none',
           }}
         >
