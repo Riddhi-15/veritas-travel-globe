@@ -378,13 +378,17 @@ function MobileSearchBar() {
   }
 
   return (
-    <div style={{ position: 'fixed', top: 76, left: 14, right: 14, zIndex: 10 }}>
+    <div style={{ position: 'fixed', top: 76, left: 24, right: 24, zIndex: 10 }}>
       {/* Input */}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-        <span style={{
-          position: 'absolute', left: 16, fontSize: 17,
-          color: 'rgba(255,255,255,0.45)', pointerEvents: 'none',
-        }}>🔍</span>
+        {/* SVG magnifying glass icon */}
+        <svg style={{ position: 'absolute', left: 14, pointerEvents: 'none' }}
+          width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="rgba(255,255,255,0.50)" strokeWidth="2.2"
+          strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="7" />
+          <line x1="16.5" y1="16.5" x2="22" y2="22" />
+        </svg>
         <input
           type="text"
           value={query}
@@ -393,11 +397,11 @@ function MobileSearchBar() {
           onBlur={() => setTimeout(() => setOpen(false), 180)}
           placeholder="Search countries, cities, places..."
           style={{
-            width: '100%', padding: '13px 16px 13px 46px',
+            width: '100%', padding: '12px 16px 12px 42px',
             borderRadius: 28,
             background: 'rgba(20,26,48,0.88)',
             border: '1px solid rgba(255,255,255,0.18)',
-            color: '#fff', fontSize: 15,
+            color: '#fff', fontSize: 14,
             fontFamily: 'system-ui,sans-serif',
             outline: 'none',
             backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
@@ -473,7 +477,7 @@ function MobileSheet({ bestNow }) {
 
       {/* Tagline — below search bar */}
       <div style={{
-        position: 'fixed', top: 148, left: 0, right: 0,
+        position: 'fixed', top: 132, left: 0, right: 0,
         zIndex: 5, textAlign: 'left',
         padding: '10px 24px',
         pointerEvents: 'none', userSelect: 'none',
