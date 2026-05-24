@@ -378,7 +378,7 @@ function MobileSearchBar() {
   }
 
   return (
-    <div style={{ position: 'fixed', top: 66, left: 14, right: 14, zIndex: 10 }}>
+    <div style={{ position: 'fixed', top: 76, left: 14, right: 14, zIndex: 10 }}>
       {/* Input */}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
         <span style={{
@@ -473,7 +473,7 @@ function MobileSheet({ bestNow }) {
 
       {/* Tagline — below search bar */}
       <div style={{
-        position: 'fixed', top: 138, left: 0, right: 0,
+        position: 'fixed', top: 148, left: 0, right: 0,
         zIndex: 5, textAlign: 'left',
         padding: '10px 24px',
         pointerEvents: 'none', userSelect: 'none',

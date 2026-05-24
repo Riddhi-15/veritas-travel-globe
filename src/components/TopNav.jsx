@@ -11,7 +11,7 @@ export default function TopNav() {
   const [btnHovered, setBtnHovered] = useState(false)
 
   return (
-    <div style={{
+    <div className="topnav-root" style={{
       position: 'fixed',
       top: 0, left: 0, right: 0,
       height: 58,
@@ -69,7 +69,7 @@ export default function TopNav() {
       </div>
 
       {/* ── Right: Best Time toggle ── */}
-      <div style={{ position: 'absolute', right: 20 }}>
+      <div className="topnav-btn-wrap" style={{ position: 'absolute', right: 16 }}>
         <button
           onClick={toggleHeatmap}
           onMouseEnter={() => setBtnHovered(true)}
@@ -110,8 +110,10 @@ export default function TopNav() {
       </div>
       <style>{`
         @media (max-width: 767px) {
-          .topnav-tabs { display: none !important; }
-          .topnav-subtitle { display: none !important; }
+          .topnav-tabs    { display: none !important; }
+          .topnav-root    { height: 68px !important; align-items: flex-start !important; padding-top: 10px !important; }
+          .topnav-subtitle { display: block !important; }
+          .topnav-btn-wrap { top: 10px !important; }
         }
       `}</style>
     </div>
