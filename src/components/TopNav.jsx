@@ -62,7 +62,7 @@ export default function TopNav() {
           textTransform: 'uppercase', lineHeight: 1,
         }}>Veritas</h1>
         <p className="topnav-subtitle" style={{
-          margin: '4px 0 0', fontSize: 10, fontWeight: 400,
+          margin: '7px 0 0', fontSize: 10, fontWeight: 400,
           color: 'rgba(255,255,255,0.35)', letterSpacing: '0.14em',
           textTransform: 'uppercase', fontFamily: 'system-ui, sans-serif',
         }}>3D Travel Intelligence Globe &nbsp;·&nbsp; 195 Countries</p>
