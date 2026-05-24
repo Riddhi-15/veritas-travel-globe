@@ -1,6 +1,8 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
 import FALLBACK from '../data/fallback'
 import { fetchWikiImage, getScenicQuery } from '../utils/wikiImage'
+import { COUNTRY_LIST } from '../utils/iso2map'
+import useGlobeStore from '../store'
 
 const MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
 const MONTH_LABELS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
@@ -345,6 +347,96 @@ export default function LandingOverlay() {
   )
 }
 
+// ── Flag emoji utility ────────────────────────────────────────────────────────
+const toFlag = (iso2) => {
+  if (!iso2 || iso2.length !== 2) return '🌍'
+  const o = 0x1F1E6 - 65
+  return String.fromCodePoint(iso2.charCodeAt(0) + o, iso2.charCodeAt(1) + o)
+}
+
+// ── Mobile country search bar ─────────────────────────────────────────────────
+function MobileSearchBar() {
+  const setSelectedCountry = useGlobeStore((s) => s.setSelectedCountry)
+  const [query, setQuery]   = useState('')
+  const [results, setResults] = useState([])
+  const [open, setOpen]     = useState(false)
+
+  const handleChange = (e) => {
+    const q = e.target.value
+    setQuery(q)
+    if (q.length < 2) { setResults([]); return }
+    setResults(
+      COUNTRY_LIST.filter(c => c.name.toLowerCase().includes(q.toLowerCase())).slice(0, 6)
+    )
+  }
+
+  const handleSelect = (country) => {
+    setSelectedCountry({ properties: { name: country.name }, __type: 'country' })
+    setQuery('')
+    setResults([])
+    setOpen(false)
+  }
+
+  return (
+    <div style={{ position: 'fixed', top: 66, left: 14, right: 14, zIndex: 10 }}>
+      {/* Input */}
+      <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+        <span style={{
+          position: 'absolute', left: 16, fontSize: 17,
+          color: 'rgba(255,255,255,0.45)', pointerEvents: 'none',
+        }}>🔍</span>
+        <input
+          type="text"
+          value={query}
+          onChange={handleChange}
+          onFocus={() => setOpen(true)}
+          onBlur={() => setTimeout(() => setOpen(false), 180)}
+          placeholder="Search countries, cities, places..."
+          style={{
+            width: '100%', padding: '13px 16px 13px 46px',
+            borderRadius: 28,
+            background: 'rgba(20,26,48,0.88)',
+            border: '1px solid rgba(255,255,255,0.18)',
+            color: '#fff', fontSize: 15,
+            fontFamily: 'system-ui,sans-serif',
+            outline: 'none',
+            backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
+            boxShadow: '0 4px 24px rgba(0,0,0,0.40)',
+          }}
+        />
+      </div>
+
+      {/* Dropdown results */}
+      {open && results.length > 0 && (
+        <div style={{
+          marginTop: 8,
+          background: 'rgba(10,14,26,0.97)',
+          backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
+          borderRadius: 18, border: '1px solid rgba(255,255,255,0.12)',
+          overflow: 'hidden', boxShadow: '0 8px 32px rgba(0,0,0,0.50)',
+        }}>
+          {results.map((c, i) => (
+            <div
+              key={c.iso2}
+              onPointerDown={() => handleSelect(c)}
+              style={{
+                padding: '13px 18px',
+                display: 'flex', alignItems: 'center', gap: 12,
+                cursor: 'pointer',
+                borderBottom: i < results.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                background: 'transparent',
+              }}
+            >
+              <span style={{ fontSize: 22, flexShrink: 0 }}>{toFlag(c.iso2)}</span>
+              <span style={{ fontSize: 15, color: '#fff', fontFamily: 'system-ui,sans-serif' }}>{c.name}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 // ── Mobile bottom sheet ───────────────────────────────────────────────────────
 
 function MobileSheet({ bestNow }) {
@@ -376,30 +468,28 @@ function MobileSheet({ bestNow }) {
 
   return (
     <>
-      {/* Tagline — below TopNav */}
+      {/* Search bar — below TopNav */}
+      <MobileSearchBar />
+
+      {/* Tagline — below search bar */}
       <div style={{
-        position: 'fixed', top: 66, left: 0, right: 0,
+        position: 'fixed', top: 138, left: 0, right: 0,
         zIndex: 5, textAlign: 'left',
-        padding: '12px 24px',
+        padding: '10px 24px',
         pointerEvents: 'none', userSelect: 'none',
       }}>
         <p style={{
           margin: 0,
-          fontSize: 28, fontWeight: 800, lineHeight: 1.25,
-          color: '#ffffff',
-          fontFamily: 'system-ui, sans-serif',
-        }}>
-          Click the world,
-        </p>
+          fontSize: 26, fontWeight: 800, lineHeight: 1.25,
+          color: '#ffffff', fontFamily: 'system-ui, sans-serif',
+        }}>Click the world,</p>
         <p style={{
           margin: 0,
-          fontSize: 28, fontWeight: 800, lineHeight: 1.25,
+          fontSize: 26, fontWeight: 800, lineHeight: 1.25,
           fontFamily: 'system-ui, sans-serif',
           background: 'linear-gradient(90deg,#4ea8ff,#a78bfa)',
           WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-        }}>
-          discover your story.
-        </p>
+        }}>discover your story.</p>
       </div>
 
       {/* Drag to explore hint — floats above the sheet */}

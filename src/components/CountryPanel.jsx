@@ -58,7 +58,7 @@ const toFlag = (iso2) => {
   return String.fromCodePoint(iso2.charCodeAt(0) + o, iso2.charCodeAt(1) + o)
 }
 
-const TABS = ['Overview', 'Places & Info']
+const TABS = ['Overview', 'News']
 
 export default function CountryPanel() {
   const selectedCountry      = useGlobeStore((s) => s.selectedCountry)
@@ -348,12 +348,6 @@ export default function CountryPanel() {
                   }} />
                 </div>
                 <LocalInsight />
-                <LatestNews />
-              </>
-            )}
-
-            {activeTab === 'Places & Info' && (
-              <>
                 <TopPlaces places={places} />
                 <TravelSummaryRow row={countryRow} />
                 <div style={{ padding: '14px 20px 32px' }}>
@@ -363,6 +357,8 @@ export default function CountryPanel() {
                 </div>
               </>
             )}
+
+            {activeTab === 'News' && <LatestNews />}
           </div>
         </div>
 
