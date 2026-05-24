@@ -76,9 +76,9 @@ export default function TopNav() {
           onMouseLeave={() => setBtnHovered(false)}
           title={heatmapMode ? 'Hide travel heat map' : `Show best time to visit for ${CURRENT_MONTH}`}
           style={{
-            display: 'flex', alignItems: 'center', gap: 7,
-            padding: '6px 14px', borderRadius: 20, cursor: 'pointer',
-            fontFamily: 'system-ui, sans-serif', fontSize: 12, fontWeight: 600,
+            display: 'flex', alignItems: 'center', gap: 5,
+            padding: '5px 11px', borderRadius: 20, cursor: 'pointer',
+            fontFamily: 'system-ui, sans-serif', fontSize: 11, fontWeight: 600,
             letterSpacing: '0.05em', transition: 'all 0.2s ease',
             border: heatmapMode
               ? '1px solid rgba(52,211,153,0.55)'
@@ -92,7 +92,7 @@ export default function TopNav() {
         >
           {/* Dot indicator */}
           <span style={{
-            width: 7, height: 7, borderRadius: '50%', flexShrink: 0,
+            width: 6, height: 6, borderRadius: '50%', flexShrink: 0,
             background: heatmapMode ? '#34d399' : 'rgba(255,255,255,0.25)',
             boxShadow: heatmapMode ? '0 0 6px #34d399' : 'none',
             transition: 'all 0.2s ease',
