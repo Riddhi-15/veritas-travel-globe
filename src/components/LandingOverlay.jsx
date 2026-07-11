@@ -117,18 +117,18 @@ export default function LandingOverlay() {
     <>
       {/* ══ LHS ══ */}
       <div className="overlay-lhs" style={{
-        position:'fixed', left:32, top:72, bottom:80,
-        width:380, zIndex:5,
+        position:'fixed', left:28, top:64, bottom:70,
+        width:325, zIndex:5,
         pointerEvents:'none', userSelect:'none',
         display:'flex', flexDirection:'column',
         gap:0,
-        paddingTop:10,
+        paddingTop:9,
       }}>
-        <p style={{ ...blueLabel, marginBottom:14 }}>Explore the World</p>
+        <p style={{ ...blueLabel, marginBottom:12 }}>Explore the World</p>
 
         <h1 style={{
-          margin:'0 0 15px',
-          fontSize:38, fontWeight:800, lineHeight:1.20,
+          margin:'0 0 13px',
+          fontSize:32, fontWeight:800, lineHeight:1.20,
           color:'#ffffff',
           fontFamily:'system-ui,sans-serif',
           textShadow:'0 2px 20px rgba(0,0,0,0.90)',
@@ -145,8 +145,8 @@ export default function LandingOverlay() {
         </h1>
 
         <p style={{
-          margin:'0 0 22px',
-          fontSize:16.5, lineHeight:1.68,
+          margin:'0 0 19px',
+          fontSize:14, lineHeight:1.65,
           color:'rgba(255,255,255,0.78)',
           fontFamily:'system-ui,sans-serif',
           textShadow:'0 1px 10px rgba(0,0,0,0.80)',
@@ -154,20 +154,20 @@ export default function LandingOverlay() {
           Tap any country on the globe to discover the best time to visit, travel insights, and unforgettable experiences.
         </p>
 
-        <p style={{ ...sectionLabel, marginBottom:11 }}>What Will You Find?</p>
-        <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:22 }}>
+        <p style={{ ...sectionLabel, marginBottom:9 }}>What Will You Find?</p>
+        <div style={{ display:'flex', flexDirection:'column', gap:8, marginBottom:19 }}>
           {CATEGORIES.map(c => (
-            <div key={c.label} style={{ display:'flex', alignItems:'center', gap:12 }}>
+            <div key={c.label} style={{ display:'flex', alignItems:'center', gap:10 }}>
               <span style={{
-                width:32, height:32, borderRadius:'50%',
+                width:27, height:27, borderRadius:'50%',
                 background:`${c.color}22`,
                 border:`1.5px solid ${c.color}55`,
                 display:'flex', alignItems:'center', justifyContent:'center',
-                fontSize:15, flexShrink:0,
+                fontSize:13, flexShrink:0,
                 boxShadow:`0 0 8px ${c.color}22`,
               }}>{c.icon}</span>
               <span style={{
-                fontSize:17.5, fontWeight:600,
+                fontSize:15, fontWeight:600,
                 color: c.color,
                 fontFamily:'system-ui,sans-serif',
                 textShadow:`0 0 12px ${c.color}44, 0 1px 8px rgba(0,0,0,0.70)`,
@@ -176,20 +176,20 @@ export default function LandingOverlay() {
           ))}
         </div>
 
-        <p style={{ ...sectionLabel, marginBottom:11 }}>How to Explore</p>
-        <div style={{ display:'flex', flexDirection:'column', gap:9 }}>
+        <p style={{ ...sectionLabel, marginBottom:9 }}>How to Explore</p>
+        <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
           {HOW_TO.map(tip => (
-            <div key={tip.label} style={{ display:'flex', alignItems:'center', gap:12 }}>
+            <div key={tip.label} style={{ display:'flex', alignItems:'center', gap:10 }}>
               <span style={{
-                width:30, height:30, borderRadius:'50%',
+                width:25, height:25, borderRadius:'50%',
                 background:`${tip.color}20`,
                 border:`1.5px solid ${tip.color}55`,
                 display:'flex', alignItems:'center', justifyContent:'center',
-                fontSize:13, color:tip.color, flexShrink:0,
+                fontSize:11, color:tip.color, flexShrink:0,
                 boxShadow:`0 0 8px ${tip.color}22`,
                 fontFamily:'system-ui,sans-serif',
               }}>{tip.icon}</span>
-              <span style={{ fontSize:17, fontFamily:'system-ui,sans-serif', textShadow:'0 1px 8px rgba(0,0,0,0.80)' }}>
+              <span style={{ fontSize:14, fontFamily:'system-ui,sans-serif', textShadow:'0 1px 8px rgba(0,0,0,0.80)' }}>
                 <strong style={{ color:'#fff', fontWeight:700 }}>{tip.label}</strong>
                 <span style={{ color:'rgba(255,255,255,0.58)' }}> — {tip.desc}</span>
               </span>
@@ -200,22 +200,22 @@ export default function LandingOverlay() {
 
       {/* ══ RHS ══ */}
       <div className="no-scrollbar overlay-rhs" style={{
-        position:'fixed', right:20, top:72, bottom:80,
-        width:400, zIndex:5, userSelect:'none',
+        position:'fixed', right:17, top:64, bottom:70,
+        width:340, zIndex:5, userSelect:'none',
         overflowY:'auto',
-        display:'flex', flexDirection:'column', gap:16,
+        display:'flex', flexDirection:'column', gap:14,
       }}>
 
         {/* ─ BEST RIGHT NOW ─ */}
         <div>
-          <div style={{ display:'flex', alignItems:'center', gap:7, marginBottom:12 }}>
-            <span style={{ fontSize:15 }}>🌿</span>
-            <p style={{ ...blueLabel, fontSize:13 }}>Best Right Now</p>
+          <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:10 }}>
+            <span style={{ fontSize:13 }}>🌿</span>
+            <p style={{ ...blueLabel, fontSize:11 }}>Best Right Now</p>
           </div>
 
           {/* Featured card — photo on top, info below */}
           <div style={{
-            borderRadius:16, overflow:'hidden',
+            borderRadius:14, overflow:'hidden',
             border:'1px solid rgba(255,255,255,0.12)',
             background:'rgba(6,10,24,0.85)',
             backdropFilter:'blur(14px)', WebkitBackdropFilter:'blur(14px)',
@@ -223,7 +223,7 @@ export default function LandingOverlay() {
           }}>
             {/* Full-width photo area on top */}
             <div style={{
-              width:'100%', height:195,
+              width:'100%', height:166,
               background: GRADIENTS[feat?.iso2] ?? GRADIENTS.DEFAULT,
               position:'relative', overflow:'hidden',
             }}>
@@ -260,37 +260,37 @@ export default function LandingOverlay() {
               {/* Country name overlay on photo */}
               <div style={{
                 position:'absolute', bottom:0, left:0, right:0,
-                padding:'32px 16px 12px',
+                padding:'28px 14px 10px',
                 background:'linear-gradient(to top, rgba(4,8,20,0.90) 0%, transparent 100%)',
               }}>
-                <div style={{ display:'flex', alignItems:'center', gap:9 }}>
-                  <span style={{ fontSize:28, fontWeight:800, color:'#fff', fontFamily:'system-ui,sans-serif' }}>
+                <div style={{ display:'flex', alignItems:'center', gap:8 }}>
+                  <span style={{ fontSize:24, fontWeight:800, color:'#fff', fontFamily:'system-ui,sans-serif' }}>
                     {feat?.name}
                   </span>
-                  <span style={{ fontSize:22 }}>{FLAGS[feat?.iso2] ?? '🌍'}</span>
+                  <span style={{ fontSize:19 }}>{FLAGS[feat?.iso2] ?? '🌍'}</span>
                 </div>
               </div>
             </div>
 
             {/* Info below photo */}
-            <div style={{ padding:'14px 18px 16px', display:'flex', flexDirection:'column', gap:6 }}>
-              <p style={{ margin:0, fontSize:15, fontWeight:500, color:'rgba(220,235,255,0.80)', fontFamily:'system-ui,sans-serif', lineHeight:1.45 }}>
+            <div style={{ padding:'12px 15px 14px', display:'flex', flexDirection:'column', gap:5 }}>
+              <p style={{ margin:0, fontSize:13, fontWeight:500, color:'rgba(220,235,255,0.80)', fontFamily:'system-ui,sans-serif', lineHeight:1.45 }}>
                 {feat ? getSeasonDesc(feat) : ''}
               </p>
-              <p style={{ margin:0, fontSize:13, fontWeight:700, letterSpacing:'0.06em', textTransform:'uppercase', color:'#00d4aa', fontFamily:'system-ui,sans-serif', textShadow:'0 0 10px rgba(0,212,170,0.40)' }}>
+              <p style={{ margin:0, fontSize:11, fontWeight:700, letterSpacing:'0.06em', textTransform:'uppercase', color:'#00d4aa', fontFamily:'system-ui,sans-serif', textShadow:'0 0 10px rgba(0,212,170,0.40)' }}>
                 ✦ Peak month · {MONTH_LABELS[new Date().getMonth()]}
               </p>
             </div>
           </div>
 
           {/* Arrows + dots */}
-          <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginTop:10, padding:'0 2px' }}>
+          <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginTop:9, padding:'0 2px' }}>
             <button onClick={() => setSlide(s => (s - 1 + bestNow.length) % bestNow.length)}
               style={arrowBtn}>‹</button>
-            <div style={{ display:'flex', gap:7 }}>
+            <div style={{ display:'flex', gap:6 }}>
               {bestNow.map((_,i) => (
                 <span key={i} onClick={()=>setSlide(i)} style={{
-                  width: i === slide ? 20 : 8, height:8, borderRadius:4,
+                  width: i === slide ? 17 : 7, height:7, borderRadius:4,
                   background: i === slide ? 'rgba(80,160,255,0.90)' : 'rgba(255,255,255,0.22)',
                   cursor:'pointer', transition:'all 0.20s ease', display:'inline-block',
                 }}/>
@@ -302,13 +302,13 @@ export default function LandingOverlay() {
         </div>
 
         {/* ─ QUICK PICKS ─ */}
-        <div style={{ marginTop:22 }}>
-          <div style={{ display:'flex', alignItems:'center', gap:7, marginBottom:12 }}>
-            <span style={{ fontSize:15 }}>⭐</span>
-            <p style={{ ...blueLabel, fontSize:13 }}>Quick Picks</p>
+        <div style={{ marginTop:19 }}>
+          <div style={{ display:'flex', alignItems:'center', gap:6, marginBottom:10 }}>
+            <span style={{ fontSize:13 }}>⭐</span>
+            <p style={{ ...blueLabel, fontSize:11 }}>Quick Picks</p>
           </div>
 
-          <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
+          <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
             {picks.map(c => (
               <QuickPickRow key={c.iso2} country={c} />
             ))}
@@ -318,11 +318,11 @@ export default function LandingOverlay() {
 
       {/* ══ Bottom stats bar ══ */}
       <div className="overlay-stats" style={{
-        position:'fixed', bottom:10, left:412, right:420,
+        position:'fixed', bottom:9, left:353, right:357,
         zIndex:5, display:'flex',
         background:'rgba(4,8,22,0.92)',
         border:'1px solid rgba(255,255,255,0.09)',
-        borderRadius:10,
+        borderRadius:9,
         backdropFilter:'blur(20px)', WebkitBackdropFilter:'blur(20px)',
         boxShadow:'0 4px 20px rgba(0,0,0,0.45)',
         userSelect:'none', overflow:'hidden',
@@ -330,14 +330,14 @@ export default function LandingOverlay() {
         {STATS.map((s, i) => (
           <div key={s.label} style={{
             flex:1,
-            padding:'6px 0',
-            display:'flex', alignItems:'center', justifyContent:'center', gap:9,
+            padding:'5px 0',
+            display:'flex', alignItems:'center', justifyContent:'center', gap:8,
             borderRight: i < STATS.length-1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
           }}>
-            <span style={{ fontSize:16, opacity:0.65 }}>{s.icon}</span>
+            <span style={{ fontSize:14, opacity:0.65 }}>{s.icon}</span>
             <div style={{ display:'flex', flexDirection:'column', gap:1 }}>
-              <span style={{ fontSize:16, fontWeight:800, color:'#fff', fontFamily:'system-ui,sans-serif', lineHeight:1 }}>{s.value}</span>
-              <span style={{ fontSize:10, fontWeight:600, letterSpacing:'0.09em', textTransform:'uppercase', color:'rgba(200,215,255,0.40)', fontFamily:'system-ui,sans-serif' }}>{s.label}</span>
+              <span style={{ fontSize:14, fontWeight:800, color:'#fff', fontFamily:'system-ui,sans-serif', lineHeight:1 }}>{s.value}</span>
+              <span style={{ fontSize:9, fontWeight:600, letterSpacing:'0.09em', textTransform:'uppercase', color:'rgba(200,215,255,0.40)', fontFamily:'system-ui,sans-serif' }}>{s.label}</span>
             </div>
           </div>
         ))}
@@ -653,7 +653,7 @@ function QuickPickRow({ country }) {
       onMouseLeave={() => setHov(false)}
       style={{
         display:'flex', alignItems:'center', gap:0,
-        borderRadius:13,
+        borderRadius:11,
         background: hov ? 'rgba(80,140,255,0.10)' : 'rgba(6,10,24,0.80)',
         border:`1px solid ${hov ? 'rgba(80,140,255,0.40)' : 'rgba(255,255,255,0.10)'}`,
         overflow:'hidden',
@@ -663,7 +663,7 @@ function QuickPickRow({ country }) {
       }}
     >
       {/* Thumbnail with Wikipedia image */}
-      <div style={{ width:110, height:92, background:grad, flexShrink:0, position:'relative', overflow:'hidden' }}>
+      <div style={{ width:94, height:78, background:grad, flexShrink:0, position:'relative', overflow:'hidden' }}>
         {img && (
           <img
             src={img}
@@ -684,22 +684,22 @@ function QuickPickRow({ country }) {
         )}
       </div>
       {/* Info */}
-      <div style={{ flex:1, padding:'0 18px' }}>
-        <div style={{ fontSize:19, fontWeight:700, color:'#ffffff', fontFamily:'system-ui,sans-serif' }}>
+      <div style={{ flex:1, padding:'0 15px' }}>
+        <div style={{ fontSize:16, fontWeight:700, color:'#ffffff', fontFamily:'system-ui,sans-serif' }}>
           {country.name}
         </div>
-        <div style={{ fontSize:15, color:'rgba(200,215,255,0.65)', fontFamily:'system-ui,sans-serif', marginTop:5 }}>
+        <div style={{ fontSize:13, color:'rgba(200,215,255,0.65)', fontFamily:'system-ui,sans-serif', marginTop:4 }}>
           Best time: {country.peak_months}
         </div>
       </div>
-      <span style={{ fontSize:24, color:'rgba(140,190,255,0.65)', flexShrink:0, paddingRight:18 }}>›</span>
+      <span style={{ fontSize:20, color:'rgba(140,190,255,0.65)', flexShrink:0, paddingRight:15 }}>›</span>
     </div>
   )
 }
 
 const blueLabel = {
   margin:0,
-  fontSize:13, fontWeight:700, letterSpacing:'0.18em',
+  fontSize:11, fontWeight:700, letterSpacing:'0.17em',
   textTransform:'uppercase',
   color:'#00d4aa',
   fontFamily:'system-ui,sans-serif',
@@ -708,7 +708,7 @@ const blueLabel = {
 
 const sectionLabel = {
   margin:'0 0 0',
-  fontSize:13, fontWeight:700, letterSpacing:'0.16em',
+  fontSize:11, fontWeight:700, letterSpacing:'0.15em',
   textTransform:'uppercase',
   color:'#00d4aa',
   fontFamily:'system-ui,sans-serif',
@@ -719,6 +719,6 @@ const arrowBtn = {
   background:'rgba(255,255,255,0.07)',
   border:'1px solid rgba(255,255,255,0.12)',
   borderRadius:8, color:'rgba(255,255,255,0.70)',
-  fontSize:18, lineHeight:1, padding:'4px 10px',
+  fontSize:15, lineHeight:1, padding:'3px 8px',
   cursor:'pointer', fontFamily:'system-ui,sans-serif',
 }
